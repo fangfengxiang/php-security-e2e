@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "source_commit": "5c9173b159d4ddcd82a016e8ba6220d545740bbb",
+  "unmodified_source_tree": true,
+  "instrumented_binary_is_modified": true,
+  "comparison": [
+    {
+      "mode": "legacy",
+      "scenario": "multipart",
+      "callbacks": 7,
+      "blocked": 0,
+      "early_consumer_events": 15,
+      "early_session_initializations": 2,
+      "pid": 9
+    },
+    {
+      "mode": "legacy",
+      "scenario": "multipart-php-value",
+      "callbacks": 7,
+      "blocked": 0,
+      "early_consumer_events": 15,
+      "early_session_initializations": 2,
+      "pid": 9
+    },
+    {
+      "mode": "hardened",
+      "scenario": "multipart",
+      "callbacks": 7,
+      "blocked": 7,
+      "early_consumer_events": 0,
+      "early_session_initializations": 0,
+      "pid": 9
+    },
+    {
+      "mode": "hardened",
+      "scenario": "multipart-php-value",
+      "callbacks": 7,
+      "blocked": 7,
+      "early_consumer_events": 0,
+      "early_session_initializations": 0,
+      "pid": 9
+    }
+  ],
+  "behavior_signatures_match_uninstrumented": true,
+  "scope": "Synchronous pre-RINIT session consumer ordering for controlled Linux NTS FPM requests; not heap layout/timing/RCE evidence."
+}

@@ -1,0 +1,86 @@
+{
+  "behavioral_separation_confirmed": true,
+  "source_commit": "5c9173b159d4ddcd82a016e8ba6220d545740bbb",
+  "baseline_commit": "bf574c2b67a1f786e36cf679f41b758b973a82c4",
+  "coverage_complete": false,
+  "evidence": "Fresh real Docker FPM + native recheck; existing branch-built PHP 7.0.33 installations reused.",
+  "observed": {
+    "baseline": {
+      "has_progress": true,
+      "script_oom_pid_before": 10,
+      "script_oom_pid_after": 10,
+      "script_oom_shutdown": true,
+      "script_oom_destructor": false,
+      "master_alive": true,
+      "startup_oom_worker_exit_code": 70,
+      "startup_oom_pid_before": 10,
+      "startup_oom_pid_after": 11,
+      "fatal_shutdown": true,
+      "fatal_destructor": false,
+      "fatal_reuses_worker": true,
+      "fpm_check_count": 12,
+      "hardened_criteria": {
+        "progress_disabled": false,
+        "script_oom_worker_replaced": false,
+        "script_oom_no_shutdown": false,
+        "script_oom_no_destructor": true,
+        "startup_oom_exit_1": false,
+        "master_alive": true
+      },
+      "meets_observed_hardened_criteria": false
+    },
+    "legacy": {
+      "has_progress": true,
+      "script_oom_pid_before": 10,
+      "script_oom_pid_after": 10,
+      "script_oom_shutdown": true,
+      "script_oom_destructor": false,
+      "master_alive": true,
+      "startup_oom_worker_exit_code": 70,
+      "startup_oom_pid_before": 10,
+      "startup_oom_pid_after": 11,
+      "fatal_shutdown": true,
+      "fatal_destructor": false,
+      "fatal_reuses_worker": true,
+      "fpm_check_count": 12,
+      "hardened_criteria": {
+        "progress_disabled": false,
+        "script_oom_worker_replaced": false,
+        "script_oom_no_shutdown": false,
+        "script_oom_no_destructor": true,
+        "startup_oom_exit_1": false,
+        "master_alive": true
+      },
+      "meets_observed_hardened_criteria": false
+    },
+    "hardened": {
+      "has_progress": false,
+      "script_oom_pid_before": 9,
+      "script_oom_pid_after": 10,
+      "script_oom_shutdown": false,
+      "script_oom_destructor": false,
+      "master_alive": true,
+      "startup_oom_worker_exit_code": 1,
+      "startup_oom_pid_before": 10,
+      "startup_oom_pid_after": 11,
+      "fatal_shutdown": true,
+      "fatal_destructor": false,
+      "fatal_reuses_worker": true,
+      "fpm_check_count": 12,
+      "hardened_criteria": {
+        "progress_disabled": true,
+        "script_oom_worker_replaced": true,
+        "script_oom_no_shutdown": true,
+        "script_oom_no_destructor": true,
+        "startup_oom_exit_1": true,
+        "master_alive": true
+      },
+      "meets_observed_hardened_criteria": true
+    }
+  },
+  "limits": [
+    "Pre-RINIT session consumer ordering requires native instrumentation/source review; session-key absence alone is insufficient.",
+    "Startup OOM precedes user script registration; user shutdown/destructor absence there is not proof of _exit.",
+    "HTTP globals/handler checks cover observable request state, not all internal lifecycle fields."
+  ]
+}

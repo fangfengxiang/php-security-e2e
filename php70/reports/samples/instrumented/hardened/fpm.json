@@ -1,0 +1,86 @@
+{
+  "completed": true,
+  "pass": true,
+  "baseline": false,
+  "system_allocator": false,
+  "checks": [
+    {
+      "check": "normal destructor marker positive control",
+      "pass": true
+    },
+    {
+      "check": "five consecutive normal requests use same worker",
+      "pid": 9,
+      "pass": true
+    },
+    {
+      "check": "normal session write and read",
+      "pass": true
+    },
+    {
+      "check": "ordinary multipart field and file",
+      "pass": true
+    },
+    {
+      "check": "missing or zero Content-Length keeps FPM worker reusable",
+      "pid": 9,
+      "pass": true
+    },
+    {
+      "check": "unknown multipart headers do not accumulate retained memory",
+      "before_pid": 9,
+      "after_pid": 9,
+      "pass": true
+    },
+    {
+      "check": "upload progress honors mitigation including PHP_VALUE",
+      "has_progress": false,
+      "pass": true
+    },
+    {
+      "check": "ordinary fatal cleanup and safe worker reuse",
+      "shutdown_called": true,
+      "destructor_called": false,
+      "pid": 9,
+      "pass": true
+    },
+    {
+      "check": "early PHP_VALUE diagnostic after fatal and handlers",
+      "pid": 9,
+      "pass": true
+    },
+    {
+      "check": "script memory_limit OOM matches expected lifecycle",
+      "before_pid": 9,
+      "after_pid": 10,
+      "shutdown_called": false,
+      "destructor_called": false,
+      "master_alive": true,
+      "response": {
+        "raw": "",
+        "body": "",
+        "stderr": "",
+        "ended": false
+      },
+      "pass": true
+    },
+    {
+      "check": "upload progress after script OOM has expected PID and state",
+      "pid": 10,
+      "pass": true
+    },
+    {
+      "check": "startup multipart OOM cannot reuse worker",
+      "response": {
+        "raw": "",
+        "body": "",
+        "stderr": "",
+        "ended": false
+      },
+      "master_alive": true,
+      "before_pid": 10,
+      "after_pid": 11,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source_commit": "5c9173b159d4ddcd82a016e8ba6220d545740bbb",
+  "source_directory": "docs/security/testing",
+  "upstream_file_sha256": {
+    "Dockerfile": "2ec2826c859a3977a2c05ed316a86950dc20b06a32646fbda0301d13e9f7a5f4",
+    "native-invariants.py": "f630038df588604a286d1089a6c6d8bc80c372cbe7d143385fa1a24a28b62a7c",
+    "build.sh": "f5dc7c83d7a9e1215be164cf53de2734fbdb2153e13dd6c0347f7c8083476f79",
+    "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
+    "fpm-invariants.py": "5547f1534033182986ed919ab4fc7e69a969c8d261d3312877b41fd190f640d9",
+    "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
+    "probe-extension/security_probe.c": "b1c53d5bd4dc9ae887d3e1acb1bde4fab1007cc37bbd1fa688df18139aaee368"
+  },
+  "modified_files": [
+    "fpm-invariants.py",
+    "native-invariants.py"
+  ],
+  "added_files": [
+    "instrument-session.py",
+    "trace-invariants.py"
+  ],
+  "independent_runners": [
+    "run.py",
+    "verify-built.py",
+    "trace-run.py"
+  ]
+}

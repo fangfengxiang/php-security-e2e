@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "reports": [
+    {
+      "report_mode": "noninstrumented",
+      "core_source_instrumented": false,
+      "native_allocator_checks_load_test_extension": true,
+      "summary": "php70/reports/samples/noninstrumented/summary.json",
+      "human_report": "php70/reports/samples/noninstrumented/comparison.md"
+    },
+    {
+      "report_mode": "instrumented",
+      "core_source_instrumented": true,
+      "summary": "php70/reports/samples/instrumented/summary.json",
+      "human_report": "php70/reports/samples/instrumented/comparison.md"
+    }
+  ],
+  "paths_relative_to": "repository root",
+  "combined_coverage_complete": false,
+  "publication_manifest": "php70/reports/samples/PUBLICATION.json"
+}
