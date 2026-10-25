@@ -66,6 +66,8 @@ def normalize(e2e, trace, metadata=None):
             errors.append({'file': 'instrumented/' + mode, 'error': 'Invalid mode entry'}); entry = {}
         tr_path = trace / mode / 'trace.json'
         tr = entry.get('trace') or read(tr_path)
+        if tr is not None and not isinstance(tr, dict):
+            errors.append({'file': str(tr_path), 'error': 'Invalid trace object'}); tr = None
         regression = entry.get('regression') or read(trace / mode / 'fpm.json')
         add_checks(regression, mode, 'instrumented/fpm', str(trace / mode / 'fpm.json'))
         requests = tr.get('requests', []) if isinstance(tr, dict) else []

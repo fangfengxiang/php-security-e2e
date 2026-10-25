@@ -16,7 +16,7 @@ if destination.exists():raise SystemExit('Refusing to overwrite a historical run
 shutil.copytree(a.report,destination)
 model=json.loads((a.report/'summary.json').read_text())
 index=site/'history.json';history=json.loads(index.read_text()) if index.exists() else []
-history.insert(0,{'run':key,'status':model['status'],'source_commit':model['identities']['source_commit']['behavior'],'generated_utc':model['generated_utc']})
+history.insert(0,{'run':key,'status':model.get('pipeline_status', model['status']),'php_status':model['status'],'source_commit':model['identities']['source_commit']['behavior'],'generated_utc':model['generated_utc']})
 index.write_text(json.dumps(history,indent=2)+'\n')
 # Both files are generated from identical test data; embedded charts remain self-contained.
 for name in ('index.html','report.html','summary.json','manifest.json','junit.xml','job-summary.md'):

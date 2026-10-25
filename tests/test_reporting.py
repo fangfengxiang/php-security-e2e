@@ -68,11 +68,13 @@ class ReportingTests(unittest.TestCase):
             data = report.normalize(SAMPLES / 'noninstrumented', SAMPLES / 'instrumented')
             template = (ROOT / 'templates/report.html').read_text()
             for ident, status in [('1', 'PASS'), ('2', 'FAIL')]:
-                output = root / ('run' + ident); data['status'] = status
+                output = root / ('run' + ident); data['status'] = 'PASS'; data['pipeline_status'] = status
                 report.write_report(data, output, template)
                 (output / 'manifest.json').write_text('{}')
                 subprocess.run([sys.executable, str(ROOT / 'tools/publish_history.py'), '--site', str(site), '--report', str(output), '--run-id', ident, '--attempt', '1'], check=True)
-            self.assertEqual(json.loads((site / 'summary.json').read_text())['status'], 'FAIL')
+            self.assertEqual(json.loads((site / 'summary.json').read_text())['pipeline_status'], 'FAIL')
+            self.assertEqual(json.loads((site / 'history.json').read_text())[0]['status'], 'FAIL')
+            self.assertEqual(json.loads((site / 'history.json').read_text())[0]['php_status'], 'PASS')
             self.assertTrue((site / 'runs/1-1/index.html').exists())
             self.assertEqual(len(json.loads((site / 'history.json').read_text())), 2)
 
