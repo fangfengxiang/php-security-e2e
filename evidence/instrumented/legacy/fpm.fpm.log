@@ -1,22 +1,22 @@
-[25-Oct-2026 13:14:36] NOTICE: fpm is running, pid 8
-[25-Oct-2026 13:14:36] NOTICE: ready to handle connections
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 9 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:472 (tried to allocate 112 bytes) in Unknown on line 0"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 9 said into stderr: "Unknown(0) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:472 (tried to allocate 112 bytes)"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 9 exited with code 70 after 0.074974 seconds from start
-[25-Oct-2026 13:14:36] NOTICE: [pool probe] child 10 started
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  benign lifecycle probe in /tmp/php70-fpm-mzkk8kbu/probe.php on line 13"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "/tmp/php70-fpm-mzkk8kbu/probe.php(13) : Fatal error - benign lifecycle probe"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Deprecated:  Unknown: Use of iconv.input_encoding is deprecated in Unknown on line 0"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "Unknown(0) : Deprecated - Unknown: Use of iconv.input_encoding is deprecated"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-mzkk8kbu/probe.php on line 21"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "/tmp/php70-fpm-mzkk8kbu/probe.php(21) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes)"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:123 (tried to allocate 15000048 bytes) in /tmp/php70-fpm-mzkk8kbu/probe.php on line 19"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "/tmp/php70-fpm-mzkk8kbu/probe.php(19) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:123 (tried to allocate 15000048 bytes)"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes) in Unknown on line 0"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stderr: "Unknown(0) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes)"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stdout: "<br />"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 said into stdout: "<b>Deprecated</b>:  Unknown: Use of iconv.input_encoding is deprecated in <b>Unknown</b> on line <b>0</b><br />"
-[25-Oct-2026 13:14:36] WARNING: [pool probe] child 10 exited with code 70 after 0.074697 seconds from start
-[25-Oct-2026 13:14:36] NOTICE: [pool probe] child 11 started
-[25-Oct-2026 13:14:36] NOTICE: Terminating ...
-[25-Oct-2026 13:14:36] NOTICE: exiting, bye-bye!
+[25-Oct-2026 16:33:35] NOTICE: fpm is running, pid 8
+[25-Oct-2026 16:33:35] NOTICE: ready to handle connections
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 9 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:472 (tried to allocate 112 bytes) in Unknown on line 0"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 9 said into stderr: "Unknown(0) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:472 (tried to allocate 112 bytes)"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 9 exited with code 70 after 0.066271 seconds from start
+[25-Oct-2026 16:33:35] NOTICE: [pool probe] child 10 started
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  benign lifecycle probe in /tmp/php70-fpm-82wpnoj4/probe.php on line 13"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "/tmp/php70-fpm-82wpnoj4/probe.php(13) : Fatal error - benign lifecycle probe"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Deprecated:  Unknown: Use of iconv.input_encoding is deprecated in Unknown on line 0"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "Unknown(0) : Deprecated - Unknown: Use of iconv.input_encoding is deprecated"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-82wpnoj4/probe.php on line 21"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "/tmp/php70-fpm-82wpnoj4/probe.php(21) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes)"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:123 (tried to allocate 15000048 bytes) in /tmp/php70-fpm-82wpnoj4/probe.php on line 19"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "/tmp/php70-fpm-82wpnoj4/probe.php(19) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:123 (tried to allocate 15000048 bytes)"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes) in Unknown on line 0"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stderr: "Unknown(0) : Fatal error - Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes)"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stdout: "<br />"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 said into stdout: "<b>Deprecated</b>:  Unknown: Use of iconv.input_encoding is deprecated in <b>Unknown</b> on line <b>0</b><br />"
+[25-Oct-2026 16:33:35] WARNING: [pool probe] child 10 exited with code 70 after 0.042465 seconds from start
+[25-Oct-2026 16:33:35] NOTICE: [pool probe] child 11 started
+[25-Oct-2026 16:33:35] NOTICE: Terminating ...
+[25-Oct-2026 16:33:35] NOTICE: exiting, bye-bye!

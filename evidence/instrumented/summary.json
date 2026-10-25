@@ -837,9 +837,9 @@
             "destructor_called": false,
             "master_alive": true,
             "response": {
-              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-mzkk8kbu/probe.php</b> on line <b>21</b><br />\n",
-              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-mzkk8kbu/probe.php</b> on line <b>21</b><br />\n",
-              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-mzkk8kbu/probe.php on line 21\n",
+              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-82wpnoj4/probe.php</b> on line <b>21</b><br />\n",
+              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-82wpnoj4/probe.php</b> on line <b>21</b><br />\n",
+              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-82wpnoj4/probe.php on line 21\n",
               "ended": true
             },
             "pass": true
@@ -1482,11 +1482,11 @@
     "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
     "Dockerfile": "bb17ab6c1a92091aa976b381383977ca8deaaf498b7e540fa15d9f6522d18813",
     "docker-memory-invariants.py": "923a4dab9c18b314a476eae86249fdd807dcc2f435649eaa31cda794b2e8b884",
-    "__pycache__/cli-memory-pressure.cpython-312.pyc": "6cdaf76a4caea28c576d7b97e51f99c20c752ef1069757e73b27ae147b7651d2",
+    "__pycache__/cli-memory-pressure.cpython-312.pyc": "05fc06ebfa08c4da20ef373b349a88b452d5fcf3fefa0b473a5bf7a502eaa726",
     "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
     "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357"
   },
   "source_sha256": "8e706af5940c75ab66493dbd93e9fd5e7458e539364a8293d07666e4805e1106",
-  "image_id": "sha256:c4197cc1ce332ec0ec7e6b03f7f7270a80f32fddcc9e59bc23d2a82f27c52d50",
+  "image_id": "sha256:9c8bfb87644f8e8e3d4d8c6b3412f8c924dd0680ef6842aeac7bf05bedbb0fdf",
   "pre_rinit_consumer_difference_observed": true
 }

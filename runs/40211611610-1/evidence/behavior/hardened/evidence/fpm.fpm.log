@@ -1,0 +1,24 @@
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] 'user' directive is ignored when FPM is not running as root
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] 'group' directive is ignored when FPM is not running as root
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] 'user' directive is ignored when FPM is not running as root
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] 'group' directive is ignored when FPM is not running as root
+[25-Oct-2026 16:31:55] NOTICE: fpm is running, pid 8
+[25-Oct-2026 16:31:55] NOTICE: ready to handle connections
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 said into stderr: "NOTICE: PHP message: PHP Fatal error:  benign lifecycle probe in /tmp/php70-fpm-g5hkrln2/probe.php on line 13"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 said into stderr: "/tmp/php70-fpm-g5hkrln2/probe.php(13) : Fatal error - benign lifecycle probe"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 said into stderr: "NOTICE: PHP message: PHP Deprecated:  Unknown: Use of iconv.input_encoding is deprecated in Unknown on line 0"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 said into stderr: "Unknown(0) : Deprecated - Unknown: Use of iconv.input_encoding is deprecated"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 said into stderr: ""
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 said into stderr: "Fatal error: Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-g5hkrln2/probe.php on line 21"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 9 exited with code 1 after 0.061294 seconds from start
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] child 10 started
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 10 said into stderr: ""
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 10 said into stderr: "Fatal error: Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:123 (tried to allocate 15000048 bytes) in /tmp/php70-fpm-g5hkrln2/probe.php on line 19"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 10 exited with code 1 after 0.010292 seconds from start
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] child 11 started
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 11 said into stderr: ""
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 11 said into stderr: "Fatal error: Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes) in Unknown on line 0"
+[25-Oct-2026 16:31:55] WARNING: [pool probe] child 11 exited with code 1 after 0.025494 seconds from start
+[25-Oct-2026 16:31:55] NOTICE: [pool probe] child 12 started
+[25-Oct-2026 16:31:55] NOTICE: Terminating ...
+[25-Oct-2026 16:31:55] NOTICE: exiting, bye-bye!
