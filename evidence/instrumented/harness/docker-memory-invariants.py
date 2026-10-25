@@ -59,8 +59,10 @@ echo "ALLOCATION_BOUND_REACHED\\n";
                        '--mount', 'type=bind,src=%s,dst=/harness,readonly' % harness,
                        '--mount', 'type=bind,src=%s,dst=/results' % output]
             if limit is None:
-                command += ['--entrypoint', '/opt/php70/bin/php', args.image,
-                            '-n', '-d', 'memory_limit=-1', '/results/bounded-oom.php']
+                command += ['--entrypoint', 'python3', args.image, '/harness/cli-memory-pressure.py',
+                            '--php', '/opt/php70/bin/php', '--script', '/results/bounded-oom.php',
+                            '--container-bytes', str(size * 1024 * 1024),
+                            '--output', '/results/' + name + '.json']
             else:
                 command += ['--entrypoint', 'python3', args.image, '/harness/fpm-memory-pressure.py',
                             '--fpm', '/opt/php70/sbin/php-fpm', '--memory-limit=' + limit,
@@ -80,11 +82,13 @@ echo "ALLOCATION_BOUND_REACHED\\n";
                               case['docker_limits']['MemorySwap'] == size * 1024 * 1024 and
                               case['docker_limits']['NetworkMode'] == 'none')
             if limit is None:
-                case['pass'] = (correct_limits and case['wait_exit_code'] == 137 and
-                                case['docker_state']['OOMKilled'] and
-                                'bounded pressure started' in logs and
-                                'ALLOCATION_BOUND_REACHED' not in logs and
-                                not (output / 'cli-shutdown-marker').exists())
+                report_path = output / (name + '.json')
+                case['cli'] = json.loads(report_path.read_text()) if report_path.exists() else None
+                # Do not infer OOM from 137 or a post-exit Docker flag. The
+                # observer retains the cgroup for a kernel counter + victim check.
+                case['pass'] = (correct_limits and case['wait_exit_code'] == 0 and
+                                case['cli'] is not None and case['cli'].get('completed') is True and
+                                case['cli'].get('pass') is True)
             else:
                 report_path = output / (name + '.json')
                 case['fpm'] = json.loads(report_path.read_text()) if report_path.exists() else None
