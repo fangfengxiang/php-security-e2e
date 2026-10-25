@@ -70,6 +70,14 @@
       "pass": true
     },
     {
+      "check": "Chain E session decode OOM fail-stop cuts risk chain",
+      "producer_pid": 10,
+      "consumer_pid": 11,
+      "worker_replaced": true,
+      "upload_progress_disabled": true,
+      "pass": true
+    },
+    {
       "check": "startup multipart OOM cannot reuse worker",
       "response": {
         "raw": "",
@@ -78,8 +86,8 @@
         "ended": false
       },
       "master_alive": true,
-      "before_pid": 10,
-      "after_pid": 11,
+      "before_pid": 11,
+      "after_pid": 12,
       "pass": true
     }
   ]

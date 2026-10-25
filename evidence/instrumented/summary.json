@@ -837,9 +837,9 @@
             "destructor_called": false,
             "master_alive": true,
             "response": {
-              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-w4yjdg3d/probe.php</b> on line <b>15</b><br />\n",
-              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-w4yjdg3d/probe.php</b> on line <b>15</b><br />\n",
-              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-w4yjdg3d/probe.php on line 15\n",
+              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-ls5ydhkp/probe.php</b> on line <b>21</b><br />\n",
+              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-ls5ydhkp/probe.php</b> on line <b>21</b><br />\n",
+              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-ls5ydhkp/probe.php on line 21\n",
               "ended": true
             },
             "pass": true
@@ -847,6 +847,16 @@
           {
             "check": "upload progress after script OOM has expected PID and state",
             "pid": 10,
+            "pass": true
+          },
+          {
+            "check": "Chain E session decode OOM risk-chain preconditions hold",
+            "producer_pid": 10,
+            "consumer_pid": 10,
+            "producer_oom": true,
+            "worker_reused": true,
+            "upload_progress_open": true,
+            "globals_clean": true,
             "pass": true
           },
           {
@@ -1431,6 +1441,14 @@
             "pass": true
           },
           {
+            "check": "Chain E session decode OOM fail-stop cuts risk chain",
+            "producer_pid": 10,
+            "consumer_pid": 11,
+            "worker_replaced": true,
+            "upload_progress_disabled": true,
+            "pass": true
+          },
+          {
             "check": "startup multipart OOM cannot reuse worker",
             "response": {
               "raw": "",
@@ -1439,8 +1457,8 @@
               "ended": false
             },
             "master_alive": true,
-            "before_pid": 10,
-            "after_pid": 11,
+            "before_pid": 11,
+            "after_pid": 12,
             "pass": true
           }
         ]
@@ -1455,7 +1473,7 @@
   "harness_sha256": {
     "build.sh": "4157b8d8abefe011d36f4b453a5e4eea2d16dc7a23a4af93534ba0a19aa0e29e",
     "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
-    "fpm-invariants.py": "58a60b9eb7a7c0e67d9bb7cfb2a36bff1ba35da8b8a9070c633be4104e967d86",
+    "fpm-invariants.py": "1264d47a28f4dc37b7a5bda681926d9025b2b0b873452a4282fff2a87125da3f",
     "trace-invariants.py": "ce18b89d56e21ffd642c3a4bf364358a3ae45aca1326dd798681e55d9bca1db8",
     "instrument-session.py": "74e7ddf0641b64fedf8ad7562043e490f3d2763ecfb122cca7c58e44854ba219",
     "native-invariants.py": "2eb5a44f6c442688445b313047b891f3c40dfe08b3dee4a2a71163cb510b6832",
@@ -1464,6 +1482,6 @@
     "probe-extension/security_probe.c": "b1c53d5bd4dc9ae887d3e1acb1bde4fab1007cc37bbd1fa688df18139aaee368"
   },
   "source_sha256": "175f54dfcb668f12558599f8cfc31a4f8cbfe5954a44ed39143d8a08740923ad",
-  "image_id": "sha256:793241986fc27fd18ace455d3f20933b8f95ba5ee6a4e3450ea8512a1fb0b013",
+  "image_id": "sha256:ec1a1edf72ccee32d15aab711fca5ebf8550aa8d4ac4e736d4f3568281083b4a",
   "pre_rinit_consumer_difference_observed": true
 }

@@ -57,9 +57,9 @@
       "destructor_called": false,
       "master_alive": true,
       "response": {
-        "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-63glhzg4/probe.php</b> on line <b>15</b><br />\n",
-        "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-63glhzg4/probe.php</b> on line <b>15</b><br />\n",
-        "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-63glhzg4/probe.php on line 15\n",
+        "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-mmllhs25/probe.php</b> on line <b>21</b><br />\n",
+        "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-mmllhs25/probe.php</b> on line <b>21</b><br />\n",
+        "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-mmllhs25/probe.php on line 21\n",
         "ended": true
       },
       "pass": true
@@ -67,6 +67,16 @@
     {
       "check": "upload progress after script OOM has expected PID and state",
       "pid": 10,
+      "pass": true
+    },
+    {
+      "check": "Chain E session decode OOM risk-chain preconditions hold",
+      "producer_pid": 10,
+      "consumer_pid": 10,
+      "producer_oom": true,
+      "worker_reused": true,
+      "upload_progress_open": true,
+      "globals_clean": true,
       "pass": true
     },
     {

@@ -1,6 +1,0 @@
-ordinary upload	200	0
-progress field blocked	403	1
-session id alerts only	200	1
-PHP signature blocked	403	1
-log only does not block	200	1
-GET is skipped	200	0

@@ -132,7 +132,7 @@ def main():
 if (PHP_VERSION_ID !== 70033) { exit('WRONG PHP VERSION'); }
 $action = isset($_GET['action']) ? $_GET['action'] : 'normal';
 class E2EMarker { function __destruct() { file_put_contents(__DIR__ . '/destructor-marker', 'called'); } }
-if ($action === 'fatal' || $action === 'oom') {
+if ($action === 'fatal' || $action === 'oom' || $action === 'poisoned-session') {
     $markerObject = new E2EMarker();
     register_shutdown_function(function () { file_put_contents(__DIR__ . '/shutdown-marker', 'called'); });
     if ($action === 'fatal') {
@@ -141,8 +141,15 @@ if ($action === 'fatal' || $action === 'oom') {
         set_error_handler(function () { return false; });
         set_exception_handler(function ($e) {});
         trigger_error('benign lifecycle probe', E_USER_ERROR);
+    } elseif ($action === 'poisoned-session') {
+        // Chain E producer: session_start() decodes a pre-written ~14MB session
+        // file, overflowing memory_limit during unserialize. OOM here leaves
+        // BG(unserialize) stale for the next request's rfc1867 consumer.
+        session_id('poisoned123456789012345678901234567890');
+        session_start();
+    } else {
+        $data = str_repeat('x', 64 * 1024 * 1024);
     }
-    $data = str_repeat('x', 64 * 1024 * 1024);
     echo 'UNREACHABLE';
 } else {
     if ($action === 'destructor-control') { $markerObject = new E2EMarker(); }
@@ -331,6 +338,70 @@ php_admin_value[log_errors] = 1
                     progress = result_json(call("action=progress", body=progress_body, content_type=progress_type))
                     assert progress["pid"] == pid and progress["has_progress"] == args.expect_baseline, progress
                     results.append({"check": "upload progress after script OOM has expected PID and state", "pid": pid, "pass": True})
+                    # CVE-2026-109619 Chain E: session_start() decode OOM publishes
+                    # BG(unserialize) (ext/standard/php_var.h:97); bailout skips
+                    # PHP_VAR_UNSERIALIZE_DESTROY so BG(unserialize).data stays set
+                    # until the next request's basic RINIT zeroes it
+                    # (ext/standard/basic_functions.c:3736). Per docs/security/
+                    # root-cause.md (lines 240,245-246,299) PHP 7.0 verification
+                    # observes exit/reset/boundary, not a command-exec payload:
+                    # this is a source-supported risk chain, not a proven per-SAPI
+                    # exploit. The differential therefore asserts the risk chain's
+                    # preconditions (baseline) vs the mitigation's cutoffs
+                    # (hardened), aligned with root-cause.md evidence list (293-296):
+                    # producer OOM + worker reuse + upload_progress entry open, vs
+                    # fail-stop (no PHP shutdown) + worker replacement + entry disabled.
+                    poisoned_sid = 'poisoned123456789012345678901234567890'
+                    poisoned_file = session / ('sess_' + poisoned_sid)
+                    poisoned_file.write_bytes(b'poison|s:15000000:"' + b'a' * 15000000 + b'";')
+                    poisoned_file.chmod(0o666)
+                    producer_pid = pid
+                    producer = call("action=poisoned-session")
+                    producer_text = (producer["body"] + producer["stderr"]).lower()
+                    producer_oom = 'exhausted' in producer_text or 'allowed memory size' in producer_text
+                    after_producer = result_json(call())
+                    if args.expect_baseline:
+                        assert after_producer["pid"] == producer_pid, (producer, after_producer)
+                        assert producer_oom, "producer did not trigger session decode OOM: " + producer["body"][:200] + producer["stderr"][:200]
+                    else:
+                        assert_failstop(producer_pid)
+                        assert after_producer["pid"] != producer_pid, (producer, after_producer)
+                    # Consumer: follow-up multipart with PHP_SESSION_UPLOAD_PROGRESS.
+                    # baseline: same worker, upload_progress entry open (risk-chain
+                    # precondition intact). hardened: new worker, entry disabled.
+                    progress_body, progress_type = multipart([
+                        ("PHPSESSID", poisoned_sid.encode(), None),
+                        ("PHP_SESSION_UPLOAD_PROGRESS", b"benign", None),
+                        ("upload", b"x", "probe.txt")])
+                    consumer = call("action=progress", body=progress_body, content_type=progress_type)
+                    consumer_state = result_json(consumer)
+                    try:
+                        poisoned_file.unlink()
+                    except FileNotFoundError:
+                        pass
+                    if marker.exists():
+                        marker.unlink()
+                    if (root / 'destructor-marker').exists():
+                        (root / 'destructor-marker').unlink()
+                    if args.expect_baseline:
+                        # Risk-chain preconditions hold: producer OOM + worker
+                        # reused + upload_progress entry open; same-worker
+                        # consecutive request shows no anomaly (globals_clean).
+                        assert consumer_state["pid"] == producer_pid, consumer_state
+                        results.append({"check": "Chain E session decode OOM risk-chain preconditions hold",
+                            "producer_pid": producer_pid, "consumer_pid": consumer_state["pid"],
+                            "producer_oom": producer_oom,
+                            "worker_reused": consumer_state["pid"] == producer_pid,
+                            "upload_progress_open": consumer_state["has_progress"],
+                            "globals_clean": consumer_state["globals_clean"], "pass": True})
+                    else:
+                        # Mitigation cutoffs: fail-stop (worker replaced, no PHP
+                        # shutdown) + upload_progress entry disabled.
+                        assert consumer_state["pid"] != producer_pid and not consumer_state["has_progress"], consumer_state
+                        results.append({"check": "Chain E session decode OOM fail-stop cuts risk chain",
+                            "producer_pid": producer_pid, "consumer_pid": consumer_state["pid"],
+                            "worker_replaced": True, "upload_progress_disabled": True, "pass": True})
+                    pid = after_producer["pid"]
                     # A large plain field triggers OOM during request startup,
                     # without manipulating layouts, dangling pointers or objects.
                     body, kind = multipart([("large", b"x" * (32 * 1024 * 1024), None)])
