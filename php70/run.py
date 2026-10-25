@@ -21,7 +21,7 @@ def main():
     parser.add_argument('--ref', default='HEAD', help='Committed branch revision; dirty files are refused')
     parser.add_argument('--baseline', default='bf574c2b67a1f786e36cf679f41b758b973a82c4')
     parser.add_argument('--output', type=Path, required=True, help='New directory only')
-    parser.add_argument('--image', default='php-cve-e2e:php70')
+    parser.add_argument('--image', default='php-security-e2e:php70')
     parser.add_argument('--jobs', type=int, default=2)
     parser.add_argument('--reuse-image', action='store_true')
     args = parser.parse_args()

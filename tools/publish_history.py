@@ -25,5 +25,5 @@ for name in ('index.html','report.html','summary.json','manifest.json','junit.xm
 if (site/'evidence').exists():shutil.rmtree(site/'evidence')
 if (destination/'evidence').exists():shutil.copytree(destination/'evidence',site/'evidence')
 rows=''.join('<tr><td><a href="runs/'+html.escape(row['run'])+'/index.html">'+html.escape(row['run'])+'</a></td><td>'+html.escape(row['status'])+'</td><td>'+html.escape(str(row['source_commit']))+'</td><td>'+html.escape(row['generated_utc'])+'</td></tr>' for row in history)
-(site/'history.html').write_text('<!doctype html><meta charset="utf-8"><title>PHP E2E history</title><h1>PHP E2E report history</h1><p><a href="index.html">Latest run, including failures</a></p><table><tr><th>Run / attempt</th><th>Status</th><th>PHP source</th><th>Generated UTC</th></tr>'+rows+'</table>')
+(site/'history.html').write_text('<!doctype html><meta charset="utf-8"><title>PHP Security E2E history</title><h1>PHP Security E2E report history</h1><p><a href="index.html">Latest run, including failures</a></p><table><tr><th>Run / attempt</th><th>Status</th><th>PHP source</th><th>Generated UTC</th></tr>'+rows+'</table>')
 (site/'.nojekyll').touch()

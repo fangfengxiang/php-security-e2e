@@ -3,7 +3,7 @@
 此模式只在从已提交源码归档解出的隔离副本中插桩并重新编译。`php-src` 不变，普通 `run.sh` 不应用插桩。插桩产物仅用于测试，不能部署到生产。
 
 ```sh
-cd php-cve-e2e
+cd php-security-e2e
 python3 php70/trace-run.py --source ../php-src \
   --output "$PWD/artifacts/trace-new" --image php70-security-toolchain:latest --jobs 6
 ```

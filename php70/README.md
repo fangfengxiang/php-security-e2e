@@ -7,7 +7,7 @@
 需要 Docker、Git、Python 3。安装目录必须是 Linux 容器中编译的产物，不能把 macOS PHP 二进制直接挂到 Debian。
 
 ```sh
-cd php-cve-e2e
+cd php-security-e2e
 ./php70/run.sh --source ../php-src --output "$PWD/artifacts/run-001" --jobs 4
 ```
 

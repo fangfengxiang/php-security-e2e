@@ -137,7 +137,7 @@ def write_report(model, output, template):
     lines += ['| ' + status + ' | ' + str(count) + ' |' for status, count in model['counts'].items()]
     lines += ['', 'Legacy PASS means expected legacy behavior, not a patched target.', 'Offline HTML and raw evidence are in the Actions Artifact. Pages is published only from main.']
     (output / 'job-summary.md').write_text('\n'.join(lines) + '\n')
-    suite = ET.Element('testsuite', name='PHP E2E evidence', tests=str(len(model['cases']) + len(model['errors'])))
+    suite = ET.Element('testsuite', name='PHP Security E2E evidence', tests=str(len(model['cases']) + len(model['errors'])))
     for c in model['cases']:
         node = ET.SubElement(suite, 'testcase', classname=c['suite'] + '/' + c['mode'], name=c['name'])
         if c['status'] == 'SKIP': ET.SubElement(node, 'skipped', message=str(c['raw'].get('skip', '')))

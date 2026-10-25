@@ -1,7 +1,7 @@
 # PHP 7.0 CI 调用契约
 
 php-src 保留 PHP 源码、所有 PHPT、run-tests.php、测试选择与 PHPT 门禁。
-php-cve-e2e 维护工具链、构建、native probe、FPM、cgroup、behavior/trace 和外部报告。
+php-security-e2e 维护工具链、构建、native probe、FPM、cgroup、behavior/trace 和外部报告。
 调用 CI 固定 harness 提交 SHA，记录实际 source/harness SHA、镜像 ID 和原始结果。
 任何测试都必须使用指定源码提交编译出的 PHP 7.0.33，不使用系统 PHP。
 

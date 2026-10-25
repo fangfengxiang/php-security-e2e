@@ -1,3 +1,5 @@
+> 历史记录：下方为旧版头图的原始提示词，保留当时名称；当前项目名为 `php-security-e2e`，不应将本文中的旧名作为命令或入口。
+
 # README 头图
 
 文件：`php-cve-e2e.png`。用途：GitHub README 的 PHP e2e 修复验证头图。

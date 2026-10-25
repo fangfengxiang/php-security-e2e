@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/assets/php-cve-e2e.png" alt="php-cve-e2e — Managed 与 External 架构愿景及修复验证" width="1000">
+  <img src="docs/assets/php-security-e2e.png" alt="php-security-e2e — Managed 与 External 架构愿景及修复验证" width="1000">
 </p>
 
-<h1 align="center">php-cve-e2e</h1>
+<h1 align="center">php-security-e2e</h1>
 <p align="center"><strong>Verify the fix. Preserve the evidence.</strong><br>PHP 安全修复的端到端对照测试与请求生命周期验证工具</p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 **同一份源码、同一组请求，对比修复前后的真实行为。**
 
-`php-cve-e2e` 面向 PHP 安全回移植的开发者、审查者和维护者：检查缓解是否生效、异常请求后 worker 如何退出或复用，以及普通上传、session 和 fatal 语义有没有回归。
+`php-security-e2e` 面向 PHP 安全回移植的开发者、审查者和维护者：检查缓解是否生效、异常请求后 worker 如何退出或复用，以及普通上传、session 和 fatal 语义有没有回归。
 
 首个套件是 **PHP 7.0.33**，验证 CVE-2026-109618 / CVE-2026-109619 的**非官方 PHP 7.0 EOL 最小缓解适配**。测试目标参考官方 PHP 7.4 EOL 补丁；它不等同于受支持 PHP 8 的完整修复，也不意味着 PHP 7.0 恢复官方支持。[官方公告](https://www.php.net/archive/2026.php#2026-10-21-5) · [PHP 7.4 最小缓解](https://github.com/php/php-src/commit/712e60f9edfd03f0960fc4fc3c2c375f42b90aa2)
 
@@ -34,7 +34,7 @@
 
 ```mermaid
 flowchart TB
-    Runner["php-cve-e2e<br/>Test Runner · Assertions · Evidence · Reports"]
+    Runner["php-security-e2e<br/>Test Runner · Assertions · Evidence · Reports"]
 
     subgraph Managed["Managed · 已实现 php70 专用构建流程"]
         Source["用户 PHP 源码 / Git Ref"]
@@ -76,7 +76,7 @@ Managed 能控制构建和 FPM 进程，因此可以检查 master/child 状态�
 
 External 的 multipart/session 等检查需要相应 PHP 探针；worker PID 需要服务端证据，FPM master、native allocator 和 C 层时序通常无法从普通 URL 获得。**HTTP 502、断线或缺少日志不能直接证明 worker 按修复预期退出。** OOM 等故障注入也必须由目标能力与执行策略单独决定。
 
-头图展示的是上述架构愿景。图中的统一 `php-cve-e2e run` CLI、External 模式尚未实现；当前可执行入口以[快速开始](#快速开始)为准。图中的 “No memory leak” 是示意文案，本仓库现有报告不提供零泄漏证明。
+头图展示的是上述架构愿景。图中的统一 `php-security-e2e run` CLI、External 模式尚未实现；当前可执行入口以[快速开始](#快速开始)为准。图中的 “No memory leak” 是示意文案，本仓库现有报告不提供零泄漏证明。
 
 ## 验证什么
 
@@ -99,10 +99,10 @@ External 的 multipart/session 等检查需要相应 PHP 探针；worker PID 需
 ### 1. 准备工具与受测分支
 
 ```sh
-git clone https://github.com/fangfengxiang/php-cve-e2e.git
+git clone https://github.com/fangfengxiang/php-security-e2e.git
 git clone --branch security/php70-cve-2026-109618-109619 \
   https://github.com/fangfengxiang/php-src.git
-cd php-cve-e2e
+cd php-security-e2e
 ```
 
 工具会归档指定源码的 **Git 提交**，拒绝脏工作区。`php70` 套件要求源码提供 `--enable-php70-security` / `--disable-php70-security` 编译选项；未经适配的官方 PHP 7.0 源码不能直接作为 hardened 输入。
@@ -122,7 +122,7 @@ cd php-cve-e2e
 
 ```sh
 python3 php70/trace-run.py --source ../php-src \
-  --image php-cve-e2e:php70 \
+  --image php-security-e2e:php70 \
   --output "$PWD/artifacts/trace-001" --jobs 4
 ```
 
@@ -160,6 +160,8 @@ python3 php70/verify-built.py \
 **两种报告分别判定，互相补充。** 插桩通过不能覆盖非插桩失败，也不合并为“所有范围已验证”。`coverage_complete=false` 是保留的证据边界，不应为了展示全绿而删除。
 
 [报告入口](php70/reports/README.md) · [机器可读索引](php70/reports/index.json) · [插桩方法](php70/TRACE.md)
+
+历史运行证据保留生成时的名称与文件摘要；当前代码、命令、仓库和在线报告入口统一使用 `php-security-e2e`。
 
 ## 实测差异
 
@@ -207,7 +209,7 @@ hardened 的 callback 仍发生，阻断的是其中的 session 消费逻辑。�
 
 ## 自动报告与 CI
 
-[View Live E2E Report](https://fangfengxiang.github.io/php-cve-e2e/) · [Actions](https://github.com/fangfengxiang/php-cve-e2e/actions/workflows/php70-e2e-report.yml) · [报告历史](https://fangfengxiang.github.io/php-cve-e2e/history.html)
+[View Live E2E Report](https://fangfengxiang.github.io/php-security-e2e/) · [Actions](https://github.com/fangfengxiang/php-security-e2e/actions/workflows/php70-e2e-report.yml) · [报告历史](https://fangfengxiang.github.io/php-security-e2e/history.html)
 
 每轮真实 CI 检出 PHP PR #1 的实际 head，运行三版本行为验证及两版本 C 插桩，再由同一份证据生成可离线打开的交互 HTML：测试覆盖矩阵、真实行为差分、生命周期事件顺序图。Pages 首次部署完成后在线链接生效。
 
@@ -221,7 +223,7 @@ hardened 的 callback 仍发生，阻断的是其中的 session 消费逻辑。�
 ## 目录
 
 ```text
-php-cve-e2e/
+php-security-e2e/
 ├── README.md
 ├── docs/assets/                 # 原创 e2e 验证头图及生成说明
 ├── php70/

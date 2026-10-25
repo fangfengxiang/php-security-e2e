@@ -59,8 +59,8 @@ jobs:
         if: ${{ !cancelled() && steps.source.outcome == 'success' }}
         continue-on-error: true
         run: |
-          docker image inspect php-cve-e2e:php70 >/dev/null
-          python3 php70/trace-run.py --source php-source --ref HEAD --image php-cve-e2e:php70 --output "$RUNNER_TEMP/php70-trace" --jobs 2
+          docker image inspect php-security-e2e:php70 >/dev/null
+          python3 php70/trace-run.py --source php-source --ref HEAD --image php-security-e2e:php70 --output "$RUNNER_TEMP/php70-trace" --jobs 2
       - name: Generate report even for failed or incomplete tests
         id: report
         if: always()
@@ -69,7 +69,7 @@ jobs:
           {
             cat "$RUNNER_TEMP/php70-report/job-summary.md"
             echo "[Download report and raw evidence](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-            echo "[Live report / latest published main run](https://fangfengxiang.github.io/php-cve-e2e/)"
+            echo "[Live report / latest published main run](https://fangfengxiang.github.io/php-security-e2e/)"
           } >> "$GITHUB_STEP_SUMMARY"
           echo 'ready=true' >> "$GITHUB_OUTPUT"
       - name: Archive offline HTML and raw evidence
