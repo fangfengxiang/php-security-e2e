@@ -7,7 +7,7 @@
   },
   "occurrences": 3,
   "source_sha256": "ee5fced6c81094c7b1b97d788518af0a49ee219e14786e3f5366ea7d1aa417fd",
-  "output_sha256": "835ffe8728e97a6952927836770a8a10e7e2c6c630854dda40ac53d24d342943",
+  "output_sha256": "b4a508e57b181b9e140885683c692d7ed99e74028109f92e5f34ab7c9975d90e",
   "dimensions": [
     1672,
     941
@@ -33,5 +33,9 @@
     ]
   },
   "outside_name_regions_changed_pixels": 0,
-  "subtitle_and_other_command_lines_unchanged": true
+  "subtitle_and_other_command_lines_unchanged": true,
+  "source_png_metadata_preserved": [
+    "sRGB",
+    "eXIf"
+  ]
 }
