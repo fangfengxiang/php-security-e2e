@@ -33,3 +33,8 @@ PHPT/平台结果由调用 CI 分别保留；目前 HTML E2E 报告不合并平�
 
 后续可将平台结果纳入统一报告、复用同源码/模式/工具链的构建产物、按工具链内容缓存镜像。
 优化必须保留现有断言、失败退出状态与 SHA 可追溯性，不顺带修改 PHP 历史缺陷。
+
+CLI 取证保留一个观察进程，PHP 子进程被 SIGKILL 后读取同一 cgroup 的 oom_kill 增量，
+并要求没有 shutdown 标记；不把 137 或 Docker 的 OOMKilled 标志单独当作内核 OOM 证据。
+Docker 状态仍原样记录。该设计避免最后进程退出后 cgroup 回收与异步 OOM 状态的取证窗口，
+参见 [containerd 事件处理说明](https://github.com/containerd/containerd/blob/main/internal/cri/server/events.go)。
