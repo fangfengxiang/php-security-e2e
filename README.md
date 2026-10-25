@@ -205,6 +205,25 @@ hardened 的 callback 仍发生，阻断的是其中的 session 消费逻辑。�
 
 [时序与干扰边界报告](php70/reports/samples/instrumented/comparison.md) · [原始事件与补丁](php70/reports/samples/instrumented/)
 
+## 自动报告与 CI
+
+[View Live E2E Report](https://fangfengxiang.github.io/php-cve-e2e/) · [Actions](https://github.com/fangfengxiang/php-cve-e2e/actions/workflows/php70-e2e-report.yml) · [报告历史](https://fangfengxiang.github.io/php-cve-e2e/history.html)
+
+每轮真实 CI 检出 PHP PR #1 的实际 head，运行三版本行为验证及两版本 C 插桩，再由同一份证据生成可离线打开的交互 HTML：测试覆盖矩阵、真实行为差分、生命周期事件顺序图。Pages 首次部署完成后在线链接生效。
+
+- PR：生成 Job Summary 和可下载 Artifact，不发布 Pages。
+- main / 手动 main / 每周一：生成相同报告并发布 Pages，显式保存每个 run/attempt 历史。
+- 失败与未完成也生成并归档报告，首页不只显示成功记录；最终 CI 仍判失败。
+- Artifact 包含 HTML、JSON、JUnit、原始日志与插桩证据；HTML 无在线依赖，下载即可打开。
+
+[离线生成与发布说明](tools/REPORTING.md)。现有历史样例只能用于验证 Reporter，不冒充新的 CI 执行。
+
+## ikow 研究与检测规则接入
+
+已按固定提交、保留 MIT 许可引入 ikow 的 detection/ 规则，并提供 6 项 Lua 规则单元检查；ngx 使用测试替身，输入为无害合成文本。这不等于真实 WAF/IDS 部署覆盖。Suricata、Sigma、ModSecurity 引擎及完整攻击链目前仍标为 NOT RUN。
+
+攻击路径参考、PHP 修复行为和检测命中独立计分；[接入范围与执行入口](integrations/ikow/README.md)。
+
 ## 目录
 
 ```text
@@ -266,7 +285,7 @@ php-cve-e2e/
 | [l3tchupkt/php2shell](https://github.com/l3tchupkt/php2shell) | OOM、pre-RINIT 与相关行为探针的研究入口 |
 | [HackSpeak/CVE-2026-109618](https://github.com/HackSpeak/CVE-2026-109618) | 区分既有功能、应用前提与特定构建下的内存破坏证据 |
 
-这些项目用于理解公开研究背景；本工具不会自动下载或执行它们的利用代码。
+这些项目用于理解公开研究背景。ikow 的固定检测规则按 MIT 原样保存；本工具不会自动下载或执行它们的利用代码。
 
 ## 来源与使用范围
 
