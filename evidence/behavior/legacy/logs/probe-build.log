@@ -98,8 +98,8 @@ In file included from /work/install/include/php/Zend/zend.h:33,
 /work/install/include/php/Zend/zend_alloc.h:160:65: warning: argument 1 value '18446744073709550592' exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
   160 | #define emalloc(size)                                           _emalloc((size) ZEND_FILE_LINE_CC ZEND_FILE_LINE_EMPTY_CC)
       |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/work/probe/security_probe.c:60:23: note: in expansion of macro 'emalloc'
-   60 |                 ptr = emalloc((size_t) -1024);
+/work/probe/security_probe.c:62:23: note: in expansion of macro 'emalloc'
+   62 |                 ptr = emalloc((size_t) -1024);
       |                       ^~~~~~~
 /work/install/include/php/Zend/zend_alloc.h:76:31: note: in a call to allocation function '_emalloc' declared here
    76 | ZEND_API void*  ZEND_FASTCALL _emalloc(size_t size ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC) ZEND_ATTRIBUTE_MALLOC ZEND_ATTRIBUTE_ALLOC_SIZE(1);
@@ -107,8 +107,8 @@ In file included from /work/install/include/php/Zend/zend.h:33,
 /work/install/include/php/Zend/zend_alloc.h:160:65: warning: argument 1 value '18446744073709551615' exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
   160 | #define emalloc(size)                                           _emalloc((size) ZEND_FILE_LINE_CC ZEND_FILE_LINE_EMPTY_CC)
       |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/work/probe/security_probe.c:62:23: note: in expansion of macro 'emalloc'
-   62 |                 ptr = emalloc((size_t) -1);
+/work/probe/security_probe.c:64:23: note: in expansion of macro 'emalloc'
+   64 |                 ptr = emalloc((size_t) -1);
       |                       ^~~~~~~
 /work/install/include/php/Zend/zend_alloc.h:76:31: note: in a call to allocation function '_emalloc' declared here
    76 | ZEND_API void*  ZEND_FASTCALL _emalloc(size_t size ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC) ZEND_ATTRIBUTE_MALLOC ZEND_ATTRIBUTE_ALLOC_SIZE(1);

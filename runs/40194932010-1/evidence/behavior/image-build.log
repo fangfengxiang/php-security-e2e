@@ -1,0 +1,1359 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.49kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:12
+#2 ...
+
+#3 [auth] library/debian:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:12
+#2 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/debian:12@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61
+#5 resolve docker.io/library/debian:12@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61 done
+#5 sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61 5.63kB / 5.63kB done
+#5 sha256:f9c4778ec75d6b054367315b1eb4f3992ee5866b50de6d591a33e8904cba3f17 1.02kB / 1.02kB done
+#5 sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db 453B / 453B done
+#5 sha256:8a051559ff62acdfa1af9916c3c67673d946bb71f81cb8f30c565fa647cb6a77 2.10MB / 48.52MB 0.1s
+#5 sha256:8a051559ff62acdfa1af9916c3c67673d946bb71f81cb8f30c565fa647cb6a77 25.17MB / 48.52MB 0.2s
+#5 sha256:8a051559ff62acdfa1af9916c3c67673d946bb71f81cb8f30c565fa647cb6a77 48.52MB / 48.52MB 0.3s done
+#5 extracting sha256:8a051559ff62acdfa1af9916c3c67673d946bb71f81cb8f30c565fa647cb6a77
+#5 extracting sha256:8a051559ff62acdfa1af9916c3c67673d946bb71f81cb8f30c565fa647cb6a77 1.7s done
+#5 DONE 2.1s
+
+#6 [2/5] RUN set -eu;     . /etc/os-release;     case "$ID:$VERSION_ID" in       centos:7)         sed -i -e '/^mirrorlist=/d'           -e 's|^#baseurl=http://mirror.centos.org/centos/$releasever/|baseurl=https://vault.centos.org/7.9.2009/|'           /etc/yum.repos.d/CentOS-*.repo ;;       centos:8)         sed -i -e '/^mirrorlist=/d'           -e 's|^#baseurl=http://mirror.centos.org/$contentdir/$releasever/|baseurl=https://vault.centos.org/8.5.2111/|'           /etc/yum.repos.d/CentOS-Linux-*.repo ;;     esac;     if command -v apt-get >/dev/null; then       apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update;       apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends         autoconf2.69 build-essential ca-certificates curl re2c xz-utils         libxml2-dev libsqlite3-dev python3 zlib1g-dev;       rm -rf /var/lib/apt/lists/*;     else       set --         autoconf gcc gcc-c++ make ca-certificates perl tar xz gzip diffutils findutils         libxml2-devel sqlite-devel python3 zlib-devel which;       if command -v dnf >/dev/null; then         dnf -y --setopt=install_weak_deps=False --setopt=timeout=20 --setopt=retries=2 install "$@";         dnf clean all;       else         yum -y --setopt=timeout=20 --setopt=retries=2 install "$@";         yum clean all;       fi;       autoconf --version | head -n 1 | grep '2\.69';       ln -s /usr/bin/autoconf /usr/local/bin/autoconf2.69;       ln -s /usr/bin/autoheader /usr/local/bin/autoheader2.69;     fi
+#6 0.159 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#6 0.166 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#6 0.166 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+#6 0.219 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+#6 0.263 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#6 0.305 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [357 kB]
+#6 1.013 Fetched 9395 kB in 1s (10.9 MB/s)
+#6 1.013 Reading package lists...
+#6 1.405 Reading package lists...
+#6 1.803 Building dependency tree...
+#6 1.885 Reading state information...
+#6 1.981 The following additional packages will be installed:
+#6 1.981   autoconf binutils binutils-common binutils-x86-64-linux-gnu bzip2 cpp cpp-12
+#6 1.981   dpkg-dev g++ g++-12 gcc gcc-12 icu-devtools libasan8 libatomic1 libbinutils
+#6 1.981   libbrotli1 libc-dev-bin libc6-dev libcc1-0 libcrypt-dev libctf-nobfd0
+#6 1.982   libctf0 libcurl4 libdpkg-perl libexpat1 libgcc-12-dev libgdbm-compat4
+#6 1.982   libgdbm6 libgomp1 libgprofng0 libgssapi-krb5-2 libicu-dev libicu72 libisl23
+#6 1.982   libitm1 libjansson4 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+#6 1.982   libldap-2.5-0 liblsan0 libmpc3 libmpfr6 libncursesw6 libnghttp2-14
+#6 1.982   libnsl-dev libnsl2 libperl5.36 libpsl5 libpython3-stdlib
+#6 1.982   libpython3.11-minimal libpython3.11-stdlib libquadmath0 libreadline8
+#6 1.982   librtmp1 libsasl2-2 libsasl2-modules-db libsqlite3-0 libssh2-1 libssl3
+#6 1.982   libstdc++-12-dev libtirpc-common libtirpc-dev libtirpc3 libtsan2 libubsan1
+#6 1.982   libxml2 linux-libc-dev m4 make media-types openssl patch perl
+#6 1.982   perl-modules-5.36 python3-minimal python3.11 python3.11-minimal
+#6 1.982   readline-common rpcsvc-proto
+#6 1.983 Suggested packages:
+#6 1.983   autoconf-archive gnu-standards autoconf-doc libtool gettext binutils-doc
+#6 1.983   bzip2-doc cpp-doc gcc-12-locales cpp-12-doc debian-keyring g++-multilib
+#6 1.983   g++-12-multilib gcc-12-doc gcc-multilib manpages-dev automake flex bison gdb
+#6 1.983   gcc-doc gcc-12-multilib glibc-doc gnupg | sq | sqop | pgpainless-cli
+#6 1.983   sensible-utils git bzr gdbm-l10n krb5-doc krb5-user icu-doc sqlite3-doc
+#6 1.983   libstdc++-12-doc pkg-config m4-doc make-doc ed diffutils-doc perl-doc
+#6 1.983   libterm-readline-gnu-perl | libterm-readline-perl-perl
+#6 1.983   libtap-harness-archive-perl python3-doc python3-tk python3-venv
+#6 1.983   python3.11-venv python3.11-doc binfmt-support readline-doc
+#6 1.983 Recommended packages:
+#6 1.983   automake | automaken fakeroot gnupg | sq | sqop | pgpainless-cli
+#6 1.983   libalgorithm-merge-perl manpages manpages-dev libc-devtools
+#6 1.983   libfile-fcntllock-perl liblocale-gettext-perl krb5-locales libldap-common
+#6 1.983   libgpm2 publicsuffix libsasl2-modules netbase
+#6 2.303 The following NEW packages will be installed:
+#6 2.303   autoconf autoconf2.69 binutils binutils-common binutils-x86-64-linux-gnu
+#6 2.303   build-essential bzip2 ca-certificates cpp cpp-12 curl dpkg-dev g++ g++-12
+#6 2.303   gcc gcc-12 icu-devtools libasan8 libatomic1 libbinutils libbrotli1
+#6 2.303   libc-dev-bin libc6-dev libcc1-0 libcrypt-dev libctf-nobfd0 libctf0 libcurl4
+#6 2.303   libdpkg-perl libexpat1 libgcc-12-dev libgdbm-compat4 libgdbm6 libgomp1
+#6 2.303   libgprofng0 libgssapi-krb5-2 libicu-dev libicu72 libisl23 libitm1
+#6 2.303   libjansson4 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+#6 2.303   libldap-2.5-0 liblsan0 libmpc3 libmpfr6 libncursesw6 libnghttp2-14
+#6 2.303   libnsl-dev libnsl2 libperl5.36 libpsl5 libpython3-stdlib
+#6 2.303   libpython3.11-minimal libpython3.11-stdlib libquadmath0 libreadline8
+#6 2.303   librtmp1 libsasl2-2 libsasl2-modules-db libsqlite3-0 libsqlite3-dev
+#6 2.304   libssh2-1 libssl3 libstdc++-12-dev libtirpc-common libtirpc-dev libtirpc3
+#6 2.304   libtsan2 libubsan1 libxml2 libxml2-dev linux-libc-dev m4 make media-types
+#6 2.304   openssl patch perl perl-modules-5.36 python3 python3-minimal python3.11
+#6 2.304   python3.11-minimal re2c readline-common rpcsvc-proto xz-utils zlib1g-dev
+#6 2.331 0 upgraded, 92 newly installed, 0 to remove and 1 not upgraded.
+#6 2.331 Need to get 111 MB of archives.
+#6 2.331 After this operation, 459 MB of additional disk space will be used.
+#6 2.331 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u4 [2817 kB]
+#6 2.342 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#6 2.343 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#6 2.345 Get:4 http://deb.debian.org/debian-security bookworm-security/main amd64 libperl5.36 amd64 5.36.0-7+deb12u4 [4208 kB]
+#6 2.356 Get:5 http://deb.debian.org/debian-security bookworm-security/main amd64 perl amd64 5.36.0-7+deb12u4 [239 kB]
+#6 2.357 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.22-1~deb12u1 [2039 kB]
+#6 2.362 Get:7 http://deb.debian.org/debian-security bookworm-security/main amd64 libpython3.11-minimal amd64 3.11.2-6+deb12u9 [821 kB]
+#6 2.365 Get:8 http://deb.debian.org/debian-security bookworm-security/main amd64 libexpat1 amd64 2.5.0-1+deb12u5 [108 kB]
+#6 2.366 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 python3.11-minimal amd64 3.11.2-6+deb12u9 [2055 kB]
+#6 2.371 Get:10 http://deb.debian.org/debian bookworm/main amd64 python3-minimal amd64 3.11.2-1+b1 [26.3 kB]
+#6 2.371 Get:11 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
+#6 2.372 Get:12 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+#6 2.373 Get:13 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u5 [33.2 kB]
+#6 2.373 Get:14 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u5 [79.7 kB]
+#6 2.374 Get:15 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#6 2.375 Get:16 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u5 [332 kB]
+#6 2.376 Get:17 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u5 [135 kB]
+#6 2.377 Get:18 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#6 2.378 Get:19 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#6 2.378 Get:20 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#6 2.379 Get:21 http://deb.debian.org/debian bookworm/main amd64 readline-common all 8.2-1.3 [69.0 kB]
+#6 2.380 Get:22 http://deb.debian.org/debian bookworm/main amd64 libreadline8 amd64 8.2-1.3 [166 kB]
+#6 2.381 Get:23 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u2 [839 kB]
+#6 2.385 Get:24 http://deb.debian.org/debian-security bookworm-security/main amd64 libpython3.11-stdlib amd64 3.11.2-6+deb12u9 [1798 kB]
+#6 2.390 Get:25 http://deb.debian.org/debian-security bookworm-security/main amd64 python3.11 amd64 3.11.2-6+deb12u9 [575 kB]
+#6 2.392 Get:26 http://deb.debian.org/debian bookworm/main amd64 libpython3-stdlib amd64 3.11.2-1+b1 [9312 B]
+#6 2.393 Get:27 http://deb.debian.org/debian bookworm/main amd64 python3 amd64 3.11.2-1+b1 [26.3 kB]
+#6 2.393 Get:28 http://deb.debian.org/debian bookworm/main amd64 bzip2 amd64 1.0.8-5+b1 [49.8 kB]
+#6 2.393 Get:29 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.22-1~deb12u1 [1442 kB]
+#6 2.397 Get:30 http://deb.debian.org/debian-security bookworm-security/main amd64 ca-certificates all 20250419~deb12u2 [161 kB]
+#6 2.398 Get:31 http://deb.debian.org/debian-security bookworm-security/main amd64 xz-utils amd64 5.4.1-1+deb12u2 [471 kB]
+#6 2.400 Get:32 http://deb.debian.org/debian bookworm/main amd64 m4 amd64 1.4.19-3 [287 kB]
+#6 2.454 Get:33 http://deb.debian.org/debian bookworm/main amd64 autoconf all 2.71-3 [332 kB]
+#6 2.463 Get:34 http://deb.debian.org/debian bookworm/main amd64 autoconf2.69 all 2.69-3.1 [291 kB]
+#6 2.469 Get:35 http://deb.debian.org/debian bookworm/main amd64 binutils-common amd64 2.40-2 [2487 kB]
+#6 2.481 Get:36 http://deb.debian.org/debian bookworm/main amd64 libbinutils amd64 2.40-2 [572 kB]
+#6 2.485 Get:37 http://deb.debian.org/debian bookworm/main amd64 libctf-nobfd0 amd64 2.40-2 [153 kB]
+#6 2.488 Get:38 http://deb.debian.org/debian bookworm/main amd64 libctf0 amd64 2.40-2 [89.8 kB]
+#6 2.490 Get:39 http://deb.debian.org/debian bookworm/main amd64 libgprofng0 amd64 2.40-2 [812 kB]
+#6 2.495 Get:40 http://deb.debian.org/debian bookworm/main amd64 libjansson4 amd64 2.14-2 [40.8 kB]
+#6 2.497 Get:41 http://deb.debian.org/debian bookworm/main amd64 binutils-x86-64-linux-gnu amd64 2.40-2 [2246 kB]
+#6 2.509 Get:42 http://deb.debian.org/debian bookworm/main amd64 binutils amd64 2.40-2 [65.0 kB]
+#6 2.511 Get:43 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u14 [48.1 kB]
+#6 2.513 Get:44 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.190-1 [2409 kB]
+#6 2.522 Get:45 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#6 2.524 Get:46 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#6 2.527 Get:47 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#6 2.529 Get:48 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#6 2.532 Get:49 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u14 [1904 kB]
+#6 2.540 Get:50 http://deb.debian.org/debian bookworm/main amd64 libisl23 amd64 0.25-1.1 [683 kB]
+#6 2.546 Get:51 http://deb.debian.org/debian bookworm/main amd64 libmpfr6 amd64 4.2.0-1 [701 kB]
+#6 2.550 Get:52 http://deb.debian.org/debian bookworm/main amd64 libmpc3 amd64 1.3.1-1 [51.5 kB]
+#6 2.552 Get:53 http://deb.debian.org/debian bookworm/main amd64 cpp-12 amd64 12.2.0-14+deb12u1 [9768 kB]
+#6 2.595 Get:54 http://deb.debian.org/debian bookworm/main amd64 cpp amd64 4:12.2.0-3 [6836 B]
+#6 2.597 Get:55 http://deb.debian.org/debian bookworm/main amd64 libcc1-0 amd64 12.2.0-14+deb12u1 [41.7 kB]
+#6 2.599 Get:56 http://deb.debian.org/debian bookworm/main amd64 libgomp1 amd64 12.2.0-14+deb12u1 [116 kB]
+#6 2.601 Get:57 http://deb.debian.org/debian bookworm/main amd64 libitm1 amd64 12.2.0-14+deb12u1 [26.1 kB]
+#6 2.603 Get:58 http://deb.debian.org/debian bookworm/main amd64 libatomic1 amd64 12.2.0-14+deb12u1 [9376 B]
+#6 2.604 Get:59 http://deb.debian.org/debian bookworm/main amd64 libasan8 amd64 12.2.0-14+deb12u1 [2193 kB]
+#6 2.614 Get:60 http://deb.debian.org/debian bookworm/main amd64 liblsan0 amd64 12.2.0-14+deb12u1 [969 kB]
+#6 2.619 Get:61 http://deb.debian.org/debian bookworm/main amd64 libtsan2 amd64 12.2.0-14+deb12u1 [2197 kB]
+#6 2.629 Get:62 http://deb.debian.org/debian bookworm/main amd64 libubsan1 amd64 12.2.0-14+deb12u1 [883 kB]
+#6 2.633 Get:63 http://deb.debian.org/debian bookworm/main amd64 libquadmath0 amd64 12.2.0-14+deb12u1 [145 kB]
+#6 2.635 Get:64 http://deb.debian.org/debian bookworm/main amd64 libgcc-12-dev amd64 12.2.0-14+deb12u1 [2437 kB]
+#6 2.645 Get:65 http://deb.debian.org/debian bookworm/main amd64 gcc-12 amd64 12.2.0-14+deb12u1 [19.3 MB]
+#6 2.711 Get:66 http://deb.debian.org/debian bookworm/main amd64 gcc amd64 4:12.2.0-3 [5216 B]
+#6 2.714 Get:67 http://deb.debian.org/debian bookworm/main amd64 libstdc++-12-dev amd64 12.2.0-14+deb12u1 [2047 kB]
+#6 2.723 Get:68 http://deb.debian.org/debian bookworm/main amd64 g++-12 amd64 12.2.0-14+deb12u1 [10.7 MB]
+#6 2.766 Get:69 http://deb.debian.org/debian bookworm/main amd64 g++ amd64 4:12.2.0-3 [1356 B]
+#6 2.768 Get:70 http://deb.debian.org/debian bookworm/main amd64 make amd64 4.3-4.1 [396 kB]
+#6 2.771 Get:71 http://deb.debian.org/debian bookworm/main amd64 libdpkg-perl all 1.21.23 [604 kB]
+#6 2.775 Get:72 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#6 2.777 Get:73 http://deb.debian.org/debian bookworm/main amd64 dpkg-dev all 1.21.23 [1354 kB]
+#6 2.783 Get:74 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#6 2.785 Get:75 http://deb.debian.org/debian-security bookworm-security/main amd64 libbrotli1 amd64 1.0.9-2+deb12u1 [275 kB]
+#6 2.787 Get:76 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#6 2.789 Get:77 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#6 2.792 Get:78 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#6 2.794 Get:79 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u3 [72.4 kB]
+#6 2.796 Get:80 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#6 2.799 Get:81 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#6 2.801 Get:82 http://deb.debian.org/debian-security bookworm-security/main amd64 libssh2-1 amd64 1.10.0-3+deb12u1 [176 kB]
+#6 2.803 Get:83 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u15 [392 kB]
+#6 2.806 Get:84 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u15 [316 kB]
+#6 2.809 Get:85 http://deb.debian.org/debian bookworm/main amd64 libicu72 amd64 72.1-3+deb12u1 [9376 kB]
+#6 2.844 Get:86 http://deb.debian.org/debian bookworm/main amd64 icu-devtools amd64 72.1-3+deb12u1 [206 kB]
+#6 2.849 Get:87 http://deb.debian.org/debian bookworm/main amd64 libicu-dev amd64 72.1-3+deb12u1 [10.3 MB]
+#6 2.894 Get:88 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-dev amd64 3.40.1-2+deb12u2 [1025 kB]
+#6 2.901 Get:89 http://deb.debian.org/debian bookworm/main amd64 libxml2 amd64 2.9.14+dfsg-1.3~deb12u6 [689 kB]
+#6 2.910 Get:90 http://deb.debian.org/debian bookworm/main amd64 libxml2-dev amd64 2.9.14+dfsg-1.3~deb12u6 [785 kB]
+#6 2.917 Get:91 http://deb.debian.org/debian bookworm/main amd64 re2c amd64 3.0-2 [456 kB]
+#6 2.923 Get:92 http://deb.debian.org/debian bookworm/main amd64 zlib1g-dev amd64 1:1.2.13.dfsg-1 [916 kB]
+#6 3.020 debconf: delaying package configuration, since apt-utils is not installed
+#6 3.036 Fetched 111 MB in 1s (181 MB/s)
+#6 3.047 Selecting previously unselected package perl-modules-5.36.
+#6 3.047 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#6 3.055 Preparing to unpack .../0-perl-modules-5.36_5.36.0-7+deb12u4_all.deb ...
+#6 3.056 Unpacking perl-modules-5.36 (5.36.0-7+deb12u4) ...
+#6 3.324 Selecting previously unselected package libgdbm6:amd64.
+#6 3.327 Preparing to unpack .../1-libgdbm6_1.23-3_amd64.deb ...
+#6 3.328 Unpacking libgdbm6:amd64 (1.23-3) ...
+#6 3.343 Selecting previously unselected package libgdbm-compat4:amd64.
+#6 3.345 Preparing to unpack .../2-libgdbm-compat4_1.23-3_amd64.deb ...
+#6 3.346 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#6 3.361 Selecting previously unselected package libperl5.36:amd64.
+#6 3.363 Preparing to unpack .../3-libperl5.36_5.36.0-7+deb12u4_amd64.deb ...
+#6 3.363 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u4) ...
+#6 3.635 Selecting previously unselected package perl.
+#6 3.637 Preparing to unpack .../4-perl_5.36.0-7+deb12u4_amd64.deb ...
+#6 3.643 Unpacking perl (5.36.0-7+deb12u4) ...
+#6 3.674 Selecting previously unselected package libssl3:amd64.
+#6 3.676 Preparing to unpack .../5-libssl3_3.0.22-1~deb12u1_amd64.deb ...
+#6 3.677 Unpacking libssl3:amd64 (3.0.22-1~deb12u1) ...
+#6 3.788 Selecting previously unselected package libpython3.11-minimal:amd64.
+#6 3.790 Preparing to unpack .../6-libpython3.11-minimal_3.11.2-6+deb12u9_amd64.deb ...
+#6 3.791 Unpacking libpython3.11-minimal:amd64 (3.11.2-6+deb12u9) ...
+#6 3.875 Selecting previously unselected package libexpat1:amd64.
+#6 3.877 Preparing to unpack .../7-libexpat1_2.5.0-1+deb12u5_amd64.deb ...
+#6 3.879 Unpacking libexpat1:amd64 (2.5.0-1+deb12u5) ...
+#6 3.902 Selecting previously unselected package python3.11-minimal.
+#6 3.905 Preparing to unpack .../8-python3.11-minimal_3.11.2-6+deb12u9_amd64.deb ...
+#6 3.910 Unpacking python3.11-minimal (3.11.2-6+deb12u9) ...
+#6 4.076 Setting up libssl3:amd64 (3.0.22-1~deb12u1) ...
+#6 4.081 Setting up libpython3.11-minimal:amd64 (3.11.2-6+deb12u9) ...
+#6 4.084 Setting up libexpat1:amd64 (2.5.0-1+deb12u5) ...
+#6 4.086 Setting up python3.11-minimal (3.11.2-6+deb12u9) ...
+#6 4.630 Selecting previously unselected package python3-minimal.
+#6 4.630 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8428 files and directories currently installed.)
+#6 4.637 Preparing to unpack .../00-python3-minimal_3.11.2-1+b1_amd64.deb ...
+#6 4.638 Unpacking python3-minimal (3.11.2-1+b1) ...
+#6 4.652 Selecting previously unselected package media-types.
+#6 4.654 Preparing to unpack .../01-media-types_10.0.0_all.deb ...
+#6 4.655 Unpacking media-types (10.0.0) ...
+#6 4.669 Selecting previously unselected package libncursesw6:amd64.
+#6 4.670 Preparing to unpack .../02-libncursesw6_6.4-4_amd64.deb ...
+#6 4.671 Unpacking libncursesw6:amd64 (6.4-4) ...
+#6 4.692 Selecting previously unselected package libkrb5support0:amd64.
+#6 4.693 Preparing to unpack .../03-libkrb5support0_1.20.1-2+deb12u5_amd64.deb ...
+#6 4.694 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#6 4.708 Selecting previously unselected package libk5crypto3:amd64.
+#6 4.709 Preparing to unpack .../04-libk5crypto3_1.20.1-2+deb12u5_amd64.deb ...
+#6 4.710 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#6 4.727 Selecting previously unselected package libkeyutils1:amd64.
+#6 4.729 Preparing to unpack .../05-libkeyutils1_1.6.3-2_amd64.deb ...
+#6 4.729 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#6 4.745 Selecting previously unselected package libkrb5-3:amd64.
+#6 4.746 Preparing to unpack .../06-libkrb5-3_1.20.1-2+deb12u5_amd64.deb ...
+#6 4.747 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#6 4.782 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#6 4.783 Preparing to unpack .../07-libgssapi-krb5-2_1.20.1-2+deb12u5_amd64.deb ...
+#6 4.784 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#6 4.804 Selecting previously unselected package libtirpc-common.
+#6 4.805 Preparing to unpack .../08-libtirpc-common_1.3.3+ds-1_all.deb ...
+#6 4.806 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#6 4.819 Selecting previously unselected package libtirpc3:amd64.
+#6 4.821 Preparing to unpack .../09-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#6 4.822 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#6 4.838 Selecting previously unselected package libnsl2:amd64.
+#6 4.840 Preparing to unpack .../10-libnsl2_1.3.0-2_amd64.deb ...
+#6 4.841 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#6 4.855 Selecting previously unselected package readline-common.
+#6 4.856 Preparing to unpack .../11-readline-common_8.2-1.3_all.deb ...
+#6 4.857 Unpacking readline-common (8.2-1.3) ...
+#6 4.873 Selecting previously unselected package libreadline8:amd64.
+#6 4.874 Preparing to unpack .../12-libreadline8_8.2-1.3_amd64.deb ...
+#6 4.875 Unpacking libreadline8:amd64 (8.2-1.3) ...
+#6 4.897 Selecting previously unselected package libsqlite3-0:amd64.
+#6 4.899 Preparing to unpack .../13-libsqlite3-0_3.40.1-2+deb12u2_amd64.deb ...
+#6 4.900 Unpacking libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#6 4.948 Selecting previously unselected package libpython3.11-stdlib:amd64.
+#6 4.950 Preparing to unpack .../14-libpython3.11-stdlib_3.11.2-6+deb12u9_amd64.deb ...
+#6 4.951 Unpacking libpython3.11-stdlib:amd64 (3.11.2-6+deb12u9) ...
+#6 5.073 Selecting previously unselected package python3.11.
+#6 5.075 Preparing to unpack .../15-python3.11_3.11.2-6+deb12u9_amd64.deb ...
+#6 5.076 Unpacking python3.11 (3.11.2-6+deb12u9) ...
+#6 5.098 Selecting previously unselected package libpython3-stdlib:amd64.
+#6 5.099 Preparing to unpack .../16-libpython3-stdlib_3.11.2-1+b1_amd64.deb ...
+#6 5.100 Unpacking libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+#6 5.118 Setting up python3-minimal (3.11.2-1+b1) ...
+#6 5.228 Selecting previously unselected package python3.
+#6 5.228 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8936 files and directories currently installed.)
+#6 5.235 Preparing to unpack .../00-python3_3.11.2-1+b1_amd64.deb ...
+#6 5.238 Unpacking python3 (3.11.2-1+b1) ...
+#6 5.253 Selecting previously unselected package bzip2.
+#6 5.255 Preparing to unpack .../01-bzip2_1.0.8-5+b1_amd64.deb ...
+#6 5.255 Unpacking bzip2 (1.0.8-5+b1) ...
+#6 5.273 Selecting previously unselected package openssl.
+#6 5.274 Preparing to unpack .../02-openssl_3.0.22-1~deb12u1_amd64.deb ...
+#6 5.275 Unpacking openssl (3.0.22-1~deb12u1) ...
+#6 5.376 Selecting previously unselected package ca-certificates.
+#6 5.378 Preparing to unpack .../03-ca-certificates_20250419~deb12u2_all.deb ...
+#6 5.379 Unpacking ca-certificates (20250419~deb12u2) ...
+#6 5.421 Selecting previously unselected package xz-utils.
+#6 5.423 Preparing to unpack .../04-xz-utils_5.4.1-1+deb12u2_amd64.deb ...
+#6 5.424 Unpacking xz-utils (5.4.1-1+deb12u2) ...
+#6 5.487 Selecting previously unselected package m4.
+#6 5.489 Preparing to unpack .../05-m4_1.4.19-3_amd64.deb ...
+#6 5.490 Unpacking m4 (1.4.19-3) ...
+#6 5.529 Selecting previously unselected package autoconf.
+#6 5.531 Preparing to unpack .../06-autoconf_2.71-3_all.deb ...
+#6 5.532 Unpacking autoconf (2.71-3) ...
+#6 5.565 Selecting previously unselected package autoconf2.69.
+#6 5.567 Preparing to unpack .../07-autoconf2.69_2.69-3.1_all.deb ...
+#6 5.568 Unpacking autoconf2.69 (2.69-3.1) ...
+#6 5.602 Selecting previously unselected package binutils-common:amd64.
+#6 5.604 Preparing to unpack .../08-binutils-common_2.40-2_amd64.deb ...
+#6 5.605 Unpacking binutils-common:amd64 (2.40-2) ...
+#6 5.773 Selecting previously unselected package libbinutils:amd64.
+#6 5.775 Preparing to unpack .../09-libbinutils_2.40-2_amd64.deb ...
+#6 5.776 Unpacking libbinutils:amd64 (2.40-2) ...
+#6 5.823 Selecting previously unselected package libctf-nobfd0:amd64.
+#6 5.825 Preparing to unpack .../10-libctf-nobfd0_2.40-2_amd64.deb ...
+#6 5.826 Unpacking libctf-nobfd0:amd64 (2.40-2) ...
+#6 5.847 Selecting previously unselected package libctf0:amd64.
+#6 5.848 Preparing to unpack .../11-libctf0_2.40-2_amd64.deb ...
+#6 5.849 Unpacking libctf0:amd64 (2.40-2) ...
+#6 5.869 Selecting previously unselected package libgprofng0:amd64.
+#6 5.871 Preparing to unpack .../12-libgprofng0_2.40-2_amd64.deb ...
+#6 5.872 Unpacking libgprofng0:amd64 (2.40-2) ...
+#6 5.936 Selecting previously unselected package libjansson4:amd64.
+#6 5.938 Preparing to unpack .../13-libjansson4_2.14-2_amd64.deb ...
+#6 5.939 Unpacking libjansson4:amd64 (2.14-2) ...
+#6 5.954 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#6 5.956 Preparing to unpack .../14-binutils-x86-64-linux-gnu_2.40-2_amd64.deb ...
+#6 5.957 Unpacking binutils-x86-64-linux-gnu (2.40-2) ...
+#6 6.128 Selecting previously unselected package binutils.
+#6 6.131 Preparing to unpack .../15-binutils_2.40-2_amd64.deb ...
+#6 6.132 Unpacking binutils (2.40-2) ...
+#6 6.151 Selecting previously unselected package libc-dev-bin.
+#6 6.153 Preparing to unpack .../16-libc-dev-bin_2.36-9+deb12u14_amd64.deb ...
+#6 6.153 Unpacking libc-dev-bin (2.36-9+deb12u14) ...
+#6 6.169 Selecting previously unselected package linux-libc-dev:amd64.
+#6 6.171 Preparing to unpack .../17-linux-libc-dev_6.1.190-1_amd64.deb ...
+#6 6.172 Unpacking linux-libc-dev:amd64 (6.1.190-1) ...
+#6 6.354 Selecting previously unselected package libcrypt-dev:amd64.
+#6 6.356 Preparing to unpack .../18-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#6 6.361 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#6 6.384 Selecting previously unselected package libtirpc-dev:amd64.
+#6 6.387 Preparing to unpack .../19-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#6 6.388 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#6 6.431 Selecting previously unselected package libnsl-dev:amd64.
+#6 6.433 Preparing to unpack .../20-libnsl-dev_1.3.0-2_amd64.deb ...
+#6 6.434 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#6 6.450 Selecting previously unselected package rpcsvc-proto.
+#6 6.452 Preparing to unpack .../21-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#6 6.452 Unpacking rpcsvc-proto (1.4.3-1) ...
+#6 6.472 Selecting previously unselected package libc6-dev:amd64.
+#6 6.474 Preparing to unpack .../22-libc6-dev_2.36-9+deb12u14_amd64.deb ...
+#6 6.474 Unpacking libc6-dev:amd64 (2.36-9+deb12u14) ...
+#6 6.623 Selecting previously unselected package libisl23:amd64.
+#6 6.625 Preparing to unpack .../23-libisl23_0.25-1.1_amd64.deb ...
+#6 6.626 Unpacking libisl23:amd64 (0.25-1.1) ...
+#6 6.681 Selecting previously unselected package libmpfr6:amd64.
+#6 6.683 Preparing to unpack .../24-libmpfr6_4.2.0-1_amd64.deb ...
+#6 6.685 Unpacking libmpfr6:amd64 (4.2.0-1) ...
+#6 6.723 Selecting previously unselected package libmpc3:amd64.
+#6 6.725 Preparing to unpack .../25-libmpc3_1.3.1-1_amd64.deb ...
+#6 6.726 Unpacking libmpc3:amd64 (1.3.1-1) ...
+#6 6.740 Selecting previously unselected package cpp-12.
+#6 6.742 Preparing to unpack .../26-cpp-12_12.2.0-14+deb12u1_amd64.deb ...
+#6 6.743 Unpacking cpp-12 (12.2.0-14+deb12u1) ...
+#6 7.228 Selecting previously unselected package cpp.
+#6 7.230 Preparing to unpack .../27-cpp_4%3a12.2.0-3_amd64.deb ...
+#6 7.231 Unpacking cpp (4:12.2.0-3) ...
+#6 7.246 Selecting previously unselected package libcc1-0:amd64.
+#6 7.247 Preparing to unpack .../28-libcc1-0_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.248 Unpacking libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#6 7.263 Selecting previously unselected package libgomp1:amd64.
+#6 7.265 Preparing to unpack .../29-libgomp1_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.265 Unpacking libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#6 7.284 Selecting previously unselected package libitm1:amd64.
+#6 7.286 Preparing to unpack .../30-libitm1_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.287 Unpacking libitm1:amd64 (12.2.0-14+deb12u1) ...
+#6 7.300 Selecting previously unselected package libatomic1:amd64.
+#6 7.302 Preparing to unpack .../31-libatomic1_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.303 Unpacking libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#6 7.315 Selecting previously unselected package libasan8:amd64.
+#6 7.317 Preparing to unpack .../32-libasan8_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.318 Unpacking libasan8:amd64 (12.2.0-14+deb12u1) ...
+#6 7.471 Selecting previously unselected package liblsan0:amd64.
+#6 7.474 Preparing to unpack .../33-liblsan0_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.476 Unpacking liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#6 7.560 Selecting previously unselected package libtsan2:amd64.
+#6 7.562 Preparing to unpack .../34-libtsan2_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.563 Unpacking libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#6 7.717 Selecting previously unselected package libubsan1:amd64.
+#6 7.718 Preparing to unpack .../35-libubsan1_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.719 Unpacking libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#6 7.787 Selecting previously unselected package libquadmath0:amd64.
+#6 7.789 Preparing to unpack .../36-libquadmath0_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.790 Unpacking libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#6 7.809 Selecting previously unselected package libgcc-12-dev:amd64.
+#6 7.811 Preparing to unpack .../37-libgcc-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.811 Unpacking libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#6 7.966 Selecting previously unselected package gcc-12.
+#6 7.968 Preparing to unpack .../38-gcc-12_12.2.0-14+deb12u1_amd64.deb ...
+#6 7.969 Unpacking gcc-12 (12.2.0-14+deb12u1) ...
+#6 8.602 Selecting previously unselected package gcc.
+#6 8.603 Preparing to unpack .../39-gcc_4%3a12.2.0-3_amd64.deb ...
+#6 8.604 Unpacking gcc (4:12.2.0-3) ...
+#6 8.622 Selecting previously unselected package libstdc++-12-dev:amd64.
+#6 8.623 Preparing to unpack .../40-libstdc++-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#6 8.624 Unpacking libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#6 8.818 Selecting previously unselected package g++-12.
+#6 8.820 Preparing to unpack .../41-g++-12_12.2.0-14+deb12u1_amd64.deb ...
+#6 8.821 Unpacking g++-12 (12.2.0-14+deb12u1) ...
+#6 9.330 Selecting previously unselected package g++.
+#6 9.332 Preparing to unpack .../42-g++_4%3a12.2.0-3_amd64.deb ...
+#6 9.333 Unpacking g++ (4:12.2.0-3) ...
+#6 9.344 Selecting previously unselected package make.
+#6 9.346 Preparing to unpack .../43-make_4.3-4.1_amd64.deb ...
+#6 9.347 Unpacking make (4.3-4.1) ...
+#6 9.384 Selecting previously unselected package libdpkg-perl.
+#6 9.386 Preparing to unpack .../44-libdpkg-perl_1.21.23_all.deb ...
+#6 9.387 Unpacking libdpkg-perl (1.21.23) ...
+#6 9.444 Selecting previously unselected package patch.
+#6 9.445 Preparing to unpack .../45-patch_2.7.6-7_amd64.deb ...
+#6 9.447 Unpacking patch (2.7.6-7) ...
+#6 9.467 Selecting previously unselected package dpkg-dev.
+#6 9.468 Preparing to unpack .../46-dpkg-dev_1.21.23_all.deb ...
+#6 9.469 Unpacking dpkg-dev (1.21.23) ...
+#6 9.562 Selecting previously unselected package build-essential.
+#6 9.564 Preparing to unpack .../47-build-essential_12.9_amd64.deb ...
+#6 9.565 Unpacking build-essential (12.9) ...
+#6 9.578 Selecting previously unselected package libbrotli1:amd64.
+#6 9.579 Preparing to unpack .../48-libbrotli1_1.0.9-2+deb12u1_amd64.deb ...
+#6 9.580 Unpacking libbrotli1:amd64 (1.0.9-2+deb12u1) ...
+#6 9.610 Selecting previously unselected package libsasl2-modules-db:amd64.
+#6 9.611 Preparing to unpack .../49-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#6 9.612 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#6 9.626 Selecting previously unselected package libsasl2-2:amd64.
+#6 9.627 Preparing to unpack .../50-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#6 9.628 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#6 9.644 Selecting previously unselected package libldap-2.5-0:amd64.
+#6 9.645 Preparing to unpack .../51-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#6 9.646 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#6 9.671 Selecting previously unselected package libnghttp2-14:amd64.
+#6 9.672 Preparing to unpack .../52-libnghttp2-14_1.52.0-1+deb12u3_amd64.deb ...
+#6 9.673 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#6 9.690 Selecting previously unselected package libpsl5:amd64.
+#6 9.691 Preparing to unpack .../53-libpsl5_0.21.2-1_amd64.deb ...
+#6 9.691 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#6 9.710 Selecting previously unselected package librtmp1:amd64.
+#6 9.711 Preparing to unpack .../54-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#6 9.711 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#6 9.728 Selecting previously unselected package libssh2-1:amd64.
+#6 9.730 Preparing to unpack .../55-libssh2-1_1.10.0-3+deb12u1_amd64.deb ...
+#6 9.730 Unpacking libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#6 9.753 Selecting previously unselected package libcurl4:amd64.
+#6 9.754 Preparing to unpack .../56-libcurl4_7.88.1-10+deb12u15_amd64.deb ...
+#6 9.755 Unpacking libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#6 9.786 Selecting previously unselected package curl.
+#6 9.788 Preparing to unpack .../57-curl_7.88.1-10+deb12u15_amd64.deb ...
+#6 9.788 Unpacking curl (7.88.1-10+deb12u15) ...
+#6 9.819 Selecting previously unselected package libicu72:amd64.
+#6 9.820 Preparing to unpack .../58-libicu72_72.1-3+deb12u1_amd64.deb ...
+#6 9.821 Unpacking libicu72:amd64 (72.1-3+deb12u1) ...
+#6 10.25 Selecting previously unselected package icu-devtools.
+#6 10.25 Preparing to unpack .../59-icu-devtools_72.1-3+deb12u1_amd64.deb ...
+#6 10.25 Unpacking icu-devtools (72.1-3+deb12u1) ...
+#6 10.28 Selecting previously unselected package libicu-dev:amd64.
+#6 10.28 Preparing to unpack .../60-libicu-dev_72.1-3+deb12u1_amd64.deb ...
+#6 10.28 Unpacking libicu-dev:amd64 (72.1-3+deb12u1) ...
+#6 10.75 Selecting previously unselected package libsqlite3-dev:amd64.
+#6 10.75 Preparing to unpack .../61-libsqlite3-dev_3.40.1-2+deb12u2_amd64.deb ...
+#6 10.75 Unpacking libsqlite3-dev:amd64 (3.40.1-2+deb12u2) ...
+#6 10.82 Selecting previously unselected package libxml2:amd64.
+#6 10.82 Preparing to unpack .../62-libxml2_2.9.14+dfsg-1.3~deb12u6_amd64.deb ...
+#6 10.82 Unpacking libxml2:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#6 10.87 Selecting previously unselected package libxml2-dev:amd64.
+#6 10.87 Preparing to unpack .../63-libxml2-dev_2.9.14+dfsg-1.3~deb12u6_amd64.deb ...
+#6 10.87 Unpacking libxml2-dev:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#6 10.93 Selecting previously unselected package re2c.
+#6 10.93 Preparing to unpack .../64-re2c_3.0-2_amd64.deb ...
+#6 10.93 Unpacking re2c (3.0-2) ...
+#6 11.00 Selecting previously unselected package zlib1g-dev:amd64.
+#6 11.00 Preparing to unpack .../65-zlib1g-dev_1%3a1.2.13.dfsg-1_amd64.deb ...
+#6 11.00 Unpacking zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#6 11.05 Setting up media-types (10.0.0) ...
+#6 11.06 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#6 11.06 Setting up libpsl5:amd64 (0.21.2-1) ...
+#6 11.06 Setting up libicu72:amd64 (72.1-3+deb12u1) ...
+#6 11.06 Setting up libtirpc-common (1.3.3+ds-1) ...
+#6 11.07 Setting up libbrotli1:amd64 (1.0.9-2+deb12u1) ...
+#6 11.07 Setting up libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#6 11.07 Setting up binutils-common:amd64 (2.40-2) ...
+#6 11.07 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#6 11.08 Setting up linux-libc-dev:amd64 (6.1.190-1) ...
+#6 11.08 Setting up libctf-nobfd0:amd64 (2.40-2) ...
+#6 11.08 Setting up m4 (1.4.19-3) ...
+#6 11.08 Setting up libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#6 11.08 Setting up bzip2 (1.0.8-5+b1) ...
+#6 11.09 Setting up libjansson4:amd64 (2.14-2) ...
+#6 11.09 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#6 11.09 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#6 11.09 Setting up perl-modules-5.36 (5.36.0-7+deb12u4) ...
+#6 11.09 Setting up rpcsvc-proto (1.4.3-1) ...
+#6 11.10 Setting up make (4.3-4.1) ...
+#6 11.10 Setting up libmpfr6:amd64 (4.2.0-1) ...
+#6 11.10 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#6 11.10 Setting up xz-utils (5.4.1-1+deb12u2) ...
+#6 11.11 update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+#6 11.11 Setting up libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#6 11.11 Setting up libmpc3:amd64 (1.3.1-1) ...
+#6 11.12 Setting up libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#6 11.12 Setting up patch (2.7.6-7) ...
+#6 11.12 Setting up icu-devtools (72.1-3+deb12u1) ...
+#6 11.12 Setting up libncursesw6:amd64 (6.4-4) ...
+#6 11.12 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#6 11.13 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#6 11.13 Setting up libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#6 11.13 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#6 11.14 Setting up libasan8:amd64 (12.2.0-14+deb12u1) ...
+#6 11.14 Setting up libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#6 11.14 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#6 11.15 Setting up re2c (3.0-2) ...
+#6 11.15 Setting up libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#6 11.15 Setting up libbinutils:amd64 (2.40-2) ...
+#6 11.15 Setting up libisl23:amd64 (0.25-1.1) ...
+#6 11.16 Setting up libc-dev-bin (2.36-9+deb12u14) ...
+#6 11.16 Setting up openssl (3.0.22-1~deb12u1) ...
+#6 11.16 Setting up readline-common (8.2-1.3) ...
+#6 11.17 Setting up libxml2:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#6 11.17 Setting up libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#6 11.17 Setting up liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#6 11.17 Setting up libitm1:amd64 (12.2.0-14+deb12u1) ...
+#6 11.17 Setting up libgdbm6:amd64 (1.23-3) ...
+#6 11.18 Setting up libctf0:amd64 (2.40-2) ...
+#6 11.18 Setting up cpp-12 (12.2.0-14+deb12u1) ...
+#6 11.18 Setting up libreadline8:amd64 (8.2-1.3) ...
+#6 11.18 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#6 11.18 Setting up ca-certificates (20250419~deb12u2) ...
+#6 11.25 debconf: unable to initialize frontend: Dialog
+#6 11.25 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 11.25 debconf: falling back to frontend: Readline
+#6 11.25 debconf: unable to initialize frontend: Readline
+#6 11.25 debconf: (This frontend requires a controlling tty.)
+#6 11.25 debconf: falling back to frontend: Teletype
+#6 11.61 Updating certificates in /etc/ssl/certs...
+#6 12.14 148 added, 0 removed; done.
+#6 12.15 Setting up libgprofng0:amd64 (2.40-2) ...
+#6 12.16 Setting up libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#6 12.16 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#6 12.16 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#6 12.16 Setting up cpp (4:12.2.0-3) ...
+#6 12.17 Setting up libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#6 12.17 Setting up curl (7.88.1-10+deb12u15) ...
+#6 12.17 Setting up libperl5.36:amd64 (5.36.0-7+deb12u4) ...
+#6 12.17 Setting up binutils-x86-64-linux-gnu (2.40-2) ...
+#6 12.17 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#6 12.18 Setting up binutils (2.40-2) ...
+#6 12.18 Setting up perl (5.36.0-7+deb12u4) ...
+#6 12.19 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#6 12.19 Setting up gcc-12 (12.2.0-14+deb12u1) ...
+#6 12.19 Setting up libdpkg-perl (1.21.23) ...
+#6 12.19 Setting up autoconf (2.71-3) ...
+#6 12.20 Setting up libnsl2:amd64 (1.3.0-2) ...
+#6 12.20 Setting up libpython3.11-stdlib:amd64 (3.11.2-6+deb12u9) ...
+#6 12.20 Setting up gcc (4:12.2.0-3) ...
+#6 12.21 Setting up dpkg-dev (1.21.23) ...
+#6 12.21 Setting up autoconf2.69 (2.69-3.1) ...
+#6 12.21 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#6 12.22 Setting up libc6-dev:amd64 (2.36-9+deb12u14) ...
+#6 12.22 Setting up libicu-dev:amd64 (72.1-3+deb12u1) ...
+#6 12.22 Setting up libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+#6 12.22 Setting up python3.11 (3.11.2-6+deb12u9) ...
+#6 12.79 Setting up libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#6 12.79 Setting up python3 (3.11.2-1+b1) ...
+#6 12.82 running python rtupdate hooks for python3.11...
+#6 12.82 running python post-rtupdate hooks for python3.11...
+#6 12.89 Setting up libxml2-dev:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#6 12.89 Setting up libsqlite3-dev:amd64 (3.40.1-2+deb12u2) ...
+#6 12.89 Setting up zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#6 12.89 Setting up g++-12 (12.2.0-14+deb12u1) ...
+#6 12.90 Setting up g++ (4:12.2.0-3) ...
+#6 12.90 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#6 12.90 Setting up build-essential (12.9) ...
+#6 12.90 Processing triggers for libc-bin (2.36-9+deb12u14) ...
+#6 12.92 Processing triggers for ca-certificates (20250419~deb12u2) ...
+#6 12.92 Updating certificates in /etc/ssl/certs...
+#6 13.33 0 added, 0 removed; done.
+#6 13.33 Running hooks in /etc/ca-certificates/update.d...
+#6 13.33 done.
+#6 DONE 14.3s
+
+#7 [3/5] RUN set -eu;     if command -v re2c >/dev/null; then exit 0; fi;     curl -fsSL --connect-timeout 10 --max-time 45       --retry 1 --retry-delay 1 --retry-max-time 60       https://github.com/skvadrik/re2c/releases/download/3.0/re2c-3.0.tar.xz -o /tmp/re2c.tar.xz;     echo 'b3babbbb1461e13fe22c630a40c43885efcfbbbb585830c6f4c0d791cf82ba0b  /tmp/re2c.tar.xz' | sha256sum -c -;     tar -xJf /tmp/re2c.tar.xz -C /tmp;     cd /tmp/re2c-3.0;     ./configure --prefix=/opt/re2c --disable-docs;     make -j4;     make install;     rm -rf /tmp/re2c-3.0 /tmp/re2c.tar.xz
+#7 DONE 0.1s
+
+#8 [4/5] RUN set -eu;     for bison_url in         https://mirrors.kernel.org/gnu/bison/bison-3.5.1.tar.xz         https://ftp.gnu.org/gnu/bison/bison-3.5.1.tar.xz; do         if curl -fsSL --connect-timeout 10 --max-time 45             --retry 1 --retry-delay 1 --retry-max-time 60             "$bison_url" -o /tmp/bison.tar.xz; then break; fi;     done;     echo '3e7e097bd9709a2d5e40e69446b74b149733b3de864fadb7a9b54eca7b2a4dd0  /tmp/bison.tar.xz' | sha256sum -c -     && tar -xJf /tmp/bison.tar.xz -C /tmp     && cd /tmp/bison-3.5.1     && ./configure --prefix=/opt/bison --disable-nls     && make -j4     && make install     && rm -rf /tmp/bison-3.5.1 /tmp/bison.tar.xz
+#8 0.876 /tmp/bison.tar.xz: OK
+#8 1.133 checking for a BSD-compatible install... /usr/bin/install -c
+#8 1.140 checking whether build environment is sane... yes
+#8 1.149 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#8 1.151 checking for gawk... no
+#8 1.151 checking for mawk... mawk
+#8 1.152 checking whether make sets $(MAKE)... yes
+#8 1.161 checking whether make supports nested variables... yes
+#8 1.168 checking whether make supports nested variables... (cached) yes
+#8 1.169 checking whether make supports the include directive... yes (GNU style)
+#8 1.176 checking for gcc... gcc
+#8 1.199 checking whether the C compiler works... yes
+#8 1.230 checking for C compiler default output file name... a.out
+#8 1.231 checking for suffix of executables... 
+#8 1.261 checking whether we are cross compiling... no
+#8 1.294 checking for suffix of object files... o
+#8 1.311 checking whether we are using the GNU C compiler... yes
+#8 1.325 checking whether gcc accepts -g... yes
+#8 1.340 checking for gcc option to enable C11 features... none needed
+#8 1.385 checking dependency style of gcc... gcc3
+#8 1.412 checking for g++... g++
+#8 1.430 checking whether we are using the GNU C++ compiler... yes
+#8 1.446 checking whether g++ accepts -g... yes
+#8 1.463 checking for g++ option to enable C++11 features... none needed
+#8 6.381 checking dependency style of g++... gcc3
+#8 6.408 checking how to run the C preprocessor... gcc -E
+#8 6.449 checking for grep that handles long lines and -e... /usr/bin/grep
+#8 6.451 checking for egrep... /usr/bin/grep -E
+#8 6.452 checking for ANSI C header files... yes
+#8 6.544 checking for sys/types.h... yes
+#8 6.569 checking for sys/stat.h... yes
+#8 6.594 checking for stdlib.h... yes
+#8 6.618 checking for string.h... yes
+#8 6.644 checking for memory.h... yes
+#8 6.670 checking for strings.h... yes
+#8 6.696 checking for inttypes.h... yes
+#8 6.723 checking for stdint.h... yes
+#8 6.750 checking for unistd.h... yes
+#8 6.776 checking minix/config.h usability... no
+#8 6.802 checking minix/config.h presence... no
+#8 6.813 checking for minix/config.h... no
+#8 6.814 checking whether it is safe to define __EXTENSIONS__... yes
+#8 6.842 checking whether _XOPEN_SOURCE should be defined... no
+#8 6.861 checking for Minix Amsterdam compiler... no
+#8 6.869 checking for ar... ar
+#8 6.870 checking for ranlib... ranlib
+#8 6.874 checking build system type... x86_64-pc-linux-gnu
+#8 6.906 checking host system type... x86_64-pc-linux-gnu
+#8 6.907 checking for special C compiler options needed for large files... no
+#8 6.907 checking for _FILE_OFFSET_BITS value needed for large files... no
+#8 6.927 checking whether pragma GCC diagnostic push works... yes
+#8 6.942 checking whether C++ compiler handles -Werror -Wunknown-warning-option... no
+#8 6.962 checking whether C++ compiler handles -fno-exceptions... yes
+#8 7.007 checking whether C++ compiler accepts -std=c++98... yes
+#8 7.084 checking whether C++ compiler accepts -std=c++03... yes
+#8 7.160 checking whether C++ compiler accepts -std=c++11... yes
+#8 7.696 checking whether C++ compiler accepts -std=c++14... yes
+#8 8.287 checking whether C++ compiler accepts -std=c++17... yes
+#8 8.955 checking whether C++ compiler accepts -std=c++2a... yes
+#8 9.846 checking whether gcc supports POSIXLY_CORRECT=1... yes
+#8 9.879 checking whether g++ builds executables that work... yes
+#8 10.32 checking whether g++ supports POSIXLY_CORRECT=1... yes
+#8 10.36 checking for dmd... no
+#8 10.36 checking for -g... no
+#8 10.37 checking for Java compiler... no
+#8 10.38 checking for Java virtual machine... no
+#8 10.38 checking for flex... no
+#8 10.38 checking for lex... no
+#8 10.39 configure: WARNING: bypassing lex because flex is required
+#8 10.39 checking for bison... no
+#8 10.39 checking for byacc... no
+#8 10.39 checking for ranlib... (cached) ranlib
+#8 10.39 checking for GNU M4 that supports accurate traces... /usr/bin/m4
+#8 10.39 checking whether /usr/bin/m4 accepts --gnu... yes
+#8 10.39 checking how m4 supports trace files... --debugfile
+#8 10.40 checking for perl... /usr/bin/perl
+#8 10.40 checking for xsltproc... no
+#8 10.40 checking for locale.h... yes
+#8 10.43 checking for sys/param.h... yes
+#8 10.47 checking for sys/socket.h... yes
+#8 10.50 checking for unistd.h... (cached) yes
+#8 10.51 checking for stdio_ext.h... yes
+#8 10.54 checking for features.h... yes
+#8 10.57 checking for getopt.h... yes
+#8 10.60 checking for sys/cdefs.h... yes
+#8 10.63 checking for sys/time.h... yes
+#8 10.66 checking for limits.h... yes
+#8 10.69 checking for wchar.h... yes
+#8 10.73 checking for stdint.h... (cached) yes
+#8 10.73 checking for inttypes.h... (cached) yes
+#8 10.74 checking for crtdefs.h... no
+#8 10.77 checking for wctype.h... yes
+#8 10.80 checking for threads.h... yes
+#8 10.83 checking for math.h... yes
+#8 10.88 checking for sys/mman.h... yes
+#8 10.91 checking for spawn.h... yes
+#8 10.94 checking for sys/resource.h... yes
+#8 10.97 checking for sys/times.h... yes
+#8 11.01 checking for sys/wait.h... yes
+#8 11.04 checking for sys/stat.h... (cached) yes
+#8 11.04 checking for xlocale.h... no
+#8 11.07 checking for inline... inline
+#8 11.08 checking for size_t... yes
+#8 11.14 checking for working alloca.h... yes
+#8 11.17 checking for alloca... yes
+#8 11.21 checking whether malloc, realloc, calloc are POSIX compliant... yes
+#8 11.23 checking for canonicalize_file_name... yes
+#8 11.26 checking for getcwd... yes
+#8 11.30 checking for readlink... yes
+#8 11.34 checking for realpath... yes
+#8 11.38 checking for readlinkat... yes
+#8 11.42 checking for _set_invalid_parameter_handler... no
+#8 11.46 checking for fcntl... yes
+#8 11.51 checking for symlink... yes
+#8 11.55 checking for vasnprintf... no
+#8 11.59 checking for snprintf... yes
+#8 11.63 checking for fsync... yes
+#8 11.67 checking for microuptime... no
+#8 11.71 checking for nanouptime... no
+#8 11.75 checking for getprogname... no
+#8 11.80 checking for getexecname... no
+#8 11.84 checking for getrusage... yes
+#8 11.88 checking for gettimeofday... yes
+#8 11.92 checking for iswcntrl... yes
+#8 11.96 checking for iswblank... yes
+#8 12.01 checking for tcdrain... yes
+#8 12.05 checking for mbsinit... yes
+#8 12.09 checking for mbrtowc... yes
+#8 12.13 checking for isascii... yes
+#8 12.17 checking for mprotect... yes
+#8 12.22 checking for obstack_printf... yes
+#8 12.26 checking for lstat... yes
+#8 12.30 checking for strerror_r... yes
+#8 12.34 checking for __xpg_strerror_r... yes
+#8 12.38 checking for pipe2... yes
+#8 12.42 checking for setenv... yes
+#8 12.46 checking for link... yes
+#8 12.50 checking for sigaction... yes
+#8 12.54 checking for sigaltstack... yes
+#8 12.58 checking for siginterrupt... yes
+#8 12.62 checking for strdup... yes
+#8 12.66 checking for strndup... yes
+#8 12.70 checking for pipe... yes
+#8 12.74 checking for wcwidth... yes
+#8 12.78 checking for __fseterr... no
+#8 12.83 checking for getdtablesize... yes
+#8 12.87 checking for catgets... yes
+#8 12.91 checking for setlocale... yes
+#8 12.94 checking whether // is distinct from /... no
+#8 12.95 checking whether realpath works... yes
+#8 13.00 checking if environ is properly declared... yes
+#8 13.02 checking whether the preprocessor supports include_next... yes
+#8 13.04 checking whether system header files limit the line length... no
+#8 13.05 checking for complete errno.h... yes
+#8 13.06 checking whether the compiler is clang... no
+#8 13.07 checking for compiler option needed when checking for declarations... none
+#8 13.07 checking whether strerror_r is declared... yes
+#8 13.11 checking for strerror_r... (cached) yes
+#8 13.11 checking whether strerror_r returns char *... yes
+#8 13.14 checking for sig_atomic_t... yes
+#8 13.18 checking for working fcntl.h... yes
+#8 14.24 checking for pid_t... yes
+#8 14.29 checking for mode_t... yes
+#8 14.35 checking for stdint.h... yes
+#8 14.37 checking for inttypes.h... yes
+#8 14.39 checking whether printf supports size specifiers as in C99... yes
+#8 14.44 checking whether printf supports 'long double' arguments... yes
+#8 14.48 checking whether printf supports infinite 'double' arguments... yes
+#8 14.55 checking whether byte ordering is bigendian... no
+#8 14.61 checking whether long double and double are the same... no
+#8 14.62 checking whether printf supports infinite 'long double' arguments... yes
+#8 14.71 checking whether printf supports the 'a' and 'A' directives... yes
+#8 14.77 checking whether printf supports the 'F' directive... yes
+#8 14.81 checking whether printf supports the 'n' directive... yes
+#8 14.86 checking whether printf supports the 'ls' directive... yes
+#8 14.90 checking whether printf supports POSIX/XSI format strings with positions... yes
+#8 14.94 checking whether printf supports the grouping flag... yes
+#8 14.99 checking whether printf supports the left-adjust flag correctly... yes
+#8 15.03 checking whether printf supports the zero flag correctly... yes
+#8 15.07 checking whether printf supports large precisions... yes
+#8 15.12 checking whether printf survives out-of-memory conditions... yes
+#8 15.18 checking for wchar_t... yes
+#8 15.20 checking for wint_t... yes
+#8 15.22 checking whether wint_t is too small... no
+#8 15.24 checking for intmax_t... yes
+#8 15.27 checking where to find the exponent in a 'double'... word 1 bit 20
+#8 15.33 checking whether snprintf returns a byte count as in C99... yes
+#8 15.37 checking for snprintf... (cached) yes
+#8 15.37 checking for strnlen... yes
+#8 15.42 checking for wcslen... yes
+#8 15.46 checking for wcsnlen... yes
+#8 15.50 checking for mbrtowc... (cached) yes
+#8 15.51 checking for wcrtomb... yes
+#8 15.55 checking whether _snprintf is declared... no
+#8 15.57 checking whether frexp() can be used without linking with libm... yes
+#8 15.62 checking whether alarm is declared... yes
+#8 15.65 checking for arithmetic hrtime_t... no
+#8 15.67 checking for getopt.h... (cached) yes
+#8 15.67 checking for getopt_long_only... yes
+#8 15.71 checking whether getopt is POSIX compatible... yes
+#8 15.85 checking for working GNU getopt function... yes
+#8 15.91 checking for working GNU getopt_long function... yes
+#8 15.95 checking for C/C++ restrict keyword... __restrict
+#8 15.97 checking for struct timeval... yes
+#8 15.99 checking for wide-enough struct timeval.tv_sec member... yes
+#8 16.00 checking whether limits.h has LLONG_MAX, WORD_BIT, ULLONG_WIDTH etc.... yes
+#8 16.02 checking whether stdint.h conforms to C99... yes
+#8 16.11 checking whether stdint.h predates C++11... no
+#8 16.14 checking whether stdint.h has UINTMAX_WIDTH etc.... yes
+#8 16.17 checking for inttypes.h... (cached) yes
+#8 16.17 checking whether the inttypes.h PRIxNN macros are broken... no
+#8 16.19 checking where to find the exponent in a 'float'... word 0 bit 23
+#8 16.24 checking whether isnan(float) can be used without linking with libm... yes
+#8 16.29 checking whether isnan(float) works... yes
+#8 16.35 checking whether isnan(double) can be used without linking with libm... yes
+#8 16.40 checking whether isnan(long double) can be used without linking with libm... yes
+#8 16.45 checking whether isnanl works... yes
+#8 16.51 checking whether iswcntrl works... yes
+#8 16.55 checking for towlower... yes
+#8 16.59 checking for wctype_t... yes
+#8 16.61 checking for wctrans_t... yes
+#8 16.64 checking whether ldexp() can be used without linking with libm... yes
+#8 16.69 checking for ld used by gcc... /usr/bin/ld
+#8 16.69 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#8 16.70 checking for shared library run path origin... done
+#8 16.72 checking 32-bit host C ABI... no
+#8 16.73 checking for ELF binary format... yes
+#8 16.74 checking for the common suffixes of directories in the library search path... lib,lib,lib64
+#8 16.75 checking for nl_langinfo and CODESET... yes
+#8 16.79 checking whether imported symbols can be declared weak... yes
+#8 16.86 checking pthread.h usability... yes
+#8 16.89 checking pthread.h presence... yes
+#8 16.90 checking for pthread.h... yes
+#8 16.94 checking for pthread_kill in -lpthread... yes
+#8 16.97 checking whether POSIX threads API is available... yes
+#8 17.00 checking for multithread API to use... posix
+#8 17.00 checking for a sed that does not truncate output... /usr/bin/sed
+#8 17.01 checking for mbstate_t... yes
+#8 17.04 checking for a traditional japanese locale... none
+#8 17.10 checking for a french Unicode locale... none
+#8 17.15 checking for a transitional chinese locale... none
+#8 17.20 checking for mmap... yes
+#8 17.23 checking for MAP_ANONYMOUS... yes
+#8 17.25 checking whether memchr works... yes
+#8 17.29 checking whether <limits.h> defines MIN and MAX... no
+#8 17.31 checking whether <sys/param.h> defines MIN and MAX... yes
+#8 17.34 checking whether obstack_printf is declared... yes
+#8 17.38 checking for O_CLOEXEC... yes
+#8 17.39 checking for promoted mode_t type... mode_t
+#8 17.41 checking whether strerror(0) succeeds... yes
+#8 17.45 checking for strerror_r with POSIX signature... no
+#8 17.47 checking whether __xpg_strerror_r works... yes
+#8 17.52 checking whether strerror_r is declared... (cached) yes
+#8 17.52 checking for library containing posix_spawn... none required
+#8 17.55 checking for posix_spawn... yes
+#8 17.59 checking whether posix_spawn works... yes
+#8 17.73 checking whether posix_spawnattr_setschedpolicy is supported... yes
+#8 17.74 checking whether posix_spawnattr_setschedparam is supported... yes
+#8 17.76 checking whether C symbols are prefixed with underscore at the linker level... no
+#8 17.77 checking for sigset_t... yes
+#8 17.82 checking for shared library path variable... LD_LIBRARY_PATH
+#8 17.83 checking whether to activate relocatable installation... no
+#8 17.83 checking for stdlib.h... (cached) yes
+#8 17.83 checking for GNU libc compatible malloc... yes
+#8 17.88 checking whether setenv is declared... yes
+#8 17.91 checking for uid_t in sys/types.h... yes
+#8 17.92 checking whether snprintf is declared... yes
+#8 17.96 checking for stdbool.h that conforms to C99... yes
+#8 17.97 checking for _Bool... yes
+#8 18.04 checking whether strdup is declared... yes
+#8 18.07 checking whether strndup is declared... yes
+#8 18.10 checking for struct timespec in <time.h>... yes
+#8 18.13 checking whether clearerr_unlocked is declared... yes
+#8 18.16 checking whether feof_unlocked is declared... yes
+#8 18.20 checking whether ferror_unlocked is declared... yes
+#8 18.23 checking whether fflush_unlocked is declared... yes
+#8 18.27 checking whether fgets_unlocked is declared... yes
+#8 18.30 checking whether fputc_unlocked is declared... yes
+#8 18.34 checking whether fputs_unlocked is declared... yes
+#8 18.37 checking whether fread_unlocked is declared... yes
+#8 18.41 checking whether fwrite_unlocked is declared... yes
+#8 18.44 checking whether getc_unlocked is declared... yes
+#8 18.48 checking whether getchar_unlocked is declared... yes
+#8 18.51 checking whether putc_unlocked is declared... yes
+#8 18.55 checking whether putchar_unlocked is declared... yes
+#8 18.58 checking whether unsetenv is declared... yes
+#8 18.62 checking whether vsnprintf is declared... yes
+#8 18.65 checking whether <wchar.h> uses 'inline' correctly... yes
+#8 18.72 checking POSIX termios... yes
+#8 18.75 checking whether use of TIOCGWINSZ requires termios.h... no
+#8 18.77 checking whether stat file-mode macros are broken... no
+#8 18.78 checking for nlink_t... yes
+#8 18.83 checking whether getdtablesize is declared... yes
+#8 18.86 checking whether setlocale (LC_ALL, NULL) is multithread-safe... yes
+#8 18.86 checking whether setlocale (category, NULL) is multithread-safe... yes
+#8 18.86 checking whether locale.h defines locale_t... yes
+#8 18.88 checking whether lstat correctly handles trailing slash... yes
+#8 18.93 checking whether strnlen is declared... yes
+#8 18.97 checking for alloca as a compiler built-in... yes
+#8 18.97 checking whether to enable assertions... yes
+#8 18.98 checking for library containing clock_gettime... none required
+#8 19.01 checking for clock_gettime... yes
+#8 19.05 checking for clock_settime... yes
+#8 19.09 checking whether // is distinct from /... (cached) no
+#8 19.09 checking whether dup2 works... yes
+#8 19.14 checking for error_at_line... yes
+#8 19.18 checking whether fcntl handles F_DUPFD correctly... yes
+#8 19.22 checking whether fcntl understands F_DUPFD_CLOEXEC... needs runtime check
+#8 19.26 checking whether conversion from 'int' to 'long double' works... yes
+#8 19.29 checking whether fopen recognizes a trailing slash... yes
+#8 19.33 checking for __fpending... yes
+#8 19.37 checking whether __fpending is declared... yes
+#8 19.40 checking whether frexp works... yes
+#8 19.46 checking whether frexpl is declared... yes
+#8 19.50 checking whether frexpl() can be used without linking with libm... yes
+#8 19.55 checking whether frexpl works... yes
+#8 19.62 checking whether gethrtime is declared... no
+#8 19.64 checking whether CLOCK_MONOTONIC or CLOCK_REALTIME is defined... yes
+#8 19.65 checking whether program_invocation_name is declared... yes
+#8 19.67 checking whether program_invocation_short_name is declared... yes
+#8 19.70 checking whether __argv is declared... no
+#8 19.72 checking whether gettimeofday clobbers localtime buffer... no
+#8 19.76 checking for gettimeofday with POSIX signature... yes
+#8 19.82 checking whether INT32_MAX < INTMAX_MAX... yes
+#8 19.84 checking whether INT64_MAX == LONG_MAX... yes
+#8 19.86 checking whether UINT32_MAX < UINTMAX_MAX... yes
+#8 19.88 checking whether UINT64_MAX == ULONG_MAX... yes
+#8 19.89 checking whether isnan macro works... yes
+#8 19.89 checking whether isnan(double) can be used without linking with libm... (cached) yes
+#8 19.90 checking whether isnan(double) can be used without linking with libm... (cached) yes
+#8 19.90 checking whether isnan(float) can be used without linking with libm... (cached) yes
+#8 19.90 checking whether isnan(float) works... (cached) yes
+#8 19.90 checking whether isnan(long double) can be used without linking with libm... (cached) yes
+#8 19.90 checking whether isnanl works... (cached) yes
+#8 19.90 checking whether isnan(long double) can be used without linking with libm... (cached) yes
+#8 19.90 checking whether isnanl works... (cached) yes
+#8 19.90 checking whether iswblank is declared... yes
+#8 19.93 checking whether ldexpl is declared... yes
+#8 19.97 checking whether ldexpl() can be used without linking with libm... yes
+#8 20.02 checking whether ldexpl works... yes
+#8 20.07 checking for libtextstyle... no
+#8 20.09 checking for pthread_rwlock_t... yes
+#8 20.13 checking whether pthread_rwlock_rdlock prefers a writer to a reader... no
+#8 20.32 checking for stdlib.h... (cached) yes
+#8 20.32 checking for GNU libc compatible malloc... (cached) yes
+#8 20.32 checking whether NAN macro works... yes
+#8 20.35 checking whether HUGE_VAL works... yes
+#8 20.39 checking whether mbrtowc handles incomplete characters... guessing yes
+#8 20.39 checking whether mbrtowc works as well as mbtowc... guessing yes
+#8 20.39 checking whether mbrtowc handles a NULL pwc argument... guessing yes
+#8 20.39 checking whether mbrtowc handles a NULL string argument... guessing yes
+#8 20.39 checking whether mbrtowc has a correct return value... guessing yes
+#8 20.39 checking whether mbrtowc returns 0 when parsing a NUL character... guessing yes
+#8 20.39 checking whether mbrtowc stores incomplete characters... guessing no
+#8 20.39 checking whether mbrtowc works on empty input... yes
+#8 20.43 checking whether the C locale is free of encoding errors... no
+#8 20.47 checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+#8 20.47 checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+#8 20.47 checking whether mbswidth is declared in <wchar.h>... no
+#8 20.49 checking for mbstate_t... (cached) yes
+#8 20.50 checking for obstacks that work with any size object... no
+#8 20.51 checking whether open recognizes a trailing slash... yes
+#8 20.56 checking whether perror matches strerror... yes
+#8 20.61 checking whether posix_spawn_file_actions_addclose works... yes
+#8 20.65 checking whether posix_spawn_file_actions_adddup2 works... yes
+#8 20.69 checking whether posix_spawn_file_actions_addopen works... yes
+#8 20.73 checking whether frexp works... (cached) yes
+#8 20.73 checking whether ldexp can be used without linking with libm... (cached) yes
+#8 20.73 checking whether frexpl() can be used without linking with libm... (cached) yes
+#8 20.73 checking whether frexpl works... (cached) yes
+#8 20.74 checking whether frexpl is declared... (cached) yes
+#8 20.74 checking whether ldexpl() can be used without linking with libm... (cached) yes
+#8 20.74 checking whether ldexpl works... (cached) yes
+#8 20.74 checking whether ldexpl is declared... (cached) yes
+#8 20.74 checking whether program_invocation_name is declared... (cached) yes
+#8 20.75 checking whether program_invocation_short_name is declared... (cached) yes
+#8 20.75 checking for raise... yes
+#8 20.79 checking for sigprocmask... yes
+#8 20.82 checking whether readlink signature is correct... yes
+#8 20.84 checking whether readlink handles trailing slash correctly... yes
+#8 20.88 checking search.h usability... yes
+#8 20.91 checking search.h presence... yes
+#8 20.92 checking for search.h... yes
+#8 20.92 checking for tsearch... yes
+#8 20.96 checking whether rename honors trailing slash on destination... yes
+#8 21.01 checking whether rename honors trailing slash on source... yes
+#8 21.06 checking whether rename manages hard links correctly... yes
+#8 21.11 checking whether rename manages existing destinations correctly... yes
+#8 21.16 checking for sched.h... yes
+#8 21.17 checking for struct sched_param... yes
+#8 21.21 checking for struct sigaction.sa_sigaction... yes
+#8 21.23 checking for volatile sig_atomic_t... yes
+#8 21.28 checking for sighandler_t... yes
+#8 21.32 checking for signbit macro... yes
+#8 21.38 checking for signbit compiler built-ins... yes
+#8 21.43 checking for sigprocmask... (cached) yes
+#8 21.43 checking for stdint.h... (cached) yes
+#8 21.43 checking for SIZE_MAX... yes
+#8 21.44 checking for snprintf... (cached) yes
+#8 21.44 checking whether snprintf respects a size of 1... yes
+#8 21.48 checking whether printf supports POSIX/XSI format strings with positions... (cached) yes
+#8 21.48 checking for snprintf... (cached) yes
+#8 21.48 checking whether snprintf truncates the result as in C99... yes
+#8 21.52 checking whether snprintf fully supports the 'n' directive... yes
+#8 21.56 checking whether snprintf respects a size of 1... (cached) yes
+#8 21.56 checking whether vsnprintf respects a zero size as in C99... yes
+#8 21.60 checking for posix_spawnattr_t... yes
+#8 21.64 checking for posix_spawn_file_actions_t... yes
+#8 21.68 checking for ssize_t... yes
+#8 21.70 checking for good max_align_t... yes
+#8 21.72 checking whether NULL can be used in arbitrary expressions... yes
+#8 21.74 checking which flavor of printf attribute matches inttypes macros... system
+#8 21.76 checking for stpcpy... yes
+#8 21.80 checking for working strerror function... yes
+#8 21.84 checking for working strndup... yes
+#8 21.88 checking for strverscmp... yes
+#8 21.92 checking for struct tms... yes
+#8 21.95 checking whether unlink honors trailing slashes... yes
+#8 22.00 checking whether unlink of a parent directory fails as it should... guessing yes
+#8 22.00 checking for unsetenv... yes
+#8 22.03 checking for unsetenv() return type... int
+#8 22.06 checking whether unsetenv obeys POSIX... yes
+#8 22.10 checking for ptrdiff_t... yes
+#8 22.16 checking for vasprintf... yes
+#8 22.20 checking for vasprintf... (cached) yes
+#8 22.20 checking for vsnprintf... yes
+#8 22.24 checking whether snprintf respects a size of 1... (cached) yes
+#8 22.24 checking whether printf supports POSIX/XSI format strings with positions... (cached) yes
+#8 22.24 checking for vsnprintf... (cached) yes
+#8 22.24 checking whether snprintf truncates the result as in C99... (cached) yes
+#8 22.24 checking whether snprintf fully supports the 'n' directive... (cached) yes
+#8 22.24 checking whether snprintf respects a size of 1... (cached) yes
+#8 22.24 checking whether vsnprintf respects a zero size as in C99... (cached) yes
+#8 22.24 checking for waitid... yes
+#8 22.28 checking whether iswcntrl works... (cached) yes
+#8 22.28 checking for towlower... (cached) yes
+#8 22.28 checking for wctype_t... (cached) yes
+#8 22.28 checking for wctrans_t... (cached) yes
+#8 22.29 checking whether wcwidth is declared... yes
+#8 22.31 checking whether wcwidth works reasonably in UTF-8 locales... yes
+#8 22.36 checking whether use of TIOCGWINSZ requires sys/ioctl.h... yes
+#8 22.37 checking whether use of TIOCGWINSZ requires termios.h... (cached) no
+#8 22.37 checking whether use of struct winsize requires sys/ptem.h... no
+#8 22.40 checking for stdint.h... (cached) yes
+#8 22.40 checking whether getdtablesize works... yes
+#8 22.44 checking whether setlocale (LC_ALL, NULL) is multithread-safe... (cached) yes
+#8 22.44 checking whether setlocale (category, NULL) is multithread-safe... (cached) yes
+#8 22.44 checking whether locale.h conforms to POSIX:2001... yes
+#8 22.46 checking whether struct lconv is properly defined... yes
+#8 22.48 checking whether NLS is requested... no
+#8 22.48 checking for msgfmt... no
+#8 22.48 checking for gmsgfmt... :
+#8 22.49 checking for xgettext... no
+#8 22.50 checking for msgmerge... no
+#8 22.50 checking for CFPreferencesCopyAppValue... no
+#8 22.52 checking for CFLocaleCopyCurrent... no
+#8 22.53 checking whether to use NLS... no
+#8 22.53 checking for valgrind... no
+#8 22.53 checking Valgrind suppression file... 
+#8 22.58 checking that generated files are newer than configure... done
+#8 22.60 configure: creating ./config.status
+#8 22.68 config.status: creating src/yacc
+#8 22.70 config.status: creating javacomp.sh
+#8 22.71 config.status: creating javaexec.sh
+#8 22.72 config.status: creating gnulib-po/Makefile.in
+#8 22.73 config.status: creating runtime-po/Makefile.in
+#8 22.74 config.status: creating etc/bench.pl
+#8 22.76 config.status: creating tests/atlocal
+#8 22.77 config.status: creating tests/bison
+#8 22.79 config.status: creating Makefile
+#8 22.81 config.status: creating po/Makefile.in
+#8 22.82 config.status: creating doc/yacc.1
+#8 22.83 config.status: creating lib/config.h
+#8 22.85 config.status: executing depfiles commands
+#8 23.65 config.status: executing po-directories commands
+#8 23.66 config.status: creating gnulib-po/POTFILES
+#8 23.67 config.status: creating gnulib-po/Makefile
+#8 23.68 config.status: creating runtime-po/POTFILES
+#8 23.69 config.status: creating runtime-po/Makefile
+#8 23.70 config.status: creating po/POTFILES
+#8 23.70 config.status: creating po/Makefile
+#8 23.71 config.status: executing tests/atconfig commands
+#8 23.82   GEN      lib/alloca.h
+#8 23.82   GEN      lib/configmake.h
+#8 23.82   GEN      lib/fcntl.h
+#8 23.82   GEN      lib/inttypes.h
+#8 23.83   GEN      lib/textstyle.h
+#8 23.83   GEN      lib/limits.h
+#8 23.83   GEN      lib/locale.h
+#8 23.84   GEN      lib/math.h
+#8 23.84   GEN      lib/sched.h
+#8 23.84   GEN      lib/signal.h
+#8 23.84   GEN      lib/spawn.h
+#8 23.84   GEN      lib/stdio.h
+#8 23.85   GEN      lib/stdlib.h
+#8 23.86   GEN      lib/string.h
+#8 23.88   GEN      lib/sys/resource.h
+#8 23.88   GEN      lib/sys/time.h
+#8 23.89   GEN      lib/sys/times.h
+#8 23.89   GEN      lib/sys/types.h
+#8 23.90   GEN      lib/time.h
+#8 23.90   GEN      lib/sys/wait.h
+#8 23.90   GEN      lib/unitypes.h
+#8 23.90   GEN      lib/unistd.h
+#8 23.90   GEN      lib/uniwidth.h
+#8 23.91   GEN      lib/wchar.h
+#8 23.91   GEN      lib/wctype.h
+#8 23.93   CC       lib/libbison_a-bitsetv.o
+#8 23.93   CC       lib/libbison_a-c-ctype.o
+#8 23.93   CC       lib/libbison_a-c-strcasecmp.o
+#8 23.94   CC       lib/libbison_a-c-strncasecmp.o
+#8 23.97   CC       lib/libbison_a-careadlinkat.o
+#8 23.98   CC       lib/libbison_a-cloexec.o
+#8 23.99   CC       lib/libbison_a-close-stream.o
+#8 24.01 lib/careadlinkat.c: In function 'careadlinkat':
+#8 24.01 lib/careadlinkat.c:160:1: warning: function may return address of local variable [-Wreturn-local-addr]
+#8 24.01   160 | }
+#8 24.01       | ^
+#8 24.01 lib/careadlinkat.c:73:8: note: declared here
+#8 24.01    73 |   char stack_buf[1024];
+#8 24.01       |        ^~~~~~~~~
+#8 24.03   CC       lib/libbison_a-closeout.o
+#8 24.03   CC       lib/libbison_a-concat-filename.o
+#8 24.04   CC       lib/libbison_a-dirname.o
+#8 24.08   CC       lib/libbison_a-basename.o
+#8 24.09   CC       lib/libbison_a-dirname-lgpl.o
+#8 24.09   CC       lib/libbison_a-basename-lgpl.o
+#8 24.09   CC       lib/libbison_a-stripslash.o
+#8 24.12   CC       lib/libbison_a-exitfail.o
+#8 24.12   CC       lib/libbison_a-fatal-signal.o
+#8 24.13   CC       lib/libbison_a-fd-safer-flag.o
+#8 24.14   CC       lib/libbison_a-dup-safer-flag.o
+#8 24.14   CC       lib/libbison_a-fopen-safer.o
+#8 24.16   CC       lib/libbison_a-fstrcmp.o
+#8 24.18   CC       lib/libbison_a-gethrxtime.o
+#8 24.19   CC       lib/libbison_a-xtime.o
+#8 24.22   CC       lib/libbison_a-getprogname.o
+#8 24.23   CC       lib/libbison_a-gettime.o
+#8 24.23   CC       lib/libbison_a-hard-locale.o
+#8 24.25   CC       lib/libbison_a-hash.o
+#8 24.26   CC       lib/libbison_a-gl_list.o
+#8 24.27   CC       lib/libbison_a-localcharset.o
+#8 24.32   CC       lib/libbison_a-math.o
+#8 24.35   CC       lib/libbison_a-mbchar.o
+#8 24.38   CC       lib/libbison_a-mbfile.o
+#8 24.39   CC       lib/libbison_a-mbswidth.o
+#8 24.42   CC       lib/libbison_a-pipe2.o
+#8 24.47   CC       lib/libbison_a-pipe2-safer.o
+#8 24.47   CC       lib/libbison_a-printf-frexp.o
+#8 24.48   CC       lib/libbison_a-printf-frexpl.o
+#8 24.51   CC       lib/libbison_a-progname.o
+#8 24.52   CC       lib/libbison_a-quotearg.o
+#8 24.53   CC       lib/libbison_a-setlocale_null.o
+#8 24.55   CC       lib/libbison_a-sig-handler.o
+#8 24.56   CC       lib/libbison_a-spawn-pipe.o
+#8 24.59   CC       lib/glthread/libbison_a-threadlib.o
+#8 24.59   CC       lib/libbison_a-timespec.o
+#8 24.62   CC       lib/libbison_a-timevar.o
+#8 24.63   CC       lib/glthread/libbison_a-tls.o
+#8 24.67   CC       lib/libbison_a-unistd.o
+#8 24.69   CC       lib/libbison_a-dup-safer.o
+#8 24.69   CC       lib/libbison_a-fd-safer.o
+#8 24.73   CC       lib/libbison_a-pipe-safer.o
+#8 24.73   CC       lib/libbison_a-wait-process.o
+#8 24.77   CC       lib/libbison_a-wctype-h.o
+#8 24.77   CC       lib/libbison_a-xmalloc.o
+#8 24.80   CC       lib/libbison_a-xalloc-die.o
+#8 24.83   CC       lib/libbison_a-xconcat-filename.o
+#8 24.85   CC       lib/libbison_a-xhash.o
+#8 24.86   CC       lib/libbison_a-gl_xlist.o
+#8 24.86   CC       lib/libbison_a-xmemdup0.o
+#8 24.89   CC       lib/libbison_a-xreadlink.o
+#8 24.90   CC       lib/libbison_a-xsize.o
+#8 24.92   CC       lib/libbison_a-xstrndup.o
+#8 24.92   CC       lib/libbison_a-get-errno.o
+#8 24.94   CC       lib/libbison_a-path-join.o
+#8 24.95   CC       lib/libbison_a-asnprintf.o
+#8 24.96   CC       lib/libbison_a-fcntl.o
+#8 24.97   CC       lib/libbison_a-mbrtowc.o
+#8 24.98   CC       lib/libbison_a-obstack.o
+#8 25.01   CC       lib/libbison_a-printf-args.o
+#8 25.03   CC       lib/libbison_a-printf-parse.o
+#8 25.04   CC       lib/libbison_a-vasnprintf.o
+#8 25.09   CC       src/bison-AnnotationList.o
+#8 25.10   CC       src/bison-InadequacyList.o
+#8 25.19   CC       src/bison-Sbitset.o
+#8 25.27   CC       src/bison-assoc.o
+#8 25.29   CC       src/bison-closure.o
+#8 25.33   CC       src/bison-complain.o
+#8 25.48   CC       src/bison-conflicts.o
+#8 25.54   CC       src/bison-derives.o
+#8 25.57   CC       src/bison-files.o
+#8 25.64   CC       src/bison-fixits.o
+#8 25.64   CC       src/bison-getargs.o
+#8 25.74   CC       src/bison-gram.o
+#8 25.80   CC       src/bison-graphviz.o
+#8 25.85   CC       src/bison-ielr.o
+#8 25.97   CC       src/bison-lalr.o
+#8 25.98   CC       src/bison-location.o
+#8 26.13   CC       src/bison-lr0.o
+#8 26.35   CC       src/bison-main.o
+#8 26.36   CC       src/bison-muscle-tab.o
+#8 26.38   CC       src/bison-named-ref.o
+#8 26.42   CC       src/bison-nullable.o
+#8 26.44   CC       src/bison-output.o
+#8 26.45   CC       src/bison-parse-gram.o
+#8 26.53   CC       src/bison-print-graph.o
+#8 26.69   CC       src/bison-print-xml.o
+#8 26.97   CC       src/bison-print.o
+#8 26.99   CC       src/bison-reader.o
+#8 27.17   CC       src/bison-reduce.o
+#8 27.28   CC       src/bison-relation.o
+#8 27.28   CC       src/bison-scan-code-c.o
+#8 27.52   CC       src/bison-scan-gram-c.o
+#8 27.53   CC       src/bison-scan-skel-c.o
+#8 27.64   CC       src/bison-state.o
+#8 28.09   CC       src/bison-symlist.o
+#8 28.22   CC       src/bison-symtab.o
+#8 28.27   CC       src/bison-tables.o
+#8 28.28   CC       src/bison-uniqstr.o
+#8 28.39   CC       lib/libbison_a-allocator.o
+#8 28.45   CC       lib/libbison_a-areadlink.o
+#8 28.55   CC       lib/libbison_a-argmatch.o
+#8 28.63   CC       lib/libbison_a-gl_array_list.o
+#8 28.64   CC       lib/libbison_a-binary-io.o
+#8 28.67   CC       lib/libbison_a-bitrotate.o
+#8 28.71   CC       lib/libbison_a-bitset.o
+#8 28.87   CC       lib/bitset/libbison_a-array.o
+#8 28.91   CC       lib/bitset/libbison_a-stats.o
+#8 28.95   CC       lib/bitset/libbison_a-table.o
+#8 28.99   CC       lib/bitset/libbison_a-list.o
+#8 29.17   CC       lib/bitset/libbison_a-vector.o
+#8 29.18   CC       lib/glthread/libbison_a-lock.o
+#8 29.24   CC       lib/uniwidth/libbison_a-width.o
+#8 29.58   AR       lib/libbison.a
+#8 29.63   CCLD     src/bison
+#8 29.68   GEN      doc/bison.help
+#8 29.70 make  all-recursive
+#8 29.72 make[1]: Entering directory '/tmp/bison-3.5.1'
+#8 29.75 Making all in po
+#8 29.76 make[2]: Entering directory '/tmp/bison-3.5.1/po'
+#8 29.76 make[2]: Nothing to be done for 'all'.
+#8 29.76 make[2]: Leaving directory '/tmp/bison-3.5.1/po'
+#8 29.76 Making all in runtime-po
+#8 29.76 make[2]: Entering directory '/tmp/bison-3.5.1/runtime-po'
+#8 29.76 make[2]: Nothing to be done for 'all'.
+#8 29.76 make[2]: Leaving directory '/tmp/bison-3.5.1/runtime-po'
+#8 29.76 Making all in gnulib-po
+#8 29.76 make[2]: Entering directory '/tmp/bison-3.5.1/gnulib-po'
+#8 29.76 make[2]: Nothing to be done for 'all'.
+#8 29.76 make[2]: Leaving directory '/tmp/bison-3.5.1/gnulib-po'
+#8 29.76 Making all in .
+#8 29.79 make[2]: Entering directory '/tmp/bison-3.5.1'
+#8 29.85   CC       lib/main.o
+#8 29.85   CC       lib/yyerror.o
+#8 29.85   GEN      doc/bison.help
+#8 29.88   AR       lib/liby.a
+#8 29.89 make[2]: Leaving directory '/tmp/bison-3.5.1'
+#8 29.89 make[1]: Leaving directory '/tmp/bison-3.5.1'
+#8 29.95 make  install-recursive
+#8 29.97 make[1]: Entering directory '/tmp/bison-3.5.1'
+#8 30.00 Making install in po
+#8 30.01 make[2]: Entering directory '/tmp/bison-3.5.1/po'
+#8 30.01 if test "bison" = "gettext-tools"; then \
+#8 30.01   /usr/bin/mkdir -p /opt/bison/share/gettext/po; \
+#8 30.01   for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+#8 30.01     /usr/bin/install -c -m 644 ./$file \
+#8 30.01 		    /opt/bison/share/gettext/po/$file; \
+#8 30.01   done; \
+#8 30.01   for file in Makevars; do \
+#8 30.01     rm -f /opt/bison/share/gettext/po/$file; \
+#8 30.01   done; \
+#8 30.01 else \
+#8 30.01   : ; \
+#8 30.01 fi
+#8 30.01 make[2]: Leaving directory '/tmp/bison-3.5.1/po'
+#8 30.01 Making install in runtime-po
+#8 30.01 make[2]: Entering directory '/tmp/bison-3.5.1/runtime-po'
+#8 30.01 if test "bison" = "gettext-tools"; then \
+#8 30.01   /usr/bin/mkdir -p /opt/bison/share/gettext/po; \
+#8 30.01   for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+#8 30.01     /usr/bin/install -c -m 644 ./$file \
+#8 30.01 		    /opt/bison/share/gettext/po/$file; \
+#8 30.01   done; \
+#8 30.01   for file in Makevars; do \
+#8 30.01     rm -f /opt/bison/share/gettext/po/$file; \
+#8 30.01   done; \
+#8 30.01 else \
+#8 30.01   : ; \
+#8 30.01 fi
+#8 30.01 make[2]: Leaving directory '/tmp/bison-3.5.1/runtime-po'
+#8 30.01 Making install in gnulib-po
+#8 30.01 make[2]: Entering directory '/tmp/bison-3.5.1/gnulib-po'
+#8 30.01 if test "bison" = "gettext-tools"; then \
+#8 30.01   /usr/bin/mkdir -p /opt/bison/share/gettext/po; \
+#8 30.01   for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+#8 30.01     /usr/bin/install -c -m 644 ./$file \
+#8 30.01 		    /opt/bison/share/gettext/po/$file; \
+#8 30.01   done; \
+#8 30.01   for file in Makevars; do \
+#8 30.01     rm -f /opt/bison/share/gettext/po/$file; \
+#8 30.01   done; \
+#8 30.01 else \
+#8 30.01   : ; \
+#8 30.01 fi
+#8 30.01 make[2]: Leaving directory '/tmp/bison-3.5.1/gnulib-po'
+#8 30.01 Making install in .
+#8 30.04 make[2]: Entering directory '/tmp/bison-3.5.1'
+#8 30.10   GEN      doc/bison.help
+#8 30.15 make[3]: Entering directory '/tmp/bison-3.5.1'
+#8 30.21  /usr/bin/mkdir -p '/opt/bison/bin'
+#8 30.21   /usr/bin/install -c src/bison '/opt/bison/bin'
+#8 30.21  /usr/bin/mkdir -p '/opt/bison/lib'
+#8 30.21  /usr/bin/install -c -m 644  lib/liby.a '/opt/bison/lib'
+#8 30.22  ( cd '/opt/bison/lib' && ranlib liby.a )
+#8 30.22  /usr/bin/mkdir -p '/opt/bison/bin'
+#8 30.22  /usr/bin/install -c src/yacc '/opt/bison/bin'
+#8 30.23  /usr/bin/mkdir -p '/opt/bison/share/aclocal'
+#8 30.23  /usr/bin/install -c -m 644 m4/bison-i18n.m4 '/opt/bison/share/aclocal'
+#8 30.23  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c++/calc++'
+#8 30.23  /usr/bin/install -c -m 644 examples/c++/calc++/driver.cc examples/c++/calc++/driver.hh examples/c++/calc++/scanner.ll examples/c++/calc++/calc++.cc examples/c++/calc++/parser.yy '/opt/bison/share/doc/bison/examples/c++/calc++'
+#8 30.24  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c++'
+#8 30.24  /usr/bin/install -c -m 644 examples/c++/simple.yy '/opt/bison/share/doc/bison/examples/c++'
+#8 30.24  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c'
+#8 30.24  /usr/bin/install -c -m 644 examples/c/README.md '/opt/bison/share/doc/bison/examples/c'
+#8 30.25  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/calc'
+#8 30.25  /usr/bin/install -c -m 644 examples/c/calc/calc.y examples/c/calc/Makefile examples/c/calc/README.md '/opt/bison/share/doc/bison/examples/c/calc'
+#8 30.25  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c++/calc++'
+#8 30.25  /usr/bin/install -c -m 644 examples/c++/calc++/README.md examples/c++/calc++/Makefile '/opt/bison/share/doc/bison/examples/c++/calc++'
+#8 30.26  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c++'
+#8 30.26  /usr/bin/install -c -m 644 examples/c++/README.md examples/c++/Makefile examples/c++/variant.yy examples/c++/variant-11.yy '/opt/bison/share/doc/bison/examples/c++'
+#8 30.26  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/d'
+#8 30.26  /usr/bin/install -c -m 644 examples/d/calc.y examples/d/Makefile examples/d/README.md '/opt/bison/share/doc/bison/examples/d'
+#8 30.27  /usr/bin/mkdir -p '/opt/bison/share/doc/bison'
+#8 30.27  /usr/bin/install -c -m 644 AUTHORS COPYING NEWS README THANKS TODO '/opt/bison/share/doc/bison'
+#8 30.27  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples'
+#8 30.27  /usr/bin/install -c -m 644 examples/README.md '/opt/bison/share/doc/bison/examples'
+#8 30.28  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/java'
+#8 30.28  /usr/bin/install -c -m 644 examples/java/Calc.y examples/java/Makefile examples/java/README.md '/opt/bison/share/doc/bison/examples/java'
+#8 30.28  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/lexcalc'
+#8 30.29  /usr/bin/install -c -m 644 examples/c/lexcalc/parse.y examples/c/lexcalc/scan.l examples/c/lexcalc/Makefile examples/c/lexcalc/README.md '/opt/bison/share/doc/bison/examples/c/lexcalc'
+#8 30.29  /usr/bin/mkdir -p '/opt/bison/share/bison/m4sugar'
+#8 30.29  /usr/bin/install -c -m 644 data/m4sugar/foreach.m4 data/m4sugar/m4sugar.m4 '/opt/bison/share/bison/m4sugar'
+#8 30.29  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/mfcalc'
+#8 30.30  /usr/bin/install -c -m 644 examples/c/mfcalc/Makefile '/opt/bison/share/doc/bison/examples/c/mfcalc'
+#8 30.30  /usr/bin/mkdir -p '/opt/bison/share/bison'
+#8 30.30  /usr/bin/install -c -m 644 data/README.md data/bison-default.css '/opt/bison/share/bison'
+#8 30.30  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/reccalc'
+#8 30.30  /usr/bin/install -c -m 644 examples/c/reccalc/parse.y examples/c/reccalc/scan.l examples/c/reccalc/Makefile examples/c/reccalc/README.md '/opt/bison/share/doc/bison/examples/c/reccalc'
+#8 30.31  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/rpcalc'
+#8 30.31  /usr/bin/install -c -m 644 examples/c/rpcalc/Makefile '/opt/bison/share/doc/bison/examples/c/rpcalc'
+#8 30.31  /usr/bin/mkdir -p '/opt/bison/share/bison/skeletons'
+#8 30.32  /usr/bin/install -c -m 644 data/skeletons/bison.m4 data/skeletons/c++-skel.m4 data/skeletons/c++.m4 data/skeletons/c-like.m4 data/skeletons/c-skel.m4 data/skeletons/c.m4 data/skeletons/glr.c data/skeletons/glr.cc data/skeletons/java-skel.m4 data/skeletons/java.m4 data/skeletons/lalr1.cc data/skeletons/lalr1.java data/skeletons/location.cc data/skeletons/stack.hh data/skeletons/variant.hh data/skeletons/yacc.c data/skeletons/README-D.txt data/skeletons/d-skel.m4 data/skeletons/d.m4 data/skeletons/lalr1.d '/opt/bison/share/bison/skeletons'
+#8 30.32  /usr/bin/mkdir -p '/opt/bison/share/bison/xslt'
+#8 30.32  /usr/bin/install -c -m 644 data/xslt/bison.xsl data/xslt/xml2dot.xsl data/xslt/xml2text.xsl data/xslt/xml2xhtml.xsl '/opt/bison/share/bison/xslt'
+#8 30.33   GEN      doc/bison.help
+#8 30.34  /usr/bin/mkdir -p '/opt/bison/share/info'
+#8 30.35  /usr/bin/install -c -m 644 ./doc/bison.info '/opt/bison/share/info'
+#8 30.35  /usr/bin/mkdir -p '/opt/bison/share/man/man1'
+#8 30.36  /usr/bin/install -c -m 644 ./doc/bison.1 doc/yacc.1 '/opt/bison/share/man/man1'
+#8 30.36  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/mfcalc'
+#8 30.36  /usr/bin/install -c -m 644 examples/c/mfcalc/calc.h examples/c/mfcalc/mfcalc.y '/opt/bison/share/doc/bison/examples/c/mfcalc'
+#8 30.37  /usr/bin/mkdir -p '/opt/bison/share/doc/bison/examples/c/rpcalc'
+#8 30.37  /usr/bin/install -c -m 644 examples/c/rpcalc/rpcalc.y '/opt/bison/share/doc/bison/examples/c/rpcalc'
+#8 30.37 make[3]: Leaving directory '/tmp/bison-3.5.1'
+#8 30.37 make[2]: Leaving directory '/tmp/bison-3.5.1'
+#8 30.37 make[1]: Leaving directory '/tmp/bison-3.5.1'
+#8 DONE 30.4s
+
+#9 [5/5] WORKDIR /work
+#9 DONE 0.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 2.1s done
+#10 writing image sha256:72ca44e5b98d3a303ccce978de0cb600ebcb79e02c28133556a003568452c85d done
+#10 naming to docker.io/library/php-cve-e2e:php70 done
+#10 DONE 2.1s

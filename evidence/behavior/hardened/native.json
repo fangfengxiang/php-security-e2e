@@ -94,6 +94,13 @@
       "stderr": "\nFatal error: Possible integer overflow in memory allocation (18446744073709551615 * 2 + 0) in Command line code on line 1\n"
     },
     {
+      "check": "safe_addmult",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "\nFatal error: Possible integer overflow in security_probe offset addition (18446744073709551615 * 1 + 1) in Command line code on line 1\n"
+    },
+    {
       "check": "huge_rounding",
       "pass": true,
       "returncode": 1,

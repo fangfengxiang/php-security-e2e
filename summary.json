@@ -3,30 +3,30 @@
   "status": "PASS",
   "pass": true,
   "coverage_complete": false,
-  "generated_utc": "2026-10-25T07:05:26.758576+00:00",
+  "generated_utc": "2026-10-25T13:03:48.145911+00:00",
   "metadata": {
-    "run_id": "40170669755",
+    "run_id": "40194932010",
     "attempt": "1",
     "repository": "fangfengxiang/php-cve-e2e",
-    "harness_commit": "7ce13d03c0fcba68e8f6db8a5017d845ad812747",
+    "harness_commit": "a03ad2f4c092004f651da1e890c61c5848d5ca7d",
     "event": "push",
     "runner_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
     "source_pr": "https://github.com/fangfengxiang/php-src/pull/1",
-    "source_commit": "663925b952b932aa60cf9233528cff3d57c8784e"
+    "source_commit": "340892a0fa1abe4e2e6dc93c13ab7945cf9173f7"
   },
   "reporter_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
   "identities": {
     "source_commit": {
-      "behavior": "663925b952b932aa60cf9233528cff3d57c8784e",
-      "instrumented": "663925b952b932aa60cf9233528cff3d57c8784e"
+      "behavior": "340892a0fa1abe4e2e6dc93c13ab7945cf9173f7",
+      "instrumented": "340892a0fa1abe4e2e6dc93c13ab7945cf9173f7"
     },
     "baseline_commit": {
       "behavior": "bf574c2b67a1f786e36cf679f41b758b973a82c4",
       "instrumented": null
     },
     "image_id": {
-      "behavior": "sha256:ec1a1edf72ccee32d15aab711fca5ebf8550aa8d4ac4e736d4f3568281083b4a",
-      "instrumented": "sha256:ec1a1edf72ccee32d15aab711fca5ebf8550aa8d4ac4e736d4f3568281083b4a"
+      "behavior": "sha256:72ca44e5b98d3a303ccce978de0cb600ebcb79e02c28133556a003568452c85d",
+      "instrumented": "sha256:72ca44e5b98d3a303ccce978de0cb600ebcb79e02c28133556a003568452c85d"
     }
   },
   "cases": [
@@ -152,9 +152,9 @@
         "destructor_called": false,
         "master_alive": true,
         "response": {
-          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-mmllhs25/probe.php</b> on line <b>21</b><br />\n",
-          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-mmllhs25/probe.php</b> on line <b>21</b><br />\n",
-          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-mmllhs25/probe.php on line 21\n",
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-6g1t9ufx/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-6g1t9ufx/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-6g1t9ufx/probe.php on line 21\n",
           "ended": true
         },
         "pass": true
@@ -331,9 +331,9 @@
         "destructor_called": false,
         "master_alive": true,
         "response": {
-          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-vecnyvgz/probe.php</b> on line <b>21</b><br />\n",
-          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-vecnyvgz/probe.php</b> on line <b>21</b><br />\n",
-          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-vecnyvgz/probe.php on line 21\n",
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-xj5racrn/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-xj5racrn/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-xj5racrn/probe.php on line 21\n",
           "ended": true
         },
         "pass": true
@@ -551,6 +551,20 @@
     {
       "mode": "legacy",
       "suite": "behavior/native",
+      "name": "safe_addmult",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "safe_addmult",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in security_probe offset addition (18446744073709551615 * 1 + 1) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
       "name": "huge_rounding",
       "status": "PASS",
       "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
@@ -558,7 +572,7 @@
         "check": "huge_rounding",
         "pass": true,
         "returncode": 255,
-        "stdout": "\nFatal error: Out of memory (allocated 2097152) at /work/probe/security_probe.c:60 (tried to allocate 18446744073709550592 bytes) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stdout": "\nFatal error: Out of memory (allocated 2097152) at /work/probe/security_probe.c:62 (tried to allocate 18446744073709550592 bytes) in Command line code on line 1\nPHP SHUTDOWN\n",
         "stderr": "\nmmap() failed: [22] Invalid argument\n\nmmap() failed: [22] Invalid argument\n"
       }
     },
@@ -930,6 +944,20 @@
     {
       "mode": "hardened",
       "suite": "behavior/native",
+      "name": "safe_addmult",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "safe_addmult",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in security_probe offset addition (18446744073709551615 * 1 + 1) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
       "name": "huge_rounding",
       "status": "PASS",
       "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
@@ -1091,9 +1119,9 @@
         "destructor_called": false,
         "master_alive": true,
         "response": {
-          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-ls5ydhkp/probe.php</b> on line <b>21</b><br />\n",
-          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-ls5ydhkp/probe.php</b> on line <b>21</b><br />\n",
-          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-ls5ydhkp/probe.php on line 21\n",
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-1foe63gw/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-1foe63gw/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-1foe63gw/probe.php on line 21\n",
           "ended": true
         },
         "pass": true
@@ -2629,7 +2657,7 @@
     }
   ],
   "counts": {
-    "PASS": 99
+    "PASS": 101
   },
   "observations": [
     {
@@ -3956,31 +3984,37 @@
   ],
   "errors": [],
   "source_documents_sha256": {
-    "/home/runner/work/_temp/php70-e2e/summary.json": "c6d3fc13e7ccd20847f12567a8befc3c908e0c2fe39b6e92b88d314c5a21415f",
-    "/home/runner/work/_temp/php70-trace/summary.json": "5957d6211099753711d4939c30bd21c13e881c7061fbc4845618b60c403c51ae"
+    "/home/runner/work/_temp/php70-e2e/summary.json": "3570ad8b7f8ce250c1a282bd8d415b509710f19561f370b78ad7a86900e251fe",
+    "/home/runner/work/_temp/php70-trace/summary.json": "a403a6b04e1a6ec71f160e75ae8b6eabf8f9f2ad5a88dd4f428ac7644719e6d5"
   },
   "harness_sha256": {
     "behavior": {
-      "build.sh": "f5dc7c83d7a9e1215be164cf53de2734fbdb2153e13dd6c0347f7c8083476f79",
+      "build.sh": "f9842078b16f3807f4ef22b0a39e94fb103fc2f5c3102d12cd361ed648fc90f6",
+      "fpm-memory-pressure.py": "c2f22ed412bb7746a81c7633054b68746e648d74f8e312995eda634e47f50dfb",
       "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
-      "fpm-invariants.py": "1264d47a28f4dc37b7a5bda681926d9025b2b0b873452a4282fff2a87125da3f",
+      "fpm-invariants.py": "a9305223fbc619d0ef94d044b9a1ebdbd706b8d4d2cc81d75e7a14c8faf25291",
       "trace-invariants.py": "ce18b89d56e21ffd642c3a4bf364358a3ae45aca1326dd798681e55d9bca1db8",
+      "platform.sh": "ec8f3ad9836642f5840e3f4407953ab3d76361d72cd9e72153b8d3c358b77ec9",
       "instrument-session.py": "74e7ddf0641b64fedf8ad7562043e490f3d2763ecfb122cca7c58e44854ba219",
-      "native-invariants.py": "2eb5a44f6c442688445b313047b891f3c40dfe08b3dee4a2a71163cb510b6832",
-      "Dockerfile": "2ec2826c859a3977a2c05ed316a86950dc20b06a32646fbda0301d13e9f7a5f4",
+      "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
+      "Dockerfile": "bb17ab6c1a92091aa976b381383977ca8deaaf498b7e540fa15d9f6522d18813",
+      "docker-memory-invariants.py": "c0f4f3c859075e56d3adb4f3723f368d07d82d9582d3488e8a3fe8cb2b4a3e1f",
       "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
-      "probe-extension/security_probe.c": "b1c53d5bd4dc9ae887d3e1acb1bde4fab1007cc37bbd1fa688df18139aaee368"
+      "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357"
     },
     "instrumented": {
-      "build.sh": "4157b8d8abefe011d36f4b453a5e4eea2d16dc7a23a4af93534ba0a19aa0e29e",
+      "build.sh": "0c4e94f3afe722156af95b238304cafd94274e366c551dd7fd08146c3e906463",
+      "fpm-memory-pressure.py": "c2f22ed412bb7746a81c7633054b68746e648d74f8e312995eda634e47f50dfb",
       "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
-      "fpm-invariants.py": "1264d47a28f4dc37b7a5bda681926d9025b2b0b873452a4282fff2a87125da3f",
+      "fpm-invariants.py": "a9305223fbc619d0ef94d044b9a1ebdbd706b8d4d2cc81d75e7a14c8faf25291",
       "trace-invariants.py": "ce18b89d56e21ffd642c3a4bf364358a3ae45aca1326dd798681e55d9bca1db8",
+      "platform.sh": "ec8f3ad9836642f5840e3f4407953ab3d76361d72cd9e72153b8d3c358b77ec9",
       "instrument-session.py": "74e7ddf0641b64fedf8ad7562043e490f3d2763ecfb122cca7c58e44854ba219",
-      "native-invariants.py": "2eb5a44f6c442688445b313047b891f3c40dfe08b3dee4a2a71163cb510b6832",
-      "Dockerfile": "2ec2826c859a3977a2c05ed316a86950dc20b06a32646fbda0301d13e9f7a5f4",
+      "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
+      "Dockerfile": "bb17ab6c1a92091aa976b381383977ca8deaaf498b7e540fa15d9f6522d18813",
+      "docker-memory-invariants.py": "c0f4f3c859075e56d3adb4f3723f368d07d82d9582d3488e8a3fe8cb2b4a3e1f",
       "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
-      "probe-extension/security_probe.c": "b1c53d5bd4dc9ae887d3e1acb1bde4fab1007cc37bbd1fa688df18139aaee368"
+      "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357"
     }
   },
   "limits": [

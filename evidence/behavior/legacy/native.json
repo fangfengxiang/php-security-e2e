@@ -94,10 +94,17 @@
       "stderr": ""
     },
     {
+      "check": "safe_addmult",
+      "pass": true,
+      "returncode": 255,
+      "stdout": "\nFatal error: Possible integer overflow in security_probe offset addition (18446744073709551615 * 1 + 1) in Command line code on line 1\nPHP SHUTDOWN\n",
+      "stderr": ""
+    },
+    {
       "check": "huge_rounding",
       "pass": true,
       "returncode": 255,
-      "stdout": "\nFatal error: Out of memory (allocated 2097152) at /work/probe/security_probe.c:60 (tried to allocate 18446744073709550592 bytes) in Command line code on line 1\nPHP SHUTDOWN\n",
+      "stdout": "\nFatal error: Out of memory (allocated 2097152) at /work/probe/security_probe.c:62 (tried to allocate 18446744073709550592 bytes) in Command line code on line 1\nPHP SHUTDOWN\n",
       "stderr": "\nmmap() failed: [22] Invalid argument\n\nmmap() failed: [22] Invalid argument\n"
     },
     {
