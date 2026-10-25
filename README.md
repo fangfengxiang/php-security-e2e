@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/php-cve-e2e.png" alt="PHP CVE E2E — legacy 与 hardened 修复验证实验室" width="860">
+  <img src="docs/assets/php-cve-e2e.png" alt="php-cve-e2e — Managed 与 External 架构愿景及修复验证" width="1000">
 </p>
 
 <h1 align="center">php-cve-e2e</h1>
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="#快速开始">快速开始</a> · <a href="#验证什么">验证什么</a> · <a href="#两种报告模式">报告模式</a> · <a href="#实测差异">实测差异</a> · <a href="#参考资料">参考资料</a>
+  <a href="#架构">架构</a> · <a href="#快速开始">快速开始</a> · <a href="#验证什么">验证什么</a> · <a href="#两种报告模式">报告模式</a> · <a href="#实测差异">实测差异</a> · <a href="#参考资料">参考资料</a>
 </p>
 
 ---
@@ -25,6 +25,58 @@
 首个套件是 **PHP 7.0.33**，验证 CVE-2026-109618 / CVE-2026-109619 的**非官方 PHP 7.0 EOL 最小缓解适配**。测试目标参考官方 PHP 7.4 EOL 补丁；它不等同于受支持 PHP 8 的完整修复，也不意味着 PHP 7.0 恢复官方支持。[官方公告](https://www.php.net/archive/2026.php#2026-10-21-5) · [PHP 7.4 最小缓解](https://github.com/php/php-src/commit/712e60f9edfd03f0960fc4fc3c2c375f42b90aa2)
 
 本工具提供隔离测试、行为门禁与证据报告，不包含完整 RCE 利用链。当前没有 PHP 8 测试套件；后续版本按独立目录扩展。
+
+## 架构
+
+**测试目标由用户提供，测试环境可以由工具管理，测试证据必须独立可信。**
+
+下面展示目标架构，以及当前已落地的部分。Managed 与 External 描述环境如何接入；插桩与非插桩描述如何取得证据，这是两个不同维度。
+
+```mermaid
+flowchart TB
+    Runner["php-cve-e2e<br/>Test Runner · Assertions · Evidence · Reports"]
+
+    subgraph Managed["Managed · 已实现 php70 专用构建流程"]
+        Source["用户 PHP 源码 / Git Ref"]
+        Build["Build → PHP-FPM → Test"]
+        Source --> Build
+    end
+
+    subgraph External["External · 规划中"]
+        Target["用户指定 HTTP URL"]
+        Connect["Connect → HTTP → Test"]
+        Target --> Connect
+    end
+
+    Runner --> Source
+    Runner -.-> Target
+    Build --> Cases
+    Connect -.-> Cases
+
+    Cases["统一用例与断言层 · 目标设计<br/>Multipart · Session · OOM · Request Boundary"]
+    Cases --> Capabilities["根据目标能力选择可执行测试"]
+    Capabilities --> Evidence["Evidence / JSON / Markdown"]
+    Evidence --> Results["目标结果模型<br/>PASS · FAIL · SKIP · ERROR · INCONCLUSIVE"]
+
+    classDef planned fill:#f3f0ff,stroke:#8065b2,stroke-dasharray:5 5,color:#30234a;
+    class Target,Connect,Cases,Results planned;
+```
+
+| 层 | 职责 | 当前状态 |
+|---|---|---|
+| Managed | 接收源码与 Git Ref，构建 PHP、启动隔离 FPM 并执行测试 | 已实现 php70 专用流程；仍要求适配分支的安全编译开关及固定三构建对照 |
+| External | 连接用户已有 HTTP 服务，运行目标允许的用例 | 规划中，尚无 HTTP runner；需要服务端探针与能力识别 |
+| 用例与断言 | 组织 multipart、session、OOM 和请求边界检查 | 已有 FPM/native/trace 检查；统一可复用用例层尚未抽取 |
+| 能力选择 | 依据服务端探针、进程可见性及故障注入能力选择测试 | 目标设计；缺少证据的检查不能自动视为通过 |
+| 证据与报告 | 保存来源、日志、观察结果与判断依据 | 已有 JSON 和 Markdown 实测报告；统一五状态模型规划中，当前主要使用 `pass` / `completed` 与局部 skip/error 字段 |
+
+### 按目标能力决定验证范围
+
+Managed 能控制构建和 FPM 进程，因此可以检查 master/child 状态、加载测试扩展，并在专用构建中插桩。External 将通过 HTTP 连接已有环境，不负责启动 Docker 或管理服务端进程。
+
+External 的 multipart/session 等检查需要相应 PHP 探针；worker PID 需要服务端证据，FPM master、native allocator 和 C 层时序通常无法从普通 URL 获得。**HTTP 502、断线或缺少日志不能直接证明 worker 按修复预期退出。** OOM 等故障注入也必须由目标能力与执行策略单独决定。
+
+头图展示的是上述架构愿景。图中的统一 `php-cve-e2e run` CLI、External 模式尚未实现；当前可执行入口以[快速开始](#快速开始)为准。图中的 “No memory leak” 是示意文案，本仓库现有报告不提供零泄漏证明。
 
 ## 验证什么
 
