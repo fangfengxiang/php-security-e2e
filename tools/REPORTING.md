@@ -9,7 +9,7 @@ python3 tools/report.py \
   --output artifacts/historical-preview
 ```
 
-打开输出 `index.html` 或 `report.html` 即可离线查看。以上命令只使用 2026-10-24 历史证据，不会执行 PHP 或伪造新的运行结果。真实运行改为传入本轮 behavior/trace 输出目录。`--metadata` 可传入 CI 源码/runner 身份 JSON；`--detection` 可附加独立 ikow 规则单元检查结果。
+打开输出 `index.html` 或 `report.html` 即可离线查看。以上命令只使用 2026-10-24 历史证据，不会执行 PHP 或伪造新的运行结果。真实运行改为传入本轮 behavior/trace 输出目录。`--metadata` 可传入 CI 源码/runner 身份 JSON；`--detection` 附加独立 ikow 规则单元结果，`--engine` 附加真实 OpenResty HTTP 回放。PHP 状态、检测状态与 pipeline_status 分开保存，JUnit 使用独立 classname。
 
 输出：HTML、标准化 summary.json、JUnit、job-summary.md、evidence/ 与 manifest.json。读取不覆盖原始证据。归档保留 JSON、日志、构建日志、harness 和插桩补丁，排除完整源码树、安装二进制、session 与 tar 归档。
 
@@ -33,4 +33,4 @@ python3 tools/report.py \
 
 ## ikow 接入边界
 
-见 [integrations/ikow](../integrations/ikow/README.md)。检测规则单元检查单独展示；未验证检测引擎、完整 A–E 利用链仍为 NOT RUN。既有 PHP 修复门禁不因某条 WAF 规则命中而通过。
+见 [integrations/ikow](../integrations/ikow/README.md)。检测规则单元检查、真实 OpenResty HTTP 回放单独展示；Suricata/Sigma/ModSecurity、完整 A–E 利用链仍为 NOT RUN。既有 PHP 修复门禁不因某条 WAF 规则命中而通过。

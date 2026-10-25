@@ -31,6 +31,13 @@ class ReportingTests(unittest.TestCase):
             data = report.normalize(p, p)
             self.assertFalse(data['pass']); self.assertIn('NOT RUN', data['counts']); self.assertTrue(data['errors'])
 
+    def test_corrupted_nested_schema_remains_reportable(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p = Path(temp); (p / 'summary.json').write_text(json.dumps({'pass': True, 'completed': True, 'modes': []}))
+            data = report.normalize(p, p)
+            self.assertFalse(data['pass']); self.assertTrue(data['errors'])
+            report.render(data, (ROOT / 'templates/report.html').read_text())
+
     def test_source_mismatch(self):
         data = report.normalize(SAMPLES / 'noninstrumented', SAMPLES / 'instrumented', {'source_commit': 'wrong'})
         self.assertFalse(data['pass']); self.assertTrue(any('mismatch' in e['error'] for e in data['errors']))

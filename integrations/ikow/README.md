@@ -19,3 +19,16 @@ Suricata、Sigma、ModSecurity 文件目前只固定版本保存，状态为 IMP
 | E / FPM stale state | 现有 OOM/session 门禁验证部分行为；完整链 NOT RUN |
 
 PHP 修复验证、上游攻击链、规则单元检查和真实检测引擎必须独立计分。未来增加引擎流量回放时，应另存引擎版本、请求/响应/日志证据及预期命中 rule ID，不能把本文的规则导入升级为已执行覆盖。
+
+## 真实 OpenResty HTTP 回放
+
+```sh
+docker pull openresty/openresty:alpine-fat
+python3 integrations/ikow/openresty-run.py --output artifacts/ikow-openresty-001
+```
+
+这与前面的 Lua 单元检查是不同证据：使用真实 OpenResty worker 与 curl 请求，记录 HTTP 状态、响应、access/error 日志、版本与镜像 ID。容器只读、无网络、无 capabilities、非 root、仅使用容器内部 loopback，不接收外部目标地址；结束后回收自己创建的唯一命名容器。
+
+当前本地实跑 6 项通过：普通 multipart 放行、progress 阻断、PHPSESSID 仅告警、PHP 文本签名阻断、log-only 放行、GET 跳过。请求是无害合成 fixture，后端只有固定响应标记，没有 PHP 应用，不执行任何利用链。通过只能证明这些 fixture 上的真实检测引擎行为，不表示通用检测覆盖或 PHP 修复通过。
+
+`tools/report.py --detection <unit-output> --engine <openresty-output>` 将两类检测与 PHP 断言分别呈现；Suricata/Sigma/ModSecurity 仍未执行。CI 的 OpenResty 回放在原 PHP 测试之外独立运行，并记录本次实际引擎版本。

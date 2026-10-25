@@ -220,7 +220,7 @@ hardened 的 callback 仍发生，阻断的是其中的 session 消费逻辑。�
 
 ## ikow 研究与检测规则接入
 
-已按固定提交、保留 MIT 许可引入 ikow 的 detection/ 规则，并提供 6 项 Lua 规则单元检查；ngx 使用测试替身，输入为无害合成文本。这不等于真实 WAF/IDS 部署覆盖。Suricata、Sigma、ModSecurity 引擎及完整攻击链目前仍标为 NOT RUN。
+已按固定提交、保留 MIT 许可引入 ikow 的 detection/ 规则。当前提供 6 项 Lua 单元检查，以及 6 项真实 OpenResty HTTP fixture 回放，分别保存证据。单元检查使用 ngx 测试替身；引擎回放使用无网络容器和无害合成请求，不运行 PHP 利用链。Suricata、Sigma、ModSecurity 引擎及完整攻击链目前仍标为 NOT RUN。
 
 攻击路径参考、PHP 修复行为和检测命中独立计分；[接入范围与执行入口](integrations/ikow/README.md)。
 
