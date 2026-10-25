@@ -837,9 +837,9 @@
             "destructor_called": false,
             "master_alive": true,
             "response": {
-              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-melzlt80/probe.php</b> on line <b>15</b><br />\n",
-              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-melzlt80/probe.php</b> on line <b>15</b><br />\n",
-              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-melzlt80/probe.php on line 15\n",
+              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-w4yjdg3d/probe.php</b> on line <b>15</b><br />\n",
+              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-w4yjdg3d/probe.php</b> on line <b>15</b><br />\n",
+              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-w4yjdg3d/probe.php on line 15\n",
               "ended": true
             },
             "pass": true
@@ -1464,6 +1464,6 @@
     "probe-extension/security_probe.c": "b1c53d5bd4dc9ae887d3e1acb1bde4fab1007cc37bbd1fa688df18139aaee368"
   },
   "source_sha256": "175f54dfcb668f12558599f8cfc31a4f8cbfe5954a44ed39143d8a08740923ad",
-  "image_id": "sha256:3be7abf2665092e3286b6ec5f8433c192dc74917220dc855d2b2bc646bcc6a01",
+  "image_id": "sha256:793241986fc27fd18ace455d3f20933b8f95ba5ee6a4e3450ea8512a1fb0b013",
   "pre_rinit_consumer_difference_observed": true
 }

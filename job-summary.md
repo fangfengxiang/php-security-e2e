@@ -1,6 +1,6 @@
 # PHP 7.0 E2E Evidence
 
-**PASS** · coverage_complete=false
+**Pipeline: PASS · PHP: PASS** · coverage_complete=false
 
 Source: `663925b952b932aa60cf9233528cff3d57c8784e`
 

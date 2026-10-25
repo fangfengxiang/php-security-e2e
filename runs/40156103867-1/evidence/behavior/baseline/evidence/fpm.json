@@ -1,0 +1,86 @@
+{
+  "completed": true,
+  "pass": true,
+  "baseline": true,
+  "system_allocator": false,
+  "checks": [
+    {
+      "check": "normal destructor marker positive control",
+      "pass": true
+    },
+    {
+      "check": "five consecutive normal requests use same worker",
+      "pid": 9,
+      "pass": true
+    },
+    {
+      "check": "normal session write and read",
+      "pass": true
+    },
+    {
+      "check": "ordinary multipart field and file",
+      "pass": true
+    },
+    {
+      "check": "missing or zero Content-Length keeps FPM worker reusable",
+      "pid": 9,
+      "pass": true
+    },
+    {
+      "check": "unknown multipart headers do not accumulate retained memory",
+      "before_pid": 9,
+      "after_pid": 10,
+      "pass": true
+    },
+    {
+      "check": "upload progress honors mitigation including PHP_VALUE",
+      "has_progress": true,
+      "pass": true
+    },
+    {
+      "check": "ordinary fatal cleanup and safe worker reuse",
+      "shutdown_called": true,
+      "destructor_called": false,
+      "pid": 10,
+      "pass": true
+    },
+    {
+      "check": "early PHP_VALUE diagnostic after fatal and handlers",
+      "pid": 10,
+      "pass": true
+    },
+    {
+      "check": "script memory_limit OOM matches expected lifecycle",
+      "before_pid": 10,
+      "after_pid": 10,
+      "shutdown_called": true,
+      "destructor_called": false,
+      "master_alive": true,
+      "response": {
+        "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-63glhzg4/probe.php</b> on line <b>15</b><br />\n",
+        "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-63glhzg4/probe.php</b> on line <b>15</b><br />\n",
+        "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-63glhzg4/probe.php on line 15\n",
+        "ended": true
+      },
+      "pass": true
+    },
+    {
+      "check": "upload progress after script OOM has expected PID and state",
+      "pid": 10,
+      "pass": true
+    },
+    {
+      "check": "startup multipart OOM cannot reuse worker",
+      "response": {
+        "raw": "",
+        "body": "",
+        "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:669 (tried to allocate 6296371 bytes) in Unknown on line 0\n",
+        "ended": true
+      },
+      "master_alive": true,
+      "before_pid": 10,
+      "after_pid": 11,
+      "pass": true
+    }
+  ]
+}

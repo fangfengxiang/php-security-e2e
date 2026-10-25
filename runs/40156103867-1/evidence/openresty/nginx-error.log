@@ -1,0 +1,11 @@
+2026/10/25 03:07:35 [notice] 1#1: using the "epoll" event method
+2026/10/25 03:07:35 [notice] 1#1: openresty/1.31.1.1
+2026/10/25 03:07:35 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+2026/10/25 03:07:35 [notice] 1#1: OS: Linux 6.17.0-1022-azure
+2026/10/25 03:07:35 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 65536:65536
+2026/10/25 03:07:35 [notice] 1#1: start worker processes
+2026/10/25 03:07:35 [notice] 1#1: start worker process 8
+2026/10/25 03:07:35 [warn] 8#8: *3 [lua] php2shell.lua:62: check(): php2shell: blocked PHP_SESSION_UPLOAD_PROGRESS from 127.0.0.1 uri=/probe, client: 127.0.0.1, server: , request: "POST /probe HTTP/1.1", host: "127.0.0.1:8080"
+2026/10/25 03:07:35 [warn] 8#8: *4 [lua] php2shell.lua:78: check(): php2shell: PHPSESSID in POST body from 127.0.0.1 uri=/probe, client: 127.0.0.1, server: , request: "POST /probe HTTP/1.1", host: "127.0.0.1:8080"
+2026/10/25 03:07:35 [warn] 8#8: *5 [lua] php2shell.lua:89: check(): php2shell: PHP code in upload filename from 127.0.0.1 uri=/probe, client: 127.0.0.1, server: , request: "POST /probe HTTP/1.1", host: "127.0.0.1:8080"
+2026/10/25 03:07:35 [warn] 8#8: *6 [lua] php2shell.lua:62: check(): php2shell: blocked PHP_SESSION_UPLOAD_PROGRESS from 127.0.0.1 uri=/log-only, client: 127.0.0.1, server: , request: "POST /log-only HTTP/1.1", host: "127.0.0.1:8080"
