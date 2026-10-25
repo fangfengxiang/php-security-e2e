@@ -63,3 +63,7 @@ python3 php70/verify-built.py --run artifacts/run-003 --output artifacts/recheck
 ## 分模式报告
 
 统一入口：[非插桩行为报告 / 插桩时序报告](reports/README.md)。未来运行的汇总 JSON 使用 `report_mode` 和 `core_source_instrumented` 明确标记模式；已有原始报告保持不变，由 `reports/index.json` 建立关联。
+
+## CI 集成
+
+跨发行版与 cgroup 的共用入口及 PHPT 职责边界见 [CI 调用契约](CI.md)。
