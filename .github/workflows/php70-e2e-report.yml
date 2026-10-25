@@ -61,26 +61,11 @@ jobs:
         run: |
           docker image inspect php-cve-e2e:php70 >/dev/null
           python3 php70/trace-run.py --source php-source --ref HEAD --image php-cve-e2e:php70 --output "$RUNNER_TEMP/php70-trace" --jobs 2
-      - name: Upstream detection rule unit checks
-        id: detection
-        if: ${{ !cancelled() }}
-        continue-on-error: true
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y lua5.4
-          python3 integrations/ikow/run.py --lua lua5.4 --output "$RUNNER_TEMP/ikow-detection"
-      - name: Real OpenResty HTTP detector replay
-        id: engine
-        if: ${{ !cancelled() }}
-        continue-on-error: true
-        run: |
-          docker pull openresty/openresty:alpine-fat
-          python3 integrations/ikow/openresty-run.py --output "$RUNNER_TEMP/ikow-openresty"
       - name: Generate report even for failed or incomplete tests
         id: report
         if: always()
         run: |
-          python3 tools/report.py --e2e "$RUNNER_TEMP/php70-e2e" --trace "$RUNNER_TEMP/php70-trace" --metadata "$RUNNER_TEMP/run-metadata.json" --detection "$RUNNER_TEMP/ikow-detection" --engine "$RUNNER_TEMP/ikow-openresty" --output "$RUNNER_TEMP/php70-report"
+          python3 tools/report.py --e2e "$RUNNER_TEMP/php70-e2e" --trace "$RUNNER_TEMP/php70-trace" --metadata "$RUNNER_TEMP/run-metadata.json" --output "$RUNNER_TEMP/php70-report"
           {
             cat "$RUNNER_TEMP/php70-report/job-summary.md"
             echo "[Download report and raw evidence](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
@@ -100,14 +85,12 @@ jobs:
         env:
           E2E: ${{ steps.e2e.outcome }}
           TRACE: ${{ steps.trace.outcome }}
-          DETECTION: ${{ steps.detection.outcome }}
-          ENGINE: ${{ steps.engine.outcome }}
         run: |
           python3 - <<'PY'
           import json,os
           from pathlib import Path
           report=json.loads(Path(os.environ['RUNNER_TEMP'],'php70-report/summary.json').read_text())
-          if not report['pass'] or os.environ['E2E']!='success' or os.environ['TRACE']!='success' or os.environ['DETECTION']!='success' or os.environ['ENGINE']!='success' or report.get('pipeline_status')!='PASS': raise SystemExit('Verification failed or incomplete; see retained report')
+          if not report['pass'] or os.environ['E2E']!='success' or os.environ['TRACE']!='success': raise SystemExit('Verification failed or incomplete; see retained report')
           PY
   publish:
     if: always() && !cancelled() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.verify.outputs.report_ready == 'true'

@@ -218,12 +218,6 @@ hardened 的 callback 仍发生，阻断的是其中的 session 消费逻辑。�
 
 [离线生成与发布说明](tools/REPORTING.md)。现有历史样例只能用于验证 Reporter，不冒充新的 CI 执行。
 
-## ikow 研究与检测规则接入
-
-已按固定提交、保留 MIT 许可引入 ikow 的 detection/ 规则。当前提供 6 项 Lua 单元检查，以及 6 项真实 OpenResty HTTP fixture 回放，分别保存证据。单元检查使用 ngx 测试替身；引擎回放使用无网络容器和无害合成请求，不运行 PHP 利用链。Suricata、Sigma、ModSecurity 引擎及完整攻击链目前仍标为 NOT RUN。
-
-攻击路径参考、PHP 修复行为和检测命中独立计分；[接入范围与执行入口](integrations/ikow/README.md)。
-
 ## 目录
 
 ```text
@@ -276,7 +270,6 @@ php-cve-e2e/
 
 | 仓库 | 参考内容 |
 |---|---|
-| [ikow/php2shell-poc](https://github.com/ikow/php2shell-poc) | 攻击链、检测规则与实验环境；本 README 的头图/徽章/导航布局参考来源 |
 | [syrex1013/php2shell](https://github.com/syrex1013/php2shell) | session upload progress 与 UAF 实验环境 |
 | [devploit/php2shell](https://github.com/devploit/php2shell) | mod_php 研究、版本配置与复现实验 |
 | [xuehuolll/php2shell-CVE-2026-109618-109619](https://github.com/xuehuolll/php2shell-CVE-2026-109618-109619) | 漏洞机制、修复后证据与防御讨论 |
@@ -285,7 +278,7 @@ php-cve-e2e/
 | [l3tchupkt/php2shell](https://github.com/l3tchupkt/php2shell) | OOM、pre-RINIT 与相关行为探针的研究入口 |
 | [HackSpeak/CVE-2026-109618](https://github.com/HackSpeak/CVE-2026-109618) | 区分既有功能、应用前提与特定构建下的内存破坏证据 |
 
-这些项目用于理解公开研究背景。ikow 的固定检测规则按 MIT 原样保存；本工具不会自动下载或执行它们的利用代码。
+这些项目用于理解公开研究背景。本工具不会自动下载或执行它们的利用代码。
 
 ## 来源与使用范围
 
