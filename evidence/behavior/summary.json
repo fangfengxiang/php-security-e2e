@@ -4,9 +4,9 @@
   "native_allocator_checks_load_test_extension": true,
   "pass": true,
   "completed": true,
-  "source_commit": "383db00d3df1cfc4ddf1d05a4bea98062e8a4acf",
+  "source_commit": "fe7f9c3e832970c1431e51e23210468de1ebe898",
   "baseline_commit": "bf574c2b67a1f786e36cf679f41b758b973a82c4",
-  "started_utc": "2026-10-25T16:26:25.816016+00:00",
+  "started_utc": "2026-10-25T23:53:59.283954+00:00",
   "modes": {
     "baseline": {
       "pass": true,
@@ -69,9 +69,9 @@
             "destructor_called": false,
             "master_alive": true,
             "response": {
-              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-lyg_kkkj/probe.php</b> on line <b>21</b><br />\n",
-              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-lyg_kkkj/probe.php</b> on line <b>21</b><br />\n",
-              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-lyg_kkkj/probe.php on line 21\n",
+              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-rtcoym1z/probe.php</b> on line <b>21</b><br />\n",
+              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-rtcoym1z/probe.php</b> on line <b>21</b><br />\n",
+              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-rtcoym1z/probe.php on line 21\n",
               "ended": true
             },
             "pass": true
@@ -169,9 +169,9 @@
             "destructor_called": false,
             "master_alive": true,
             "response": {
-              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-57t4brdk/probe.php</b> on line <b>21</b><br />\n",
-              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-57t4brdk/probe.php</b> on line <b>21</b><br />\n",
-              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-57t4brdk/probe.php on line 21\n",
+              "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-f0l2kp0k/probe.php</b> on line <b>21</b><br />\n",
+              "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-f0l2kp0k/probe.php</b> on line <b>21</b><br />\n",
+              "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-f0l2kp0k/probe.php on line 21\n",
               "ended": true
             },
             "pass": true
@@ -568,7 +568,7 @@
     "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
     "Dockerfile": "bb17ab6c1a92091aa976b381383977ca8deaaf498b7e540fa15d9f6522d18813",
     "docker-memory-invariants.py": "923a4dab9c18b314a476eae86249fdd807dcc2f435649eaa31cda794b2e8b884",
-    "__pycache__/cli-memory-pressure.cpython-312.pyc": "05fc06ebfa08c4da20ef373b349a88b452d5fcf3fefa0b473a5bf7a502eaa726",
+    "__pycache__/cli-memory-pressure.cpython-312.pyc": "3b0ae36bc45b9196addf024cb9757d0b025855c18563d37e7420e2948ac6246a",
     "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
     "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357"
   },
@@ -577,9 +577,9 @@
     "Startup OOM precedes user script registration; user shutdown/destructor absence there is not proof of _exit.",
     "HTTP globals/handler checks cover observable request state, not all internal lifecycle fields."
   ],
-  "source_sha256": "8e706af5940c75ab66493dbd93e9fd5e7458e539364a8293d07666e4805e1106",
+  "source_sha256": "f10ce161dd11c756a1a583fec6a574eeba7426ddc870a4ed9ad6a53bbe1ffb3e",
   "baseline_sha256": "4564bdf98dea66974910ed96b8c20eec382ea3074d8b5c5f4a77c2dfb6111bd5",
-  "image_id": "sha256:9c8bfb87644f8e8e3d4d8c6b3412f8c924dd0680ef6842aeac7bf05bedbb0fdf",
+  "image_id": "sha256:383dd35bb7ea80a8254e22161ff00cceed44171f1c30a42987753ee693f012bf",
   "fatal_baseline_signature": {
     "shutdown_called": true,
     "destructor_called": false

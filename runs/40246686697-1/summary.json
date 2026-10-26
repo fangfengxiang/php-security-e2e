@@ -1,0 +1,4035 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "pass": true,
+  "coverage_complete": false,
+  "generated_utc": "2026-10-26T00:05:54.632743+00:00",
+  "metadata": {
+    "run_id": "40246686697",
+    "attempt": "1",
+    "repository": "fangfengxiang/php-security-e2e",
+    "harness_commit": "97f43c6c7f540454a4bc99dd03cd8cbd766b3757",
+    "event": "push",
+    "runner_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "source_pr": "https://github.com/fangfengxiang/php-src/pull/1",
+    "source_commit": "fe7f9c3e832970c1431e51e23210468de1ebe898"
+  },
+  "reporter_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "identities": {
+    "source_commit": {
+      "behavior": "fe7f9c3e832970c1431e51e23210468de1ebe898",
+      "instrumented": "fe7f9c3e832970c1431e51e23210468de1ebe898"
+    },
+    "baseline_commit": {
+      "behavior": "bf574c2b67a1f786e36cf679f41b758b973a82c4",
+      "instrumented": null
+    },
+    "image_id": {
+      "behavior": "sha256:383dd35bb7ea80a8254e22161ff00cceed44171f1c30a42987753ee693f012bf",
+      "instrumented": "sha256:383dd35bb7ea80a8254e22161ff00cceed44171f1c30a42987753ee693f012bf"
+    }
+  },
+  "cases": [
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "normal destructor marker positive control",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "normal destructor marker positive control",
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "five consecutive normal requests use same worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "five consecutive normal requests use same worker",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "normal session write and read",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "normal session write and read",
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "ordinary multipart field and file",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "ordinary multipart field and file",
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "missing or zero Content-Length keeps FPM worker reusable",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "missing or zero Content-Length keeps FPM worker reusable",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "unknown multipart headers do not accumulate retained memory",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "unknown multipart headers do not accumulate retained memory",
+        "before_pid": 9,
+        "after_pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "upload progress honors mitigation including PHP_VALUE",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "upload progress honors mitigation including PHP_VALUE",
+        "has_progress": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "ordinary fatal cleanup and safe worker reuse",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "ordinary fatal cleanup and safe worker reuse",
+        "shutdown_called": true,
+        "destructor_called": false,
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "early PHP_VALUE diagnostic after fatal and handlers",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "early PHP_VALUE diagnostic after fatal and handlers",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "script memory_limit OOM matches expected lifecycle",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "script memory_limit OOM matches expected lifecycle",
+        "before_pid": 10,
+        "after_pid": 10,
+        "shutdown_called": true,
+        "destructor_called": false,
+        "master_alive": true,
+        "response": {
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-rtcoym1z/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-rtcoym1z/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-rtcoym1z/probe.php on line 21\n",
+          "ended": true
+        },
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "upload progress after script OOM has expected PID and state",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "upload progress after script OOM has expected PID and state",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "Chain E session decode OOM risk-chain preconditions hold",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "Chain E session decode OOM risk-chain preconditions hold",
+        "producer_pid": 10,
+        "consumer_pid": 10,
+        "producer_oom": true,
+        "worker_reused": true,
+        "upload_progress_open": true,
+        "globals_clean": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "baseline",
+      "suite": "behavior/fpm",
+      "name": "startup multipart OOM cannot reuse worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "raw": {
+        "check": "startup multipart OOM cannot reuse worker",
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:669 (tried to allocate 6296371 bytes) in Unknown on line 0\n",
+          "ended": true
+        },
+        "master_alive": true,
+        "before_pid": 10,
+        "after_pid": 11,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "normal destructor marker positive control",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "normal destructor marker positive control",
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "five consecutive normal requests use same worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "five consecutive normal requests use same worker",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "normal session write and read",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "normal session write and read",
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "ordinary multipart field and file",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "ordinary multipart field and file",
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "missing or zero Content-Length keeps FPM worker reusable",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "missing or zero Content-Length keeps FPM worker reusable",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "unknown multipart headers do not accumulate retained memory",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "unknown multipart headers do not accumulate retained memory",
+        "before_pid": 9,
+        "after_pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "upload progress honors mitigation including PHP_VALUE",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "upload progress honors mitigation including PHP_VALUE",
+        "has_progress": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "ordinary fatal cleanup and safe worker reuse",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "ordinary fatal cleanup and safe worker reuse",
+        "shutdown_called": true,
+        "destructor_called": false,
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "early PHP_VALUE diagnostic after fatal and handlers",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "early PHP_VALUE diagnostic after fatal and handlers",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "script memory_limit OOM matches expected lifecycle",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "script memory_limit OOM matches expected lifecycle",
+        "before_pid": 10,
+        "after_pid": 10,
+        "shutdown_called": true,
+        "destructor_called": false,
+        "master_alive": true,
+        "response": {
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-f0l2kp0k/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-f0l2kp0k/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-f0l2kp0k/probe.php on line 21\n",
+          "ended": true
+        },
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "upload progress after script OOM has expected PID and state",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "upload progress after script OOM has expected PID and state",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "Chain E session decode OOM risk-chain preconditions hold",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "Chain E session decode OOM risk-chain preconditions hold",
+        "producer_pid": 10,
+        "consumer_pid": 10,
+        "producer_oom": true,
+        "worker_reused": true,
+        "upload_progress_open": true,
+        "globals_clean": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/fpm",
+      "name": "startup multipart OOM cannot reuse worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "raw": {
+        "check": "startup multipart OOM cannot reuse worker",
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes) in Unknown on line 0\n",
+          "ended": true
+        },
+        "master_alive": true,
+        "before_pid": 10,
+        "after_pid": 11,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "build mode and ABI sizes",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "build mode and ABI sizes",
+        "pass": true,
+        "data": {
+          "hardened": 0,
+          "module_api": 20151012,
+          "sizeof_pointer": 8,
+          "sizeof_zval": 16,
+          "sizeof_zend_string": 32,
+          "sizeof_HashTable": 56,
+          "sizeof_php_core_globals": 656,
+          "max_input_vars": 1000,
+          "memory_limit": 8388608
+        }
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "singleton alignment x[a]=v",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "singleton alignment x[a]=v",
+        "pass": true,
+        "data": {
+          "nTableSize": 8,
+          "nTableMask": 4294967288,
+          "arData_mod_pointer_alignment": 0,
+          "Bucket_alignment": 8,
+          "arData_mod_bucket_alignment": 0
+        }
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "singleton alignment x[999]=v",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "singleton alignment x[999]=v",
+        "pass": true,
+        "data": {
+          "nTableSize": 8,
+          "nTableMask": 4294967288,
+          "arData_mod_pointer_alignment": 0,
+          "Bucket_alignment": 8,
+          "arData_mod_bucket_alignment": 0
+        }
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "singleton alignment x[0]=v",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "singleton alignment x[0]=v",
+        "pass": true,
+        "data": {
+          "nTableSize": 8,
+          "nTableMask": 4294967294,
+          "arData_mod_pointer_alignment": 0,
+          "Bucket_alignment": 8,
+          "arData_mod_bucket_alignment": 0
+        }
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "emalloc",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "emalloc",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Allowed memory size of 8388608 bytes exhausted at /work/probe/security_probe.c:44 (tried to allocate 67108864 bytes) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "safe_emalloc",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "safe_emalloc",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in memory allocation (18446744073709551615 * 2 + 0) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "estrndup",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "estrndup",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in memory allocation (1 * 18446744073709551615 + 1) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "zend_strndup",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "zend_strndup",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in memory allocation (1 * 18446744073709551615 + 1) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "system_malloc",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "system_malloc",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "Out of memory\nC EXIT CALLBACK\n"
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "inline_guard",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "inline_guard",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in memory allocation (18446744073709551615 * 2 + 0) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "safe_addmult",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "safe_addmult",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in security_probe offset addition (18446744073709551615 * 1 + 1) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "huge_rounding",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "huge_rounding",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Out of memory (allocated 2097152) at /work/probe/security_probe.c:62 (tried to allocate 18446744073709550592 bytes) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": "\nmmap() failed: [22] Invalid argument\n\nmmap() failed: [22] Invalid argument\n"
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "metadata_overflow",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "metadata_overflow",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in memory allocation (0 + 32) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "behavior/native",
+      "name": "hash_capacity",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/native.json",
+      "raw": {
+        "check": "hash_capacity",
+        "pass": true,
+        "returncode": 255,
+        "stdout": "\nFatal error: Possible integer overflow in memory allocation (4294967295 * 32 + 32) in Command line code on line 1\nPHP SHUTDOWN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "normal destructor marker positive control",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "normal destructor marker positive control",
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "five consecutive normal requests use same worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "five consecutive normal requests use same worker",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "normal session write and read",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "normal session write and read",
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "ordinary multipart field and file",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "ordinary multipart field and file",
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "missing or zero Content-Length keeps FPM worker reusable",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "missing or zero Content-Length keeps FPM worker reusable",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "unknown multipart headers do not accumulate retained memory",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "unknown multipart headers do not accumulate retained memory",
+        "before_pid": 9,
+        "after_pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "upload progress honors mitigation including PHP_VALUE",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "upload progress honors mitigation including PHP_VALUE",
+        "has_progress": false,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "ordinary fatal cleanup and safe worker reuse",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "ordinary fatal cleanup and safe worker reuse",
+        "shutdown_called": true,
+        "destructor_called": false,
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "early PHP_VALUE diagnostic after fatal and handlers",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "early PHP_VALUE diagnostic after fatal and handlers",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "script memory_limit OOM matches expected lifecycle",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "script memory_limit OOM matches expected lifecycle",
+        "before_pid": 9,
+        "after_pid": 10,
+        "shutdown_called": false,
+        "destructor_called": false,
+        "master_alive": true,
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "",
+          "ended": false
+        },
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "upload progress after script OOM has expected PID and state",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "upload progress after script OOM has expected PID and state",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "Chain E session decode OOM fail-stop cuts risk chain",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "Chain E session decode OOM fail-stop cuts risk chain",
+        "producer_pid": 10,
+        "consumer_pid": 11,
+        "worker_replaced": true,
+        "upload_progress_disabled": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/fpm",
+      "name": "startup multipart OOM cannot reuse worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "raw": {
+        "check": "startup multipart OOM cannot reuse worker",
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "",
+          "ended": false
+        },
+        "master_alive": true,
+        "before_pid": 11,
+        "after_pid": 12,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "build mode and ABI sizes",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "build mode and ABI sizes",
+        "pass": true,
+        "data": {
+          "hardened": 1,
+          "module_api": 20151012,
+          "sizeof_pointer": 8,
+          "sizeof_zval": 16,
+          "sizeof_zend_string": 32,
+          "sizeof_HashTable": 56,
+          "sizeof_php_core_globals": 656,
+          "max_input_vars": 1000,
+          "memory_limit": 8388608
+        }
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "singleton alignment x[a]=v",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "singleton alignment x[a]=v",
+        "pass": true,
+        "data": {
+          "nTableSize": 1,
+          "nTableMask": 4294967294,
+          "arData_mod_pointer_alignment": 0,
+          "Bucket_alignment": 8,
+          "arData_mod_bucket_alignment": 0
+        }
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "singleton alignment x[999]=v",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "singleton alignment x[999]=v",
+        "pass": true,
+        "data": {
+          "nTableSize": 1,
+          "nTableMask": 4294967294,
+          "arData_mod_pointer_alignment": 0,
+          "Bucket_alignment": 8,
+          "arData_mod_bucket_alignment": 0
+        }
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "singleton alignment x[0]=v",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "singleton alignment x[0]=v",
+        "pass": true,
+        "data": {
+          "nTableSize": 1,
+          "nTableMask": 4294967294,
+          "arData_mod_pointer_alignment": 0,
+          "Bucket_alignment": 8,
+          "arData_mod_bucket_alignment": 0
+        }
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "emalloc",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "emalloc",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Allowed memory size of 8388608 bytes exhausted at /work/probe/security_probe.c:44 (tried to allocate 67108864 bytes) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "safe_emalloc",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "safe_emalloc",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (18446744073709551615 * 2 + 0) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "estrndup",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "estrndup",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (1 * 18446744073709551615 + 1) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "zend_strndup",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "zend_strndup",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (1 * 18446744073709551615 + 1) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "system_malloc",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "system_malloc",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "Out of memory\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "inline_guard",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "inline_guard",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (18446744073709551615 * 2 + 0) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "safe_addmult",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "safe_addmult",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in security_probe offset addition (18446744073709551615 * 1 + 1) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "huge_rounding",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "huge_rounding",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (18446744073709550592 bytes) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "metadata_overflow",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "metadata_overflow",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (0 + 32) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "behavior/native",
+      "name": "hash_capacity",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/native.json",
+      "raw": {
+        "check": "hash_capacity",
+        "pass": true,
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "\nFatal error: Possible integer overflow in memory allocation (4294967295 * 32 + 32) in Command line code on line 1\n"
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "normal destructor marker positive control",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "normal destructor marker positive control",
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "five consecutive normal requests use same worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "five consecutive normal requests use same worker",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "normal session write and read",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "normal session write and read",
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "ordinary multipart field and file",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "ordinary multipart field and file",
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "missing or zero Content-Length keeps FPM worker reusable",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "missing or zero Content-Length keeps FPM worker reusable",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "unknown multipart headers do not accumulate retained memory",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "unknown multipart headers do not accumulate retained memory",
+        "before_pid": 9,
+        "after_pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "upload progress honors mitigation including PHP_VALUE",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "upload progress honors mitigation including PHP_VALUE",
+        "has_progress": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "ordinary fatal cleanup and safe worker reuse",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "ordinary fatal cleanup and safe worker reuse",
+        "shutdown_called": true,
+        "destructor_called": false,
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "early PHP_VALUE diagnostic after fatal and handlers",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "early PHP_VALUE diagnostic after fatal and handlers",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "script memory_limit OOM matches expected lifecycle",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "script memory_limit OOM matches expected lifecycle",
+        "before_pid": 10,
+        "after_pid": 10,
+        "shutdown_called": true,
+        "destructor_called": false,
+        "master_alive": true,
+        "response": {
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-7afz9_tn/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-7afz9_tn/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-7afz9_tn/probe.php on line 21\n",
+          "ended": true
+        },
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "upload progress after script OOM has expected PID and state",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "upload progress after script OOM has expected PID and state",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "Chain E session decode OOM risk-chain preconditions hold",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "Chain E session decode OOM risk-chain preconditions hold",
+        "producer_pid": 10,
+        "consumer_pid": 10,
+        "producer_oom": true,
+        "worker_reused": true,
+        "upload_progress_open": true,
+        "globals_clean": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/fpm",
+      "name": "startup multipart OOM cannot reuse worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/fpm.json",
+      "raw": {
+        "check": "startup multipart OOM cannot reuse worker",
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes) in Unknown on line 0\n",
+          "ended": true
+        },
+        "master_alive": true,
+        "before_pid": 10,
+        "after_pid": 11,
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/trace",
+      "name": "normal-before",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json",
+      "raw": {
+        "scenario": "normal-before",
+        "pid": 9,
+        "ordinal": 1,
+        "data": {
+          "pid": 9,
+          "count": 1,
+          "has_progress": false,
+          "post": [],
+          "upload": null
+        },
+        "early_consumers": [],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 7,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 8,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 9,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 10,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/trace",
+      "name": "multipart",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json",
+      "raw": {
+        "scenario": "multipart",
+        "pid": 9,
+        "ordinal": 2,
+        "data": {
+          "pid": 9,
+          "count": 2,
+          "has_progress": true,
+          "post": {
+            "PHPSESSID": "tracesession",
+            "PHP_SESSION_UPLOAD_PROGRESS": "trace"
+          },
+          "upload": {
+            "error": 0,
+            "data": "trace upload\n"
+          }
+        },
+        "early_consumers": [
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 8,
+            "detail": 1
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 10,
+            "detail": 1
+          },
+          {
+            "event": "progress.find_sid",
+            "rinit": 0,
+            "sequence": 11,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 13,
+            "detail": 2
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 0,
+            "sequence": 14,
+            "detail": 0
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 15,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 16,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 18,
+            "detail": 3
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 19,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 21,
+            "detail": 4
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 22,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 24,
+            "detail": 5
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 25,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 26,
+            "detail": 0
+          }
+        ],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 7,
+            "detail": 1
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 8,
+            "detail": 1
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 9,
+            "detail": 1
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 10,
+            "detail": 1
+          },
+          {
+            "event": "progress.find_sid",
+            "rinit": 0,
+            "sequence": 11,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 12,
+            "detail": 2
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 13,
+            "detail": 2
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 0,
+            "sequence": 14,
+            "detail": 0
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 15,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 16,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 17,
+            "detail": 3
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 18,
+            "detail": 3
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 19,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 20,
+            "detail": 4
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 21,
+            "detail": 4
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 22,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 23,
+            "detail": 5
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 24,
+            "detail": 5
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 25,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 26,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 27,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 28,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 29,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 30,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 31,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 32,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/trace",
+      "name": "multipart-php-value",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json",
+      "raw": {
+        "scenario": "multipart-php-value",
+        "pid": 9,
+        "ordinal": 3,
+        "data": {
+          "pid": 9,
+          "count": 3,
+          "has_progress": true,
+          "post": {
+            "PHPSESSID": "tracesession",
+            "PHP_SESSION_UPLOAD_PROGRESS": "trace"
+          },
+          "upload": {
+            "error": 0,
+            "data": "trace upload\n"
+          }
+        },
+        "early_consumers": [
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 8,
+            "detail": 1
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 10,
+            "detail": 1
+          },
+          {
+            "event": "progress.find_sid",
+            "rinit": 0,
+            "sequence": 11,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 13,
+            "detail": 2
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 0,
+            "sequence": 14,
+            "detail": 0
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 15,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 16,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 18,
+            "detail": 3
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 19,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 21,
+            "detail": 4
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 22,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 24,
+            "detail": 5
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 25,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 26,
+            "detail": 0
+          }
+        ],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 7,
+            "detail": 1
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 8,
+            "detail": 1
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 9,
+            "detail": 1
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 10,
+            "detail": 1
+          },
+          {
+            "event": "progress.find_sid",
+            "rinit": 0,
+            "sequence": 11,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 12,
+            "detail": 2
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 13,
+            "detail": 2
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 0,
+            "sequence": 14,
+            "detail": 0
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 15,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 16,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 17,
+            "detail": 3
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 18,
+            "detail": 3
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 19,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 20,
+            "detail": 4
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 21,
+            "detail": 4
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 22,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 23,
+            "detail": 5
+          },
+          {
+            "event": "progress.consume",
+            "rinit": 0,
+            "sequence": 24,
+            "detail": 5
+          },
+          {
+            "event": "progress.update",
+            "rinit": 0,
+            "sequence": 25,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 0,
+            "sequence": 26,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 27,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 28,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 29,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 30,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 31,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 32,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "legacy",
+      "suite": "instrumented/trace",
+      "name": "normal-after",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json",
+      "raw": {
+        "scenario": "normal-after",
+        "pid": 9,
+        "ordinal": 4,
+        "data": {
+          "pid": 9,
+          "count": 4,
+          "has_progress": true,
+          "post": [],
+          "upload": null
+        },
+        "early_consumers": [],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 7,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 8,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 9,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 10,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "normal destructor marker positive control",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "normal destructor marker positive control",
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "five consecutive normal requests use same worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "five consecutive normal requests use same worker",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "normal session write and read",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "normal session write and read",
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "ordinary multipart field and file",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "ordinary multipart field and file",
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "missing or zero Content-Length keeps FPM worker reusable",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "missing or zero Content-Length keeps FPM worker reusable",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "unknown multipart headers do not accumulate retained memory",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "unknown multipart headers do not accumulate retained memory",
+        "before_pid": 9,
+        "after_pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "upload progress honors mitigation including PHP_VALUE",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "upload progress honors mitigation including PHP_VALUE",
+        "has_progress": false,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "ordinary fatal cleanup and safe worker reuse",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "ordinary fatal cleanup and safe worker reuse",
+        "shutdown_called": true,
+        "destructor_called": false,
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "early PHP_VALUE diagnostic after fatal and handlers",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "early PHP_VALUE diagnostic after fatal and handlers",
+        "pid": 9,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "script memory_limit OOM matches expected lifecycle",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "script memory_limit OOM matches expected lifecycle",
+        "before_pid": 9,
+        "after_pid": 10,
+        "shutdown_called": false,
+        "destructor_called": false,
+        "master_alive": true,
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "",
+          "ended": false
+        },
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "upload progress after script OOM has expected PID and state",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "upload progress after script OOM has expected PID and state",
+        "pid": 10,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "Chain E session decode OOM fail-stop cuts risk chain",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "Chain E session decode OOM fail-stop cuts risk chain",
+        "producer_pid": 10,
+        "consumer_pid": 11,
+        "worker_replaced": true,
+        "upload_progress_disabled": true,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/fpm",
+      "name": "startup multipart OOM cannot reuse worker",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/fpm.json",
+      "raw": {
+        "check": "startup multipart OOM cannot reuse worker",
+        "response": {
+          "raw": "",
+          "body": "",
+          "stderr": "",
+          "ended": false
+        },
+        "master_alive": true,
+        "before_pid": 11,
+        "after_pid": 12,
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/trace",
+      "name": "normal-before",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json",
+      "raw": {
+        "scenario": "normal-before",
+        "pid": 9,
+        "ordinal": 1,
+        "data": {
+          "pid": 9,
+          "count": 1,
+          "has_progress": false,
+          "post": [],
+          "upload": null
+        },
+        "early_consumers": [],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 7,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 8,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 9,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 10,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/trace",
+      "name": "multipart",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json",
+      "raw": {
+        "scenario": "multipart",
+        "pid": 9,
+        "ordinal": 2,
+        "data": {
+          "pid": 9,
+          "count": 2,
+          "has_progress": false,
+          "post": {
+            "PHPSESSID": "tracesession",
+            "PHP_SESSION_UPLOAD_PROGRESS": "trace"
+          },
+          "upload": {
+            "error": 0,
+            "data": "trace upload\n"
+          }
+        },
+        "early_consumers": [],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 7,
+            "detail": 1
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 8,
+            "detail": 1
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 9,
+            "detail": 1
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 10,
+            "detail": 1
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 11,
+            "detail": 2
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 12,
+            "detail": 2
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 13,
+            "detail": 3
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 14,
+            "detail": 3
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 15,
+            "detail": 4
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 16,
+            "detail": 4
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 17,
+            "detail": 5
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 18,
+            "detail": 5
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 19,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 20,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 21,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 22,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 23,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 24,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/trace",
+      "name": "multipart-php-value",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json",
+      "raw": {
+        "scenario": "multipart-php-value",
+        "pid": 9,
+        "ordinal": 3,
+        "data": {
+          "pid": 9,
+          "count": 3,
+          "has_progress": false,
+          "post": {
+            "PHPSESSID": "tracesession",
+            "PHP_SESSION_UPLOAD_PROGRESS": "trace"
+          },
+          "upload": {
+            "error": 0,
+            "data": "trace upload\n"
+          }
+        },
+        "early_consumers": [],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 7,
+            "detail": 1
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 8,
+            "detail": 1
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 9,
+            "detail": 1
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 10,
+            "detail": 1
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 11,
+            "detail": 2
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 12,
+            "detail": 2
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 13,
+            "detail": 3
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 14,
+            "detail": 3
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 15,
+            "detail": 4
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 16,
+            "detail": 4
+          },
+          {
+            "event": "progress.callback",
+            "rinit": 0,
+            "sequence": 17,
+            "detail": 5
+          },
+          {
+            "event": "progress.blocked",
+            "rinit": 0,
+            "sequence": 18,
+            "detail": 5
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 19,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 20,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 21,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 22,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 23,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 24,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    },
+    {
+      "mode": "hardened",
+      "suite": "instrumented/trace",
+      "name": "normal-after",
+      "status": "PASS",
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json",
+      "raw": {
+        "scenario": "normal-after",
+        "pid": 9,
+        "ordinal": 4,
+        "data": {
+          "pid": 9,
+          "count": 4,
+          "has_progress": false,
+          "post": [],
+          "upload": null
+        },
+        "early_consumers": [],
+        "events": [
+          {
+            "event": "request.begin",
+            "rinit": 0,
+            "sequence": 1,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.enter",
+            "rinit": 0,
+            "sequence": 2,
+            "detail": 0
+          },
+          {
+            "event": "sapi.activate.leave",
+            "rinit": 0,
+            "sequence": 3,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.enter",
+            "rinit": 0,
+            "sequence": 4,
+            "detail": 0
+          },
+          {
+            "event": "http_globals.leave",
+            "rinit": 0,
+            "sequence": 5,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.enter",
+            "rinit": 0,
+            "sequence": 6,
+            "detail": 0
+          },
+          {
+            "event": "session.module_rinit",
+            "rinit": 1,
+            "sequence": 7,
+            "detail": 0
+          },
+          {
+            "event": "session.rinit_helper",
+            "rinit": 1,
+            "sequence": 8,
+            "detail": 0
+          },
+          {
+            "event": "modules.activate.leave",
+            "rinit": 1,
+            "sequence": 9,
+            "detail": 0
+          },
+          {
+            "event": "session.initialize",
+            "rinit": 1,
+            "sequence": 10,
+            "detail": 0
+          }
+        ],
+        "pass": true
+      }
+    }
+  ],
+  "counts": {
+    "PASS": 101
+  },
+  "observations": [
+    {
+      "mode": "baseline",
+      "check": "normal destructor marker positive control",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "five consecutive normal requests use same worker",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "normal session write and read",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "ordinary multipart field and file",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "missing or zero Content-Length keeps FPM worker reusable",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "unknown multipart headers do not accumulate retained memory",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {
+        "before_pid": 9,
+        "after_pid": 10
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "upload progress honors mitigation including PHP_VALUE",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {
+        "has_progress": true
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "ordinary fatal cleanup and safe worker reuse",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {
+        "shutdown_called": true,
+        "destructor_called": false
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "early PHP_VALUE diagnostic after fatal and handlers",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "script memory_limit OOM matches expected lifecycle",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {
+        "before_pid": 10,
+        "after_pid": 10,
+        "shutdown_called": true,
+        "destructor_called": false,
+        "master_alive": true
+      },
+      "response_ended": true
+    },
+    {
+      "mode": "baseline",
+      "check": "upload progress after script OOM has expected PID and state",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "Chain E session decode OOM risk-chain preconditions hold",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "baseline",
+      "check": "startup multipart OOM cannot reuse worker",
+      "evidence": "/home/runner/work/_temp/php70-e2e/baseline/evidence/fpm.json",
+      "values": {
+        "before_pid": 10,
+        "after_pid": 11,
+        "master_alive": true
+      },
+      "response_ended": true
+    },
+    {
+      "mode": "legacy",
+      "check": "normal destructor marker positive control",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "five consecutive normal requests use same worker",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "normal session write and read",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "ordinary multipart field and file",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "missing or zero Content-Length keeps FPM worker reusable",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "unknown multipart headers do not accumulate retained memory",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {
+        "before_pid": 9,
+        "after_pid": 10
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "upload progress honors mitigation including PHP_VALUE",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {
+        "has_progress": true
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "ordinary fatal cleanup and safe worker reuse",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {
+        "shutdown_called": true,
+        "destructor_called": false
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "early PHP_VALUE diagnostic after fatal and handlers",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "script memory_limit OOM matches expected lifecycle",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {
+        "before_pid": 10,
+        "after_pid": 10,
+        "shutdown_called": true,
+        "destructor_called": false,
+        "master_alive": true
+      },
+      "response_ended": true
+    },
+    {
+      "mode": "legacy",
+      "check": "upload progress after script OOM has expected PID and state",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "Chain E session decode OOM risk-chain preconditions hold",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "legacy",
+      "check": "startup multipart OOM cannot reuse worker",
+      "evidence": "/home/runner/work/_temp/php70-e2e/legacy/evidence/fpm.json",
+      "values": {
+        "before_pid": 10,
+        "after_pid": 11,
+        "master_alive": true
+      },
+      "response_ended": true
+    },
+    {
+      "mode": "hardened",
+      "check": "normal destructor marker positive control",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "five consecutive normal requests use same worker",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "normal session write and read",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "ordinary multipart field and file",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "missing or zero Content-Length keeps FPM worker reusable",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "unknown multipart headers do not accumulate retained memory",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {
+        "before_pid": 9,
+        "after_pid": 9
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "upload progress honors mitigation including PHP_VALUE",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {
+        "has_progress": false
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "ordinary fatal cleanup and safe worker reuse",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {
+        "shutdown_called": true,
+        "destructor_called": false
+      },
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "early PHP_VALUE diagnostic after fatal and handlers",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "script memory_limit OOM matches expected lifecycle",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {
+        "before_pid": 9,
+        "after_pid": 10,
+        "shutdown_called": false,
+        "destructor_called": false,
+        "master_alive": true
+      },
+      "response_ended": false
+    },
+    {
+      "mode": "hardened",
+      "check": "upload progress after script OOM has expected PID and state",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "Chain E session decode OOM fail-stop cuts risk chain",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {},
+      "response_ended": null
+    },
+    {
+      "mode": "hardened",
+      "check": "startup multipart OOM cannot reuse worker",
+      "evidence": "/home/runner/work/_temp/php70-e2e/hardened/evidence/fpm.json",
+      "values": {
+        "before_pid": 11,
+        "after_pid": 12,
+        "master_alive": true
+      },
+      "response_ended": false
+    }
+  ],
+  "timelines": [
+    {
+      "mode": "legacy",
+      "scenario": "normal-before",
+      "pid": 9,
+      "ordinal": 1,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 7,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 8,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 9,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 10,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json"
+    },
+    {
+      "mode": "legacy",
+      "scenario": "multipart",
+      "pid": 9,
+      "ordinal": 2,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 7,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 9,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.find_sid",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 12,
+          "detail": 2
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 2
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 0
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 17,
+          "detail": 3
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 3
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 20,
+          "detail": 4
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 21,
+          "detail": 4
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 23,
+          "detail": 5
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 24,
+          "detail": 5
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 25,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 26,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 27,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 28,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 29,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 30,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 31,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 32,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json"
+    },
+    {
+      "mode": "legacy",
+      "scenario": "multipart-php-value",
+      "pid": 9,
+      "ordinal": 3,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 7,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 9,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.find_sid",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 12,
+          "detail": 2
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 2
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 0
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 17,
+          "detail": 3
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 3
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 20,
+          "detail": 4
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 21,
+          "detail": 4
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 23,
+          "detail": 5
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 24,
+          "detail": 5
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 25,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 26,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 27,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 28,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 29,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 30,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 31,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 32,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json"
+    },
+    {
+      "mode": "legacy",
+      "scenario": "normal-after",
+      "pid": 9,
+      "ordinal": 4,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 7,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 8,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 9,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 10,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/legacy/trace.json"
+    },
+    {
+      "mode": "hardened",
+      "scenario": "normal-before",
+      "pid": 9,
+      "ordinal": 1,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 7,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 8,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 9,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 10,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json"
+    },
+    {
+      "mode": "hardened",
+      "scenario": "multipart",
+      "pid": 9,
+      "ordinal": 2,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 7,
+          "detail": 1
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 9,
+          "detail": 1
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 2
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 12,
+          "detail": 2
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 3
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 3
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 4
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 4
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 17,
+          "detail": 5
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 5
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 20,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 21,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 23,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 24,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json"
+    },
+    {
+      "mode": "hardened",
+      "scenario": "multipart-php-value",
+      "pid": 9,
+      "ordinal": 3,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 7,
+          "detail": 1
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 9,
+          "detail": 1
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 2
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 12,
+          "detail": 2
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 3
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 3
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 4
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 4
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 17,
+          "detail": 5
+        },
+        {
+          "event": "progress.blocked",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 5
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 20,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 21,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 23,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 24,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json"
+    },
+    {
+      "mode": "hardened",
+      "scenario": "normal-after",
+      "pid": 9,
+      "ordinal": 4,
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 7,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 8,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 9,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 10,
+          "detail": 0
+        }
+      ],
+      "sequence_valid": true,
+      "evidence": "/home/runner/work/_temp/php70-trace/hardened/trace.json"
+    }
+  ],
+  "errors": [],
+  "source_documents_sha256": {
+    "/home/runner/work/_temp/php70-e2e/summary.json": "24f7747db718b29156ac6ad3f67c375cd3ebc500508f1a92c9c116ce86f8d35c",
+    "/home/runner/work/_temp/php70-trace/summary.json": "dbca93f95d68f711924abe21bb03f356a3236a292fac8d6e802bce315cfbc44d"
+  },
+  "harness_sha256": {
+    "behavior": {
+      "build.sh": "f9842078b16f3807f4ef22b0a39e94fb103fc2f5c3102d12cd361ed648fc90f6",
+      "fpm-memory-pressure.py": "c2f22ed412bb7746a81c7633054b68746e648d74f8e312995eda634e47f50dfb",
+      "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
+      "fpm-invariants.py": "a9305223fbc619d0ef94d044b9a1ebdbd706b8d4d2cc81d75e7a14c8faf25291",
+      "cli-memory-pressure.py": "9f9877223a5753e1356e372c8ebec39e27f88e999f89074f6841a159459f1389",
+      "trace-invariants.py": "ce18b89d56e21ffd642c3a4bf364358a3ae45aca1326dd798681e55d9bca1db8",
+      "platform.sh": "ec8f3ad9836642f5840e3f4407953ab3d76361d72cd9e72153b8d3c358b77ec9",
+      "instrument-session.py": "74e7ddf0641b64fedf8ad7562043e490f3d2763ecfb122cca7c58e44854ba219",
+      "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
+      "Dockerfile": "bb17ab6c1a92091aa976b381383977ca8deaaf498b7e540fa15d9f6522d18813",
+      "docker-memory-invariants.py": "923a4dab9c18b314a476eae86249fdd807dcc2f435649eaa31cda794b2e8b884",
+      "__pycache__/cli-memory-pressure.cpython-312.pyc": "3b0ae36bc45b9196addf024cb9757d0b025855c18563d37e7420e2948ac6246a",
+      "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
+      "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357"
+    },
+    "instrumented": {
+      "build.sh": "0c4e94f3afe722156af95b238304cafd94274e366c551dd7fd08146c3e906463",
+      "fpm-memory-pressure.py": "c2f22ed412bb7746a81c7633054b68746e648d74f8e312995eda634e47f50dfb",
+      "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
+      "fpm-invariants.py": "a9305223fbc619d0ef94d044b9a1ebdbd706b8d4d2cc81d75e7a14c8faf25291",
+      "cli-memory-pressure.py": "9f9877223a5753e1356e372c8ebec39e27f88e999f89074f6841a159459f1389",
+      "trace-invariants.py": "ce18b89d56e21ffd642c3a4bf364358a3ae45aca1326dd798681e55d9bca1db8",
+      "platform.sh": "ec8f3ad9836642f5840e3f4407953ab3d76361d72cd9e72153b8d3c358b77ec9",
+      "instrument-session.py": "74e7ddf0641b64fedf8ad7562043e490f3d2763ecfb122cca7c58e44854ba219",
+      "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
+      "Dockerfile": "bb17ab6c1a92091aa976b381383977ca8deaaf498b7e540fa15d9f6522d18813",
+      "docker-memory-invariants.py": "923a4dab9c18b314a476eae86249fdd807dcc2f435649eaa31cda794b2e8b884",
+      "__pycache__/cli-memory-pressure.cpython-312.pyc": "3b0ae36bc45b9196addf024cb9757d0b025855c18563d37e7420e2948ac6246a",
+      "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae",
+      "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357"
+    }
+  },
+  "limits": [
+    "Pre-RINIT session consumer ordering requires native instrumentation/source review; session-key absence alone is insufficient.",
+    "Startup OOM precedes user script registration; user shutdown/destructor absence there is not proof of _exit.",
+    "HTTP globals/handler checks cover observable request state, not all internal lifecycle fields.",
+    "Linux NTS FPM; tested callbacks and session consumers only. Third-party callbacks not loaded.",
+    "Observer uses stack formatting and OS append writes; instrumentation may change timing. Original uninstrumented gates remain separate.",
+    "This run closes the pre-RINIT session consumer evidence gap for these requests, not all CVE/OOM lifecycle coverage.",
+    "Sequence is event order, not elapsed time.",
+    "PASS means required observed checks met their own expectations; legacy PASS is not a security verdict.",
+    "No report establishes all CVE variants as fixed."
+  ]
+}
