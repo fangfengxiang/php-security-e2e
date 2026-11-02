@@ -1,5 +1,5 @@
-Mon Oct 26 08:39:41 UTC 2026
-Linux 0187c93314c8 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 GNU/Linux
+Mon Nov  2 10:41:04 UTC 2026
+Linux bcf923a8d3d7 7.0.0-1017-azure #17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026 x86_64 GNU/Linux
 PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
 NAME="Debian GNU/Linux"
 VERSION_ID="12"
@@ -146,8 +146,8 @@ libpython3.11-stdlib:amd64	3.11.2-6+deb12u9
 libquadmath0:amd64	12.2.0-14+deb12u1
 libreadline8:amd64	8.2-1.3
 librtmp1:amd64	2.4+20151223.gitfa8646d.1-2+b2
-libsasl2-2:amd64	2.1.28+dfsg-10
-libsasl2-modules-db:amd64	2.1.28+dfsg-10
+libsasl2-2:amd64	2.1.28+dfsg-10+deb12u1
+libsasl2-modules-db:amd64	2.1.28+dfsg-10+deb12u1
 libseccomp2:amd64	2.5.4-1+deb12u1
 libselinux1:amd64	3.4-1+b6
 libsemanage-common	3.4-1
@@ -202,7 +202,7 @@ rpcsvc-proto	1.4.3-1
 sed	4.9-1+deb12u1
 sysvinit-utils	3.06-4
 tar	1.34+dfsg-1.2+deb12u1
-tzdata	2026c-0+deb12u1
+tzdata	2026e-0+deb12u1
 usr-is-merged	37~deb12u1
 util-linux	2.38.1-5+deb12u3
 util-linux-extra	2.38.1-5+deb12u3
