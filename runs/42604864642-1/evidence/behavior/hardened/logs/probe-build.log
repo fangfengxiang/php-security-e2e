@@ -1,0 +1,145 @@
+Configuring for:
+PHP Api Version:         20151012
+Zend Module Api No:      20151012
+Zend Extension Api No:   320151012
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for cc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking how to run the C preprocessor... cc -E
+checking for icc... no
+checking for suncc... no
+checking whether cc understands -c and -o together... yes
+checking for system library directory... lib
+checking if compiler supports -R... yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking for PHP prefix... /work/install
+checking for PHP includes... -I/work/install/include/php -I/work/install/include/php/main -I/work/install/include/php/TSRM -I/work/install/include/php/Zend -I/work/install/include/php/ext -I/work/install/include/php/ext/date/lib
+checking for PHP extension directory... /work/install/lib/php/extensions/debug-non-zts-20151012
+checking for PHP installed headers prefix... /work/install/include/php
+checking if debug is enabled... yes
+checking if zts is enabled... no
+checking for re2c... re2c
+checking for re2c version... 3.0 (ok)
+checking for gawk... no
+checking for nawk... nawk
+checking if nawk is broken... no
+checking build the benign backport verification probe... yes, shared
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognize dependent libraries... pass_all
+./configure: line 4950: /usr/bin/file: No such file or directory
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking the maximum length of command line arguments... 3145728
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if cc supports -fno-rtti -fno-exceptions... no
+checking for cc option to produce PIC... -fPIC
+checking if cc PIC flag -fPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+
+creating libtool
+appending configuration tag "CXX" to libtool
+configure: creating ./config.status
+config.status: creating config.h
+/bin/bash /work/probe/libtool --mode=compile cc  -I. -I/work/probe -DPHP_ATOM_INC -I/work/probe/include -I/work/probe/main -I/work/probe -I/work/install/include/php -I/work/install/include/php/main -I/work/install/include/php/TSRM -I/work/install/include/php/Zend -I/work/install/include/php/ext -I/work/install/include/php/ext/date/lib  -DHAVE_CONFIG_H  -g -O0   -c /work/probe/security_probe.c -o security_probe.lo 
+mkdir .libs
+ cc -I. -I/work/probe -DPHP_ATOM_INC -I/work/probe/include -I/work/probe/main -I/work/probe -I/work/install/include/php -I/work/install/include/php/main -I/work/install/include/php/TSRM -I/work/install/include/php/Zend -I/work/install/include/php/ext -I/work/install/include/php/ext/date/lib -DHAVE_CONFIG_H -g -O0 -c /work/probe/security_probe.c  -fPIC -DPIC -o .libs/security_probe.o
+In file included from /work/install/include/php/Zend/zend.h:33,
+                 from /work/install/include/php/main/php.h:35,
+                 from /work/probe/security_probe.c:5:
+/work/probe/security_probe.c: In function 'zif_security_probe_allocation':
+/work/install/include/php/Zend/zend_alloc.h:196:69: warning: argument 1 value '18446744073709547520' exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+  196 | #define pemalloc(size, persistent) ((persistent)?__zend_malloc(size):emalloc(size))
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+/work/probe/security_probe.c:52:23: note: in expansion of macro 'pemalloc'
+   52 |                 ptr = pemalloc((size_t) -4096, 1);
+      |                       ^~~~~~~~
+/work/install/include/php/Zend/zend_alloc.h:191:17: note: in a call to allocation function '__zend_malloc' declared here
+  191 | ZEND_API void * __zend_malloc(size_t len) ZEND_ATTRIBUTE_MALLOC ZEND_ATTRIBUTE_ALLOC_SIZE(1);
+      |                 ^~~~~~~~~~~~~
+/work/install/include/php/Zend/zend_alloc.h:160:65: warning: argument 1 value '18446744073709550592' exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+  160 | #define emalloc(size)                                           _emalloc((size) ZEND_FILE_LINE_CC ZEND_FILE_LINE_EMPTY_CC)
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/probe/security_probe.c:62:23: note: in expansion of macro 'emalloc'
+   62 |                 ptr = emalloc((size_t) -1024);
+      |                       ^~~~~~~
+/work/install/include/php/Zend/zend_alloc.h:76:31: note: in a call to allocation function '_emalloc' declared here
+   76 | ZEND_API void*  ZEND_FASTCALL _emalloc(size_t size ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC) ZEND_ATTRIBUTE_MALLOC ZEND_ATTRIBUTE_ALLOC_SIZE(1);
+      |                               ^~~~~~~~
+/work/install/include/php/Zend/zend_alloc.h:160:65: warning: argument 1 value '18446744073709551615' exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+  160 | #define emalloc(size)                                           _emalloc((size) ZEND_FILE_LINE_CC ZEND_FILE_LINE_EMPTY_CC)
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/probe/security_probe.c:64:23: note: in expansion of macro 'emalloc'
+   64 |                 ptr = emalloc((size_t) -1);
+      |                       ^~~~~~~
+/work/install/include/php/Zend/zend_alloc.h:76:31: note: in a call to allocation function '_emalloc' declared here
+   76 | ZEND_API void*  ZEND_FASTCALL _emalloc(size_t size ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC) ZEND_ATTRIBUTE_MALLOC ZEND_ATTRIBUTE_ALLOC_SIZE(1);
+      |                               ^~~~~~~~
+/bin/bash /work/probe/libtool --mode=link cc -DPHP_ATOM_INC -I/work/probe/include -I/work/probe/main -I/work/probe -I/work/install/include/php -I/work/install/include/php/main -I/work/install/include/php/TSRM -I/work/install/include/php/Zend -I/work/install/include/php/ext -I/work/install/include/php/ext/date/lib  -DHAVE_CONFIG_H  -g -O0   -o security_probe.la -export-dynamic -avoid-version -prefer-pic -module -rpath /work/probe/modules  security_probe.lo 
+cc -shared  .libs/security_probe.o   -Wl,-soname -Wl,security_probe.so -o .libs/security_probe.so
+creating security_probe.la
+(cd .libs && rm -f security_probe.la && ln -s ../security_probe.la security_probe.la)
+/bin/bash /work/probe/libtool --mode=install cp ./security_probe.la /work/probe/modules
+cp ./.libs/security_probe.so /work/probe/modules/security_probe.so
+cp ./.libs/security_probe.lai /work/probe/modules/security_probe.la
+PATH="$PATH:/sbin" ldconfig -n /work/probe/modules
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /work/probe/modules
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+
+Build complete.
+Don't forget to run 'make test'.
+

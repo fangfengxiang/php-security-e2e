@@ -3,9 +3,9 @@
   "status": "PASS",
   "pass": true,
   "coverage_complete": false,
-  "generated_utc": "2026-11-02T10:46:46.385765+00:00",
+  "generated_utc": "2026-11-09T11:07:33.561152+00:00",
   "metadata": {
-    "run_id": "41429902836",
+    "run_id": "42604864642",
     "attempt": "1",
     "repository": "fangfengxiang/php-security-e2e",
     "harness_commit": "97f43c6c7f540454a4bc99dd03cd8cbd766b3757",
@@ -25,8 +25,8 @@
       "instrumented": null
     },
     "image_id": {
-      "behavior": "sha256:03583670d4f825fe7617a4957757c5bc512ed8747bda48dbb1bef26a64c45b50",
-      "instrumented": "sha256:03583670d4f825fe7617a4957757c5bc512ed8747bda48dbb1bef26a64c45b50"
+      "behavior": "sha256:3c959d64722ec971f4c4c7ce878e38bde5e2365e5d65a06182b8cd276524f8b5",
+      "instrumented": "sha256:3c959d64722ec971f4c4c7ce878e38bde5e2365e5d65a06182b8cd276524f8b5"
     }
   },
   "cases": [
@@ -152,9 +152,9 @@
         "destructor_called": false,
         "master_alive": true,
         "response": {
-          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-4w0d2jlp/probe.php</b> on line <b>21</b><br />\n",
-          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-4w0d2jlp/probe.php</b> on line <b>21</b><br />\n",
-          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-4w0d2jlp/probe.php on line 21\n",
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-g3lswdic/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-g3lswdic/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:139 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-g3lswdic/probe.php on line 21\n",
           "ended": true
         },
         "pass": true
@@ -331,9 +331,9 @@
         "destructor_called": false,
         "master_alive": true,
         "response": {
-          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-vi15i799/probe.php</b> on line <b>21</b><br />\n",
-          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-vi15i799/probe.php</b> on line <b>21</b><br />\n",
-          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-vi15i799/probe.php on line 21\n",
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-daulkr68/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-daulkr68/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-daulkr68/probe.php on line 21\n",
           "ended": true
         },
         "pass": true
@@ -1119,9 +1119,9 @@
         "destructor_called": false,
         "master_alive": true,
         "response": {
-          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-3pkhej_3/probe.php</b> on line <b>21</b><br />\n",
-          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-3pkhej_3/probe.php</b> on line <b>21</b><br />\n",
-          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-3pkhej_3/probe.php on line 21\n",
+          "raw": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-020g5jfw/probe.php</b> on line <b>21</b><br />\n",
+          "body": "<br />\n<b>Fatal error</b>:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in <b>/tmp/php70-fpm-020g5jfw/probe.php</b> on line <b>21</b><br />\n",
+          "stderr": "PHP message: PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-020g5jfw/probe.php on line 21\n",
           "ended": true
         },
         "pass": true
@@ -3984,8 +3984,8 @@
   ],
   "errors": [],
   "source_documents_sha256": {
-    "/home/runner/work/_temp/php70-e2e/summary.json": "672d4acd69537d626a7ad2c284872397271ca02b9601c672eda433d1337b9238",
-    "/home/runner/work/_temp/php70-trace/summary.json": "bcb050daa177c977bd326e4bc670753dd4453c956480dd377a51b5684de55c1d"
+    "/home/runner/work/_temp/php70-e2e/summary.json": "6bec935f50863788ba72d0bd48c929f100f3177547346b8d0c12a9d0b43ec893",
+    "/home/runner/work/_temp/php70-trace/summary.json": "b3fb78c6b59429bbae6c95016b856089019f90b0c405fd1f4d0e373ef90eec53"
   },
   "harness_sha256": {
     "behavior": {
@@ -4000,7 +4000,7 @@
       "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
       "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
       "fpm-invariants.py": "a9305223fbc619d0ef94d044b9a1ebdbd706b8d4d2cc81d75e7a14c8faf25291",
-      "__pycache__/cli-memory-pressure.cpython-312.pyc": "f998d8c18d7066d312476df56b5a7d9230493b650bd2a366880f6b015b8442f3",
+      "__pycache__/cli-memory-pressure.cpython-312.pyc": "9473f4019614faa415ab2cce7b0d29d30b2c6776c4086a787f3d4ffdf4800a87",
       "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357",
       "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae"
     },
@@ -4016,7 +4016,7 @@
       "native-invariants.py": "aac9457e5230204e44cddb1f41967db9fdc418dc33f938620a03b2e11ed22a91",
       "build-probe.sh": "c035a045e62edc9480bdb8bbeaede3420bfea586f10bb7384f2b463405096f04",
       "fpm-invariants.py": "a9305223fbc619d0ef94d044b9a1ebdbd706b8d4d2cc81d75e7a14c8faf25291",
-      "__pycache__/cli-memory-pressure.cpython-312.pyc": "f998d8c18d7066d312476df56b5a7d9230493b650bd2a366880f6b015b8442f3",
+      "__pycache__/cli-memory-pressure.cpython-312.pyc": "9473f4019614faa415ab2cce7b0d29d30b2c6776c4086a787f3d4ffdf4800a87",
       "probe-extension/security_probe.c": "dae3fe162ac51a837e3d54ad4ce846a0ebfe2bc68d01202bb5efff5af4775357",
       "probe-extension/config.m4": "07c007562acd10cfd78e1c0ae73f462d9422bf50b0693213ec4e5c6385fddbae"
     }

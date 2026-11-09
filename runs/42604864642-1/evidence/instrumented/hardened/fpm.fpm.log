@@ -1,0 +1,20 @@
+[09-Nov-2026 11:07:33] NOTICE: fpm is running, pid 8
+[09-Nov-2026 11:07:33] NOTICE: ready to handle connections
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 said into stderr: "NOTICE: PHP message: PHP Fatal error:  benign lifecycle probe in /tmp/php70-fpm-h8h7scc3/probe.php on line 13"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 said into stderr: "/tmp/php70-fpm-h8h7scc3/probe.php(13) : Fatal error - benign lifecycle probe"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 said into stderr: "NOTICE: PHP message: PHP Deprecated:  Unknown: Use of iconv.input_encoding is deprecated in Unknown on line 0"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 said into stderr: "Unknown(0) : Deprecated - Unknown: Use of iconv.input_encoding is deprecated"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 said into stderr: ""
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 said into stderr: "Fatal error: Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:141 (tried to allocate 67108896 bytes) in /tmp/php70-fpm-h8h7scc3/probe.php on line 21"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 9 exited with code 1 after 0.063717 seconds from start
+[09-Nov-2026 11:07:33] NOTICE: [pool probe] child 10 started
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 10 said into stderr: ""
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 10 said into stderr: "Fatal error: Allowed memory size of 16777216 bytes exhausted at /work/source/Zend/zend_string.h:123 (tried to allocate 15000048 bytes) in /tmp/php70-fpm-h8h7scc3/probe.php on line 19"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 10 exited with code 1 after 0.024231 seconds from start
+[09-Nov-2026 11:07:33] NOTICE: [pool probe] child 11 started
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 11 said into stderr: ""
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 11 said into stderr: "Fatal error: Allowed memory size of 16777216 bytes exhausted at /work/source/main/rfc1867.c:717 (tried to allocate 6296371 bytes) in Unknown on line 0"
+[09-Nov-2026 11:07:33] WARNING: [pool probe] child 11 exited with code 1 after 0.088962 seconds from start
+[09-Nov-2026 11:07:33] NOTICE: [pool probe] child 12 started
+[09-Nov-2026 11:07:33] NOTICE: Terminating ...
+[09-Nov-2026 11:07:33] NOTICE: exiting, bye-bye!

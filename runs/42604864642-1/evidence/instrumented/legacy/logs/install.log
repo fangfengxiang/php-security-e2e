@@ -1,0 +1,22 @@
+Installing shared extensions:     /work/install/lib/php/extensions/debug-non-zts-20151012/
+Installing PHP CLI binary:        /work/install/bin/
+Installing PHP CLI man page:      /work/install/php/man/man1/
+Installing PHP FPM binary:        /work/install/sbin/
+Installing PHP FPM defconfig:     /work/install/etc/
+Installing PHP FPM man page:      /work/install/php/man/man8/
+Installing PHP FPM status page:   /work/install/php/php/fpm/
+Installing phpdbg binary:         /work/install/bin/
+Installing phpdbg man page:       /work/install/php/man/man1/
+Installing PHP CGI binary:        /work/install/bin/
+Installing PHP CGI man page:      /work/install/php/man/man1/
+Installing build environment:     /work/install/lib/php/build/
+Installing header files:          /work/install/include/php/
+Installing helper programs:       /work/install/bin/
+  program: phpize
+  program: php-config
+Installing man pages:             /work/install/php/man/man1/
+  page: phpize.1
+  page: php-config.1
+/work/source/build/shtool install -c ext/phar/phar.phar /work/install/bin
+ln -s -f phar.phar /work/install/bin/phar
+Installing PDO headers:           /work/install/include/php/ext/pdo/
