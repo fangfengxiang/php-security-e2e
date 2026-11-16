@@ -1,0 +1,163 @@
+--- a/main/main.c
++++ b/main/main.c
+@@ -1576,12 +1576,56 @@
+ 
+ /* }}} */
+ 
++
++/* Test-only: stack buffer + OS write, no Zend/session/global reads. */
++#include "php70_e2e_trace.h"
++#include <errno.h>
++#include <unistd.h>
++#include <stdlib.h>
++static unsigned long php70_e2e_request;
++static int php70_e2e_session_rinit;
++static unsigned long php70_e2e_sequence;
++PHPAPI void php70_e2e_emit(const char *event, unsigned int detail)
++{
++    int saved_errno = errno;
++    ++php70_e2e_sequence;
++    const char *path = getenv("PHP70_E2E_TRACE");
++    if (path && *path) {
++        char line[256];
++        int length = snprintf(line, sizeof(line), "PHP70TRACE pid=%ld request=%lu rinit=%d seq=%lu event=%s detail=%u\n",
++            (long)getpid(), php70_e2e_request, php70_e2e_session_rinit, php70_e2e_sequence, event, detail);
++        if (length > 0 && length < (int)sizeof(line)) {
++            int fd = open(path, O_WRONLY | O_CREAT | O_APPEND, 0600);
++            if (fd >= 0) {
++                /* Missing/partial writes are rejected by the reader, not PHP. */
++                ssize_t written = write(fd, line, length);
++                (void)written;
++                close(fd);
++            }
++        }
++    }
++    errno = saved_errno;
++}
++PHPAPI void php70_e2e_begin(void)
++{
++    ++php70_e2e_request;
++    php70_e2e_session_rinit = 0;
++    php70_e2e_sequence = 0;
++    php70_e2e_emit("request.begin", 0);
++}
++PHPAPI void php70_e2e_rinit(void)
++{
++    php70_e2e_session_rinit = 1;
++    php70_e2e_emit("session.module_rinit", 0);
++}
++
+ /* {{{ php_request_startup
+  */
+ #ifndef APACHE_HOOKS
+ int php_request_startup(void)
+ {
+ 	int retval = SUCCESS;
++	php70_e2e_begin();
+ 
+ #ifdef HAVE_DTRACE
+ 	DTRACE_REQUEST_STARTUP(SAFE_FILENAME(SG(request_info).path_translated), SAFE_FILENAME(SG(request_info).request_uri), (char *)SAFE_FILENAME(SG(request_info).request_method));
+@@ -1611,7 +1655,9 @@
+ 		PG(in_user_include) = 0;
+ 
+ 		zend_activate();
++		php70_e2e_emit("sapi.activate.enter", 0);
+ 		sapi_activate();
++		php70_e2e_emit("sapi.activate.leave", 0);
+ 
+ #ifdef ZEND_SIGNALS
+ 		zend_signal_activate();
+@@ -1647,8 +1693,12 @@
+ 		/* We turn this off in php_execute_script() */
+ 		/* PG(during_request_startup) = 0; */
+ 
++		php70_e2e_emit("http_globals.enter", 0);
+ 		php_hash_environment();
++		php70_e2e_emit("http_globals.leave", 0);
++		php70_e2e_emit("modules.activate.enter", 0);
+ 		zend_activate_modules();
++		php70_e2e_emit("modules.activate.leave", 0);
+ 		PG(modules_activated)=1;
+ 	} zend_catch {
+ 		retval = FAILURE;
+--- a/ext/session/session.c
++++ b/ext/session/session.c
+@@ -24,6 +24,7 @@
+ #endif
+ 
+ #include "php.h"
++#include "php70_e2e_trace.h"
+ 
+ #ifdef PHP_WIN32
+ # include "win32/winutil.h"
+@@ -501,6 +502,7 @@
+ 
+ static void php_session_initialize(void) /* {{{ */
+ {
++	php70_e2e_emit("session.initialize", 0);
+ 	zend_string *val = NULL;
+ 
+ 	if (!PS(mod)) {
+@@ -2642,6 +2644,7 @@
+ 
+ static int php_rinit_session(zend_bool auto_start) /* {{{ */
+ {
++	php70_e2e_emit("session.rinit_helper", 0);
+ 	php_rinit_session_globals();
+ 
+ 	if (PS(mod) == NULL) {
+@@ -2677,6 +2680,7 @@
+ 
+ static PHP_RINIT_FUNCTION(session) /* {{{ */
+ {
++	php70_e2e_rinit();
+ 	return php_rinit_session(PS(auto_start));
+ }
+ /* }}} */
+@@ -2875,6 +2879,7 @@
+ 
+ static void php_session_rfc1867_early_find_sid(php_session_rfc1867_progress *progress) /* {{{ */
+ {
++	php70_e2e_emit("progress.find_sid", 0);
+ 
+ 	if (PS(use_cookies)) {
+ 		sapi_module.treat_data(PARSE_COOKIE, NULL, NULL);
+@@ -2908,6 +2913,7 @@
+ 
+ static void php_session_rfc1867_update(php_session_rfc1867_progress *progress, int force_update) /* {{{ */
+ {
++	php70_e2e_emit("progress.update", 0);
+ 	if (!force_update) {
+ 		if (Z_LVAL_P(progress->post_bytes_processed) < progress->next_update) {
+ 			return;
+@@ -2942,6 +2948,7 @@
+ 
+ static void php_session_rfc1867_cleanup(php_session_rfc1867_progress *progress) /* {{{ */
+ {
++	php70_e2e_emit("progress.cleanup", 0);
+ 	php_session_initialize();
+ 	PS(session_status) = php_session_active;
+ 	IF_SESSION_VARS() {
+@@ -2956,6 +2963,7 @@
+ {
+ 	php_session_rfc1867_progress *progress;
+ 	int retval = SUCCESS;
++	php70_e2e_emit("progress.callback", event);
+ 
+ 	if (php_session_rfc1867_orig_callback) {
+ 		retval = php_session_rfc1867_orig_callback(event, event_data, extra);
+@@ -2963,12 +2971,14 @@
+ 	/* CVE-2026-109619 / 712e60f9: refuse early Session state in place;
+ 	 * preserve callback chaining and legacy initialization order. */
+ 	if (php70_security_is_hardened()) {
++		php70_e2e_emit("progress.blocked", event);
+ 		return retval;
+ 	}
+ 	if (!PS(rfc1867_enabled)) {
+ 		return retval;
+ 	}
+ 
++	php70_e2e_emit("progress.consume", event);
+ 	progress = PS(rfc1867_progress);
+ 
+ 	switch(event) {

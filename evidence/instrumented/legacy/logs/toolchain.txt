@@ -1,5 +1,5 @@
-Mon Nov  9 11:03:39 UTC 2026
-Linux e1dc5a5c75e2 7.0.0-1017-azure #17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026 x86_64 GNU/Linux
+Mon Nov 16 10:46:34 UTC 2026
+Linux 762d7201f099 7.0.0-1017-azure #17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026 x86_64 GNU/Linux
 PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
 NAME="Debian GNU/Linux"
 VERSION_ID="12"
@@ -176,7 +176,7 @@ libxml2:amd64	2.9.14+dfsg-1.3~deb12u6
 libxml2-dev:amd64	2.9.14+dfsg-1.3~deb12u6
 libxxhash0:amd64	0.8.1-1
 libzstd1:amd64	1.5.4+dfsg2-5
-linux-libc-dev:amd64	6.1.190-1
+linux-libc-dev:amd64	6.1.192-1
 login	1:4.13+dfsg1-1+deb12u2
 logsave	1.47.0-2+b2
 m4	1.4.19-3

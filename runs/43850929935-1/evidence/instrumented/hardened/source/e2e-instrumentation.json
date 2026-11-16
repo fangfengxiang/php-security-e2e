@@ -1,0 +1,15 @@
+{
+  "test_only": true,
+  "platform": "Linux NTS",
+  "files": {
+    "main/main.c": {
+      "before": "70ad6e14d01d1d3728234ef6dfe407c0c57cfe2a8bbd120092b6ab8bf9cdfb3b",
+      "after": "51983772029cea982fa2866e7e567527a4c753b0d6e6ae5077631055d577a99e"
+    },
+    "ext/session/session.c": {
+      "before": "bba0f3afca48fdde887c67ebe1e0f821b6c4cb1a374c2e3468e3c3591ae02b18",
+      "after": "808a21eecc330c3ce306d8b17c48e70f316666f530996acd4eb6a6f703bba12d"
+    }
+  },
+  "added_header_sha256": "1f51771c57572a8252cf8edf8c8afcbd8434f60d64b44f09407827779b8b4351"
+}

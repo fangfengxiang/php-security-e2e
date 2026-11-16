@@ -1,0 +1,770 @@
+{
+  "pass": true,
+  "completed": true,
+  "legacy": true,
+  "instrumented_build": true,
+  "requests": [
+    {
+      "scenario": "normal-before",
+      "pid": 9,
+      "ordinal": 1,
+      "data": {
+        "pid": 9,
+        "count": 1,
+        "has_progress": false,
+        "post": [],
+        "upload": null
+      },
+      "early_consumers": [],
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 7,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 8,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 9,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 10,
+          "detail": 0
+        }
+      ],
+      "pass": true
+    },
+    {
+      "scenario": "multipart",
+      "pid": 9,
+      "ordinal": 2,
+      "data": {
+        "pid": 9,
+        "count": 2,
+        "has_progress": true,
+        "post": {
+          "PHPSESSID": "tracesession",
+          "PHP_SESSION_UPLOAD_PROGRESS": "trace"
+        },
+        "upload": {
+          "error": 0,
+          "data": "trace upload\n"
+        }
+      },
+      "early_consumers": [
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.find_sid",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 2
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 0
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 3
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 21,
+          "detail": 4
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 24,
+          "detail": 5
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 25,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 26,
+          "detail": 0
+        }
+      ],
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 7,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 9,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.find_sid",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 12,
+          "detail": 2
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 2
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 0
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 17,
+          "detail": 3
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 3
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 20,
+          "detail": 4
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 21,
+          "detail": 4
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 23,
+          "detail": 5
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 24,
+          "detail": 5
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 25,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 26,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 27,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 28,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 29,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 30,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 31,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 32,
+          "detail": 0
+        }
+      ],
+      "pass": true
+    },
+    {
+      "scenario": "multipart-php-value",
+      "pid": 9,
+      "ordinal": 3,
+      "data": {
+        "pid": 9,
+        "count": 3,
+        "has_progress": true,
+        "post": {
+          "PHPSESSID": "tracesession",
+          "PHP_SESSION_UPLOAD_PROGRESS": "trace"
+        },
+        "upload": {
+          "error": 0,
+          "data": "trace upload\n"
+        }
+      },
+      "early_consumers": [
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.find_sid",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 2
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 0
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 3
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 21,
+          "detail": 4
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 24,
+          "detail": 5
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 25,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 26,
+          "detail": 0
+        }
+      ],
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 7,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 8,
+          "detail": 1
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 9,
+          "detail": 1
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 10,
+          "detail": 1
+        },
+        {
+          "event": "progress.find_sid",
+          "rinit": 0,
+          "sequence": 11,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 12,
+          "detail": 2
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 13,
+          "detail": 2
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 0,
+          "sequence": 14,
+          "detail": 0
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 15,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 16,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 17,
+          "detail": 3
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 18,
+          "detail": 3
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 19,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 20,
+          "detail": 4
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 21,
+          "detail": 4
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 22,
+          "detail": 0
+        },
+        {
+          "event": "progress.callback",
+          "rinit": 0,
+          "sequence": 23,
+          "detail": 5
+        },
+        {
+          "event": "progress.consume",
+          "rinit": 0,
+          "sequence": 24,
+          "detail": 5
+        },
+        {
+          "event": "progress.update",
+          "rinit": 0,
+          "sequence": 25,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 0,
+          "sequence": 26,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 27,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 28,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 29,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 30,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 31,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 32,
+          "detail": 0
+        }
+      ],
+      "pass": true
+    },
+    {
+      "scenario": "normal-after",
+      "pid": 9,
+      "ordinal": 4,
+      "data": {
+        "pid": 9,
+        "count": 4,
+        "has_progress": true,
+        "post": [],
+        "upload": null
+      },
+      "early_consumers": [],
+      "events": [
+        {
+          "event": "request.begin",
+          "rinit": 0,
+          "sequence": 1,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.enter",
+          "rinit": 0,
+          "sequence": 2,
+          "detail": 0
+        },
+        {
+          "event": "sapi.activate.leave",
+          "rinit": 0,
+          "sequence": 3,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.enter",
+          "rinit": 0,
+          "sequence": 4,
+          "detail": 0
+        },
+        {
+          "event": "http_globals.leave",
+          "rinit": 0,
+          "sequence": 5,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.enter",
+          "rinit": 0,
+          "sequence": 6,
+          "detail": 0
+        },
+        {
+          "event": "session.module_rinit",
+          "rinit": 1,
+          "sequence": 7,
+          "detail": 0
+        },
+        {
+          "event": "session.rinit_helper",
+          "rinit": 1,
+          "sequence": 8,
+          "detail": 0
+        },
+        {
+          "event": "modules.activate.leave",
+          "rinit": 1,
+          "sequence": 9,
+          "detail": 0
+        },
+        {
+          "event": "session.initialize",
+          "rinit": 1,
+          "sequence": 10,
+          "detail": 0
+        }
+      ],
+      "pass": true
+    }
+  ]
+}
